@@ -9,7 +9,10 @@
     </div>
     <div class="btn-group">
       <div class="btn">
-        <p>구글로 로그인</p>
+        <p>회원가입</p>
+      </div>
+      <div class="btn">
+        <p>로그인</p>
       </div>
     </div>
   </div>
@@ -60,24 +63,28 @@ export default {
   margin-right: auto;
   left: 0;
   right: 0;
-  bottom: 15px;
+  bottom: 35px;
 }
 .btn-group .btn {
   margin: 0 auto;
-}
+  margin-top: 20px;
 
-.btn {
   width: 280px;
   height: 20px;
   border-radius: 20px;
   border: solid 1px #ffffff;
   background-color: white;
-  padding: 11px;
-  margin-bottom: 20px;
+  padding: 10px;
 }
-
-.btn p {
+.btn-group .btn p {
+  height: 20px;
   margin: 0;
   text-align: center;
+
+  font-family: SourceHanSansKR;
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: normal;
+  color: #60fd91;
 }
 </style>
