@@ -32,7 +32,7 @@ export default {
 }
 
 .logo {
-  padding-top: 100px;
+  padding-top: 87px;
   font-size: 25px;
   color: white;
 }
