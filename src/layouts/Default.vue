@@ -30,6 +30,15 @@
 .tab .tab-button {
     padding: 8px 54px;
 }
+.tab-button > div.active.focus, .tab-button > div.active:focus,
+.tab-button > div.focus, .tab-button > div:active.focus, 
+.tab-button > div:active:focus, .tab-button > div:focus {
+  outline: none;
+  box-shadow: none;
+  background-color: white;
+    pointer-events: auto;
+}
+
 .btn-diary {
     float: left;
     width: 32px;
