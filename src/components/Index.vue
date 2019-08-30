@@ -17,11 +17,12 @@
       </div>
       <div class="container">
         <div class="row">
-          <ProgressBar></ProgressBar>
-          <ProgressBar></ProgressBar>
-          <ProgressBar :active='true'></ProgressBar>
-          <ProgressBar></ProgressBar>
-          <ProgressBar></ProgressBar>
+          <ProgressBar :image="require('../assets/user1.png')"></ProgressBar>
+          <ProgressBar :image="require('../assets/user2.png')"></ProgressBar>
+          <ProgressBar :image="require('../assets/profile.png')"
+                       :active='true'></ProgressBar>
+          <ProgressBar :image="require('../assets/user3.png')"></ProgressBar>
+          <ProgressBar :image="require('../assets/user4.png')"></ProgressBar>
 
           <!-- <div class="col-2-sm goal-box">
             <p class="goal-kg">52KG</p>

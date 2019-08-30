@@ -29,7 +29,7 @@ export default {
     },
     image: {
       type: String,
-      default: '../assets/user1.png'
+      default: require('../assets/user1.png')
     }
   },
   computed: {
