@@ -11,6 +11,11 @@
         <p>LOSE WEIGHT</p>
       </div>
     </div>
+    <div>
+      <div class="ranking-top">
+        <p>GOAL</p>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -26,7 +31,7 @@ export default {
   height: 192px;
   background-image: linear-gradient(to top, #a7ffa3, #8bffd3);
   box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.16);
-  border-radius: 0px 0px 105px 105px;
+  border-radius: 0px 0px 65px 65px;
 }
 
 .profile {
@@ -40,7 +45,21 @@ export default {
   letter-spacing: normal;
 }
 
+p {
+  margin: 9px;
+}
+
 .type {
   color: white;
+  font-size: 12px;
+}
+
+.ranking-top p {
+  padding-top: 11px;
+  font-family: safia-pro, sans-serif;
+  color: #9d9d9d;
+  line-height: 1.2;
+  font-weight: normal;
+  font-size: 15px;
 }
 </style>
