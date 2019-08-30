@@ -56,7 +56,14 @@ export default {
 
 .btn-group {
   position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
   bottom: 15px;
+}
+.btn-group .btn {
+  margin: 0 auto;
 }
 
 .btn {
