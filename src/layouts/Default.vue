@@ -1,4 +1,5 @@
 <template>
+
 <div>
     <router-view/>
     <div class="tab">
@@ -15,6 +16,7 @@
         </div>
     </div>
 </div>
+
 </template>
 
 <style scoped>
@@ -104,6 +106,6 @@
 
 <script>
 export default {
-    name: 'default-layout'
+  name: 'default-layout'
 }
 </script>
