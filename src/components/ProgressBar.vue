@@ -1,7 +1,9 @@
 <template>
   <div :class="this.column">
     <p class="goal-kg">{{this.goal}}KG</p>
-    <div class="progress-bar" :data-value="this.value"></div>
+    <div class="progress-bar">
+      <div class="percent" :data-value="this.value"></div>
+    </div>
     <p class="start-kg">{{this.current}}KG</p>
     <img class="user-img" :src="this.image" />
   </div>
@@ -55,7 +57,7 @@ export default {
   background-color: #fff;
 }
 
-.goal-box.active .progress-bar::after {
+.goal-box.active .progress-bar .percent {
   opacity: 1;
 }
 
@@ -94,7 +96,7 @@ export default {
   background-color: #f4f2f2;
 }
 
-.goal-box .progress-bar::after {
+.goal-box .progress-bar .percent {
   position: absolute;
   display: inline-block;
   left: 0;
