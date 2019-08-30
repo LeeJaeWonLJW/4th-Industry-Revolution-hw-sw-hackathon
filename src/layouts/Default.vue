@@ -1,12 +1,12 @@
 <template>
-<div>
-    <router-view/>
+  <div>
+    <router-view />
     <div class="tab"></div>
-</div>
+  </div>
 </template>
 
 <script>
 export default {
-    name: 'default-layout'
+  name: 'default-layout'
 }
 </script>
