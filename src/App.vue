@@ -1,13 +1,14 @@
 <template>
   <div id="app">
     <router-view />
+    <div class="tab"></div>
   </div>
 </template>
 
 <script>
 export default {
-  name: "App"
-};
+  name: 'App'
+}
 </script>
 
 <style>
@@ -39,5 +40,14 @@ body {
   box-shadow: 0 4px 4px rgba(0, 23, 80, 0.02), 0 1px 6px rgba(0, 23, 80, 0.03),
     0 8px 8px rgba(0, 23, 80, 0.024), 0 16px 16px rgba(0, 23, 80, 0.024),
     8px 32px 32px rgba(0, 23, 80, 0.036), 8px 64px 64px rgba(0, 23, 80, 0.036);
+}
+
+.tab {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 50px;
+  background: white;
+  border: solid 0.1px #78ffc2;
 }
 </style>
