@@ -55,8 +55,8 @@
 
 <script>
 export default {
-  name: 'index'
-}
+  name: "index"
+};
 </script>
 
 <style scoped>
@@ -72,10 +72,14 @@ export default {
 }
 .goal-box.active {
   border-radius: 14px;
-  background-color: #f4f2f2;
+  background-color: #e7e7e7;
 }
 .goal-box.active .progress-bar {
   width: 33.4px;
+  background-color: #fff;
+}
+.goal-box.active .progress-bar::after {
+  opacity: 1;
 }
 .goal-box.active p {
   font-size: 11px;
@@ -117,6 +121,7 @@ export default {
   height: 54px;
 
   content: '';
+  opacity: 0.3;
   border-radius: 12px;
   background-color: #a7ffa3;
 }

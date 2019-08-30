@@ -42,15 +42,6 @@ body {
     8px 32px 32px rgba(0, 23, 80, 0.036), 8px 64px 64px rgba(0, 23, 80, 0.036);
 }
 
-.tab {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 50px;
-  background: white;
-  border: solid 0.1px #78ffc2;
-}
-
 .container {
   width: 90%;
   margin-left: auto;
