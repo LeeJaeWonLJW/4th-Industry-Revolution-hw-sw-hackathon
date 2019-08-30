@@ -49,7 +49,7 @@
 .btn-diary .text {
     width: 24px;
     height: 8px;
-    font-family: SofiaPro;
+    font-family: sofia-pro;
     font-size: 8px;
     font-weight: 500;
     font-style: normal;
@@ -93,7 +93,7 @@
 .btn-me .text {
     width: 24px;
     height: 8px;
-    font-family: SofiaPro;
+    font-family: sofia-pro;
     font-size: 8px;
     font-weight: 500;
     font-style: normal;

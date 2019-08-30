@@ -2,7 +2,7 @@
   <div :class="this.column">
     <p class="goal-kg">{{this.goal}}KG</p>
     <div class="progress-bar">
-      <div class="percent" :data-value="this.value"></div>
+      <div :style="this.height" class="percent" :data-value="this.value"></div>
     </div>
     <p class="start-kg">{{this.current}}KG</p>
     <img class="user-img" :src="this.image" />
@@ -37,6 +37,9 @@ export default {
   computed: {
     column: function() {
       return this.active ? 'col-4-sm goal-box active' : 'col-2-sm goal-box';
+    },
+    height: function() {
+        return 'height: ' + this.value + ';';
     }
   }
 };
@@ -102,7 +105,7 @@ export default {
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 54px;
+  /* height: 54px; */
 
   content: "";
   opacity: 0.3;
