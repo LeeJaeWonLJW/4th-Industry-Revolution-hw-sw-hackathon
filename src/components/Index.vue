@@ -15,6 +15,13 @@
       <div class="ranking-top">
         <p>GOAL</p>
       </div>
+      <div class="row">
+        <div class="col-2-sm">a</div>
+        <div class="col-2-sm">a</div>
+        <div class="col-4-sm">a</div>
+        <div class="col-2-sm">a</div>
+        <div class="col-2-sm">a</div>
+      </div>
     </div>
   </div>
 </template>
