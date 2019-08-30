@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
     <router-view/>
   </div>
 </template>
@@ -26,7 +25,7 @@ body {
   max-width: 640px;
 
   margin: 0;
-  padding: 16px;
+  /* padding: 16px; */
   
   text-align: center;
   color: #2c3e50;
