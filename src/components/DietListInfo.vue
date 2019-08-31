@@ -1,10 +1,17 @@
 <template>
   <div>
+    <div class="modal">
+      
+    </div>
+
     <div class="header">
       <div class="info info-circle"
         :style="{backgroundImage: 'url('+require('../assets/diet_card_1.png')+')'}">
         <p>Meal Plan</p>
         <span class="title">Keto Maintain</span>
+
+        <div class="fd-btn-sm box-shadow bg-white fd-color"
+          @click="e => e.target.closest('.modal').classList.toggle('show')">식단 시작하기</div>
       </div>
     </div>
 
@@ -76,7 +83,8 @@ export default {
   position: relative;
   display: inline;
   left: -12px;
-  content: 'd';
+  content: '√';
+  color: #91a2ff;
 }
 .nutrtionist {
   position: relative;
@@ -91,5 +99,71 @@ export default {
   margin-left: -40px;
   top: -40px;
   border: solid 3px #ffffff;
+}
+.nutrtionist h2 {
+  font-family: SourceHanSansK;
+  font-size: 23px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.48;
+  letter-spacing: normal;
+  text-align: center;
+  color: #505050;
+}
+.nutrtionist h3 {
+  font-family: SofiaPro;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.17;
+  letter-spacing: normal;
+  text-align: left;
+  color: #505050;
+}
+.nutrtionist p {
+  font-family: SourceHanSansK;
+  font-size: 18px;
+  font-weight: 500;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 1.78;
+  letter-spacing: normal;
+  text-align: center;
+  color: #91a2ff;
+}
+
+.info .title {
+  height: 32px;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.16);
+  font-family: SofiaPro;
+  font-size: 32px;
+  font-weight: bold;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 0.81;
+  letter-spacing: normal;
+  text-align: left;
+  color: #ffffff;
+}
+.info p {
+  height: 17px;
+  font-family: SourceHanSansK;
+  font-size: 12px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: 2.33;
+  letter-spacing: normal;
+  text-align: center;
+  color: #ffffff;
+}
+
+.info .fd-btn-sm {
+  margin: 0 auto;
+  margin-top: 24px;
+
+  color: #91a2ff;
 }
 </style>

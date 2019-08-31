@@ -10,6 +10,7 @@ import Diary from '@/components/Diary'
 import DietList from '@/components/DietList'
 import DietListInfo from '@/components/DietListInfo'
 import AddUser from '@/components/AddUser'
+import AddMeal from '@/components/AddMeal'
 import DefaultLayout from '../layouts/Default'
 
 Vue.use(Router)
@@ -45,6 +46,11 @@ export default new Router({
           path: 'adduser',
           name: 'adduser',
           component: AddUser
+        },
+        {
+          path: 'addmeal',
+          name: 'addmeal',
+          component: AddMeal
         }
       ]
     },

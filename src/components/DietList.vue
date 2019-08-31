@@ -48,6 +48,7 @@ export default {
 
 <style scoped>
 .slider .item {
+  width: 285px;
   margin-right: 30px;
 }
 .text-left {

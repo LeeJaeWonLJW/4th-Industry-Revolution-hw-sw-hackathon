@@ -281,6 +281,9 @@ body {
 .bg-green-gra-1 {
   background-image: linear-gradient(to top, #a7ffa3, #a1ffae, #8cffd1, #8bffd3);
 }
+.bg-blgn-gra-1 {
+  background-image: linear-gradient(to bottom, #91a2ff, #91ffc9);
+}
 
 .bg-white { background-color: #ffffff; }
 .fd-color { color: #91ffb3; }
