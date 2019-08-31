@@ -8,7 +8,7 @@
       <p>환영합니다</p>
     </div>
     <div class="btn-group">
-      <div class="btn">
+      <div @click="$router.push('/register')" class="btn">
         <p>회원가입</p>
       </div>
       <div class="btn">

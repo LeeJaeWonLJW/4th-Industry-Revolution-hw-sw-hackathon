@@ -4,6 +4,7 @@ import Index from '@/components/Index'
 import Login from '@/components/Login'
 import Register from '@/components/Register'
 import RegisterFav from '@/components/RegisterFav'
+import CreateBodyInfo from '@/components/CreateBodyInfo'
 import DefaultLayout from '../layouts/Default'
 
 Vue.use(Router)
@@ -36,6 +37,11 @@ export default new Router({
       path: '/register_fav',
       name: 'RegisterFav',
       component: RegisterFav
+    },
+    {
+      path: '/create/bodyinfo',
+      name: 'CreateBodyInfo',
+      component: CreateBodyInfo
     }
   ]
 })
