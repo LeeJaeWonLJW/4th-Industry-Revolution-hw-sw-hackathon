@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Index from '@/components/Index'
 import Login from '@/components/Login'
 import Register from '@/components/Register'
+import RegisterFav from '@/components/RegisterFav'
 import DefaultLayout from '../layouts/Default'
 
 Vue.use(Router)
@@ -30,6 +31,11 @@ export default new Router({
       path: '/register',
       name: 'Register',
       component: Register
+    },
+    {
+      path: '/register_fav',
+      name: 'RegisterFav',
+      component: RegisterFav
     }
   ]
 })
