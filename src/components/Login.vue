@@ -27,9 +27,19 @@ export default {
 
 <style scoped>
 .login {
-  background-color: #91ffb3;
+  background-image: url('../assets/Peanut-butter-tarts.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 100%;
   min-height: 100vh;
+
+  transition: 0.5s ease-out;
+}
+.login.active {
+  min-height: 0;
+  height: 380px;
+  border-bottom-left-radius: 50% 104px;
+  border-bottom-right-radius: 50% 104px;
 }
 
 .logo {
@@ -73,7 +83,7 @@ export default {
   width: 280px;
   height: 20px;
   border-radius: 20px;
-  border: solid 1px #ffffff;
+  border: solid 1px #78e5b1;
   background-color: white;
   padding: 10px;
 }
