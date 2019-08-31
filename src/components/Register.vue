@@ -1,30 +1,30 @@
 <template>
   <div class="register">
-    <div class="logo">
+    <div class="logo-bg">
       <h1>FooDiet</h1>
       <p>Food + Diet</p>
     </div>
 
     <div class="form">
       <fieldset class="register-input">
-        <span class="label">이메일:</span>
+        <span class="label">이메일</span>
         <input>
       </fieldset>
 
       <fieldset class="register-input">
-        <span class="label">암호:</span>
+        <span class="label">암 호</span>
         <input type="password">
       </fieldset>
 
       <fieldset class="register-input">
-        <span class="label">이름:</span>
+        <span class="label">이 름</span>
         <input>
       </fieldset>
     </div>
 
     <div class="btn-group">
       <div class="btn">
-        <p>회원가입</p>
+        <p>다음</p>
       </div>
     </div>
   </div>
@@ -48,50 +48,70 @@ export default {
 }
 fieldset.register-input {
   position: relative;
+  padding: 0;
+  padding-top: 12px;
+
   border: 0;
   overflow: hidden;
+  background-color: none;
+}
+.form input:-webkit-autofill,
+.form input:-webkit-autofill:hover, 
+.form input:-webkit-autofill:focus {
+  background-color: none;
+  transition: background-color 5000s ease-in-out 0s;
 }
 fieldset.register-input span {
   position: absolute;
-  bottom: 15px;
+  left: 2px;
+  bottom: 5px;
   width: 52px;
   height: 21px;
   font-family: SourceHanSansK;
   font-size: 15px;
-  font-weight: bold;
+  font-weight: 600;
   font-style: normal;
   font-stretch: normal;
   letter-spacing: normal;
   text-align: left;
-  color: #60fd91;
+  color: #505050;
 }
 fieldset.register-input input {
   width: 100%;
   padding: 7px 0 7px 58px;
   
-  color: #6a6a6a;
+  color: #505050;
   font-size: 15px;
 
   border: 0;
   outline: 0;
-  border-bottom: 1px solid #60fd91;
+  border-bottom: 1px solid #aeaeae;
 
   cursor: pointer;
   caret-color: #adadad;
 }
 
-.logo {
-  padding-top: 87px;
+.logo-bg {
+  position: relative;
+  display: inline-block;
+  
+  width: 100%;
+  height: 251px;
+  vertical-align: middle;
   font-size: 25px;
-  color: #91ffb3;
-  margin-bottom: 60px;
+  color: #ffffff;
+
+  margin-bottom: 30px;
+  background-color: #91ffb3;
+  border-radius: 0 0 50% 50%;
 }
 
-.logo h1 {
+.logo-bg h1 {
+  padding-top: 87px;
   margin: 0;
 }
 
-.logo p {
+.logo-bg p {
   margin: 0;
   font-size: 14px;
 }
@@ -114,6 +134,13 @@ fieldset.register-input input {
   border: solid 1px #91ffb3;
   background-color: #91ffb3;
   padding: 10px;
+
+  -webkit-animation-name: ripple;
+          animation-name: ripple;
+  -webkit-animation-duration: 0.5s;
+          animation-duration: 0.5s;
+  -webkit-animation-timing-function: ease-in;
+          animation-timing-function: ease-in;
 }
 .btn-group .btn p {
   height: 20px;
@@ -126,4 +153,41 @@ fieldset.register-input input {
   letter-spacing: normal;
   color: #ffffff;
 }
+
+@-webkit-keyframes ripple {
+  0% {
+    -webkit-transform: scale(0, 0);
+            transform: scale(0, 0);
+    opacity: 0;
+  }
+  75% {
+    -webkit-transform: scale(450, 450);
+            transform: scale(450, 450);
+    opacity: 0.75;
+  }
+  100% {
+    -webkit-transform: scale(700, 700);
+            transform: scale(700, 700);
+    opacity: 0;
+  }
+}
+
+@keyframes ripple {
+  0% {
+    -webkit-transform: scale(0, 0);
+            transform: scale(0, 0);
+    opacity: 0;
+  }
+  75% {
+    -webkit-transform: scale(450, 450);
+            transform: scale(450, 450);
+    opacity: 0.75;
+  }
+  100% {
+    -webkit-transform: scale(700, 700);
+            transform: scale(700, 700);
+    opacity: 0;
+  }
+}
+
 </style>
