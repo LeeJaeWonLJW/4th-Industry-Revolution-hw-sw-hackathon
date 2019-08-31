@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="titlebar">
-      <p>신체정보</p>
+      <p>신체정보입력</p>
     </div>
 
     <div class="jumbotron">

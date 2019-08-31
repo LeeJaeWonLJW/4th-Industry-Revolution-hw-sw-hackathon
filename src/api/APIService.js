@@ -16,9 +16,24 @@ export class APIService {
     form.append('duration', duration)
     form.append('profile', profile)
 
-    const url = `${apiUrl}/signup`
+    const url = `${apiUrl}/auth/signup`
+
     try {
       const response = await axios.post(url, form)
+      return response.data
+    } catch (e) {
+      return e
+    }
+  }
+
+  async setFlavor (flavor, accessToken) {
+    let form = new FormData()
+    form.append('flavor', flavor)
+    const url = `${apiUrl}/user/flavor/set`
+    const headers = {'BearerToken': `Bearer ${accessToken}`}
+
+    try {
+      const response = await axios.post(url, form, headers)
       return response.data
     } catch (e) {
       return e
