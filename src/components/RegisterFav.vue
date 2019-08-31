@@ -275,7 +275,7 @@ export default {
 <style scoped>
 .menu-text {
   width: 100%;
-  height: 40px;
+  height: 53.28px;
 }
 
 .menu-text p {
