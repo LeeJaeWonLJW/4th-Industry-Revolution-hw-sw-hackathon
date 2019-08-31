@@ -84,7 +84,7 @@ export default {
   width: 280px;
   height: 20px;
   border-radius: 20px;
-  border: solid 1px #78e5b1;
+  /* border: solid 1px #78e5b1; */
   background-color: white;
   padding: 10px;
 }
@@ -97,6 +97,6 @@ export default {
   font-size: 15px;
   font-weight: bold;
   letter-spacing: normal;
-  color: #60fd91;
+  color: #4ca066;
 }
 </style>
