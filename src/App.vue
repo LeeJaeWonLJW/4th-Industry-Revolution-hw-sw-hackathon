@@ -13,6 +13,7 @@ export default {
 
 <style>
 @import url("https://use.typekit.net/ngp8myr.css");
+@import url("http://fonts.googleapis.com/earlyaccess/notosanskr.css");
 
 body {
   display: flex;
@@ -20,6 +21,7 @@ body {
   align-items: center;
   margin: 0;
   padding: 0;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 #app {
