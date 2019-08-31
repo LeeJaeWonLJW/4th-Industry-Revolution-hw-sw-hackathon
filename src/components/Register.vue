@@ -1,30 +1,27 @@
 <template>
   <div class="register">
-    <div class="logo-bg">
+    <div class="logo-bg active">
       <h1>FooDiet</h1>
       <p>Food + Diet</p>
     </div>
 
-    <div class="form">
-      <fieldset class="register-input">
-        <span class="label">이메일</span>
-        <input>
-      </fieldset>
+    <div class="footer-group">
+      <div class="form">
+        <fieldset class="register-input">
+          <input type="text" placeholder="전화번호">
+        </fieldset>
 
-      <fieldset class="register-input">
-        <span class="label">암 호</span>
-        <input type="password">
-      </fieldset>
+        <fieldset class="register-input">
+          <input type="password" placeholder="암호">
+        </fieldset>
 
-      <fieldset class="register-input">
-        <span class="label">이 름</span>
-        <input>
-      </fieldset>
-    </div>
+        <fieldset class="register-input">
+          <input type="text" placeholder="이름">
+        </fieldset>
+      </div>
 
-    <div class="btn-group">
       <div @click="$router.push('/register/sex')"  class="btn">
-        <p>회원가입</p>
+        <p>다음</p>
       </div>
     </div>
   </div>
@@ -61,7 +58,7 @@ fieldset.register-input {
   background-color: none;
   transition: background-color 5000s ease-in-out 0s;
 }
-fieldset.register-input span {
+/* fieldset.register-input span {
   position: absolute;
   left: 2px;
   bottom: 5px;
@@ -75,10 +72,13 @@ fieldset.register-input span {
   letter-spacing: normal;
   text-align: left;
   color: #505050;
-}
+} */
 fieldset.register-input input {
-  width: 100%;
-  padding: 7px 0 7px 58px;
+  width: 70%;
+
+  padding: 6px 2px;
+  margin-bottom: 14px;
+  text-align: center;
   
   color: #505050;
   font-size: 15px;
@@ -96,7 +96,15 @@ fieldset.register-input input {
   display: inline-block;
   
   width: 100%;
-  height: 251px;
+  
+  background-image: url('../assets/Peanut-butter-tarts.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  min-height: 342px;
+
+  transition: .75s ease-out;
+
   vertical-align: middle;
   font-size: 25px;
   color: #ffffff;
@@ -117,7 +125,7 @@ fieldset.register-input input {
   font-size: 14px;
 }
 
-.btn-group {
+.footer-group {
   position: absolute;
   margin-left: auto;
   margin-right: auto;
@@ -125,18 +133,18 @@ fieldset.register-input input {
   right: 0;
   bottom: 35px;
 }
-.btn-group .btn {
+.footer-group .btn {
   margin: 0 auto;
   margin-top: 20px;
 
   width: 280px;
   height: 20px;
   border-radius: 20px;
-  border: solid 1px #91ffb3;
-  background-color: #91ffb3;
+  border: solid 1px #78e5b1;
+  background-color: #78e5b1;
   padding: 10px;
 }
-.btn-group .btn p {
+.footer-group .btn p {
   height: 20px;
   margin: 0;
   text-align: center;
