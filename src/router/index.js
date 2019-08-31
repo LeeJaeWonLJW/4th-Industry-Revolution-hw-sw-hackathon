@@ -9,6 +9,7 @@ import CreateBodyInfo from '@/components/CreateBodyInfo'
 import Diary from '@/components/Diary'
 import DietList from '@/components/DietList'
 import DietListInfo from '@/components/DietListInfo'
+import AddUser from '@/components/AddUser'
 import DefaultLayout from '../layouts/Default'
 
 Vue.use(Router)
@@ -39,6 +40,11 @@ export default new Router({
           path: 'dietlist/1',
           name: 'dietlistinfo',
           component: DietListInfo
+        },
+        {
+          path: 'adduser',
+          name: 'adduser',
+          component: AddUser
         }
       ]
     },

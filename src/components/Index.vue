@@ -11,6 +11,10 @@
         <p>LOSE WEIGHT</p>
       </div>
 
+      <div class="add-user"
+        @click="$router.push('/tab/adduser')">
+        <img src="../assets/icon/add_user.png">
+      </div>
       <div class="setting">
         <img class="rotating" src="../assets/setting.png">
       </div>
@@ -70,6 +74,19 @@ export default {
   margin: 20px 26px 0 0;
 }
 .setting img {
+  width: 100%;
+  height: 100%;
+}
+
+.add-user {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  margin: 20px 0 0 26px;
+}
+.add-user img {
   width: 100%;
   height: 100%;
 }

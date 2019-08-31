@@ -220,6 +220,8 @@ body {
   color: #ffffff;
 
   box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.16);
+
+  transition: .75s ease-out;
 }
 .header .info .title {
   font-size: 18px;
@@ -272,6 +274,7 @@ body {
   margin-bottom: 16px;
 }
 
+.margin-center { margin: 0 auto; }
 .box-shadow {
   box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);
 }
@@ -285,6 +288,7 @@ body {
 
 .bg-white { background-color: #ffffff; }
 .fd-color { color: #91ffb3; }
+.fd-border-white { border: solid 2px #ffffff; }
 
 .fd-btn {
   width: 100%;
@@ -311,5 +315,15 @@ body {
   font-size: 14px;
   color: #ffffff;
   background-color: #91ffb3;
+}
+
+.fd-input {
+  text-align: center;
+  border: none;
+  outline: none;
+  width: 232px;
+  height: 46px;
+  border-radius: 23px;
+  background-color: #ffffff;
 }
 </style>

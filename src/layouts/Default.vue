@@ -4,12 +4,14 @@
     <router-view/>
     <div class="tab">
         <div class="tab-button">
-            <div class="btn btn-diary">
+            <div class="btn btn-diary"
+                @click="$router.push('/tab/diary')">
                 <div class="icon"></div>
                 <span class="text">Diary</span>
             </div>
             <div class="btn-barcode"></div>
-            <div class="btn btn-me">
+            <div class="btn btn-me"
+                @click="$router.push('/tab/index')">
                 <div class="icon"></div>
                 <span class="text">Me</span>
             </div>
