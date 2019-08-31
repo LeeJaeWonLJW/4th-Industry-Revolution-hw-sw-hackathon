@@ -12,8 +12,11 @@
 export default {
   name: "select-box-item",
   props: {
-    food: {
+    label: {
       type: Number
+    },
+    food: {
+      type: String
     },
     image: {
       type: String
