@@ -33,11 +33,12 @@ export default {
   height: 100%;
   min-height: 100vh;
 
-  transition: 0.5s ease-out;
+  transition: .75s ease-out;
+  /* -webkit-transition:width 2s, height 2s, background-color 2s, -webkit-transform 2s;
+  transition:width 2s, height 2s, background-color 2s, transform 2s; */
 }
 .login.active {
-  min-height: 0;
-  height: 380px;
+  min-height: 380px;
   border-bottom-left-radius: 50% 104px;
   border-bottom-right-radius: 50% 104px;
 }

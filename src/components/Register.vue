@@ -85,7 +85,7 @@ fieldset.register-input input {
 
   border: 0;
   outline: 0;
-  border-bottom: 1px solid #aeaeae;
+  border-bottom: 1px solid #91ffb3;
 
   cursor: pointer;
   caret-color: #adadad;
