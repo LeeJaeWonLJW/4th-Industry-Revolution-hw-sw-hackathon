@@ -13,19 +13,19 @@
 
     <div class="input-container">
       <fieldset class="create-input">
-        <input placeholder="나이가 어떻게 되시나요?" />
+        <input v-model="age" placeholder="나이가 어떻게 되시나요?" />
         <!-- <span class="label">kg</span> -->
       </fieldset>
       <fieldset style="padding-top: 10px;" class="create-input">
-        <input placeholder="키가 어떻게 되시나요?" />
+        <input v-model="height" placeholder="키가 어떻게 되시나요?" />
         <span class="label">Cm</span>
       </fieldset>
       <fieldset style="padding-top: 10px;" class="create-input">
-        <input placeholder="몸무게가 어떻게 되시나요?" />
+        <input v-model="weight" placeholder="몸무게가 어떻게 되시나요?" />
         <span class="label">Kg</span>
       </fieldset>
       <fieldset style="padding-top: 10px;" class="create-input">
-        <input placeholder="목표 몸무게가 어떻게 되시나요?" />
+        <input v-model="goal" placeholder="목표 몸무게가 어떻게 되시나요?" />
         <span class="label">Kg</span>
       </fieldset>
     </div>
@@ -38,8 +38,14 @@
 
 <script>
 export default {
-  name: "create-body-info"
-};
+  name: 'create-body-info',
+  data: () => ({
+      age: '',
+      weight: '',
+      height: '',
+      goal: ''
+  })
+}
 </script>
 
 <style scoped>

@@ -18,9 +18,10 @@
     <!-- <Register v-if="visible"></Register> -->
     <div v-if="visible" class="register">
       <div class="footer-group">
-        <div class="profile">
+        <div @click="$refs.file.click()" class="profile">
           <div class="profile-pic">
-            <img src="../assets/icon/camera.png" />
+            <img v-if="!profile_img" src="../assets/icon/camera.png" />
+            <img v-else :src="this.profile_img" />
           </div>
           <span>프로필</span>
         </div>
@@ -35,7 +36,7 @@
           </fieldset>
 
           <fieldset class="register-input">
-            <input v-model="username" type="text" placeholder="이름" />
+            <input v-model="name" type="text" placeholder="이름" />
           </fieldset>
         </div>
 
@@ -44,6 +45,8 @@
         </div>
       </div>
     </div>
+
+    <input type="file" ref="file" style="display: none" @change="onFileChange" />
   </div>
 </template>
 
@@ -55,9 +58,10 @@ export default {
   name: "login",
   data: () => ({
     visible: false,
-    phone: "",
-    password: "",
-    username: ""
+    phone: '',
+    password: '',
+    name: '',
+    profile_img: ''
   }),
   components: {
     // Register
@@ -67,14 +71,44 @@ export default {
       let json = {
         phone: this.phone,
         password: this.password,
-        username: this.username
+        name: this.name,
+        profile_img: this.profile_img
       };
       try {
-        await window.localStorage.setItem("data", json);
+        await window.localStorage.setItem("data", JSON.stringify(json));
         await this.$router.push("/register/sex");
       } catch (e) {
         window.alert(e);
       }
+    },
+    onFileChange: function(e) {
+      var files = e.target.files || e.dataTransfer.files;
+      if (!files.length) return;
+      this.createImage(files[0]);
+    },
+    createImage: function (file) {
+      var image = new Image();
+      var reader = new FileReader();
+      var vm = this;
+
+      reader.onload = e => {
+        vm.profile_img = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+  },
+  async mounted() {
+    try {
+      let data = await JSON.parse(window.localStorage.getItem("data"));
+      if (data !== null) {
+        this.visible = true;
+        this.phone = data.phone;
+        this.password = data.password;
+        this.name = data.name;
+        this.profile_img = data.profile_img;
+      }
+    } catch (e) {
+      window.alert(e);
     }
   }
 };
