@@ -26,7 +26,8 @@ body {
   position: relative;
   width: 100vw;
   height: 100%;
-  min-height: calc(100vh - 56px);
+  /* min-height: calc(100vh - 56px); */
+  min-height: 100vh;
   max-width: 640px;
 
   margin: 0;

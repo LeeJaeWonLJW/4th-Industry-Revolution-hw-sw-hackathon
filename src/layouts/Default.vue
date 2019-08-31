@@ -19,7 +19,11 @@
 
 </template>
 
-<style scoped>
+<style>
+#app {
+    min-height: calc(100vh - 56px);
+}
+
 .tab {
   position: fixed;
   bottom: 0;
