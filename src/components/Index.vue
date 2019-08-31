@@ -79,7 +79,7 @@ export default {
   height: 192px;
   background-image: linear-gradient(to top, #a7ffa3, #8bffd3);
   box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.16);
-  border-radius: 0px 0px 65px 65px;
+  border-radius: 0px 0px 50% 50%;
 }
 
 .top p {
@@ -103,7 +103,7 @@ export default {
 }
 
 .view-type {
-  margin: 35px 0 10px 0;
+  margin: 25px 0 10px 0;
 }
 
 ul.view-purpose-type {
