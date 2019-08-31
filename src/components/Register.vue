@@ -134,13 +134,6 @@ fieldset.register-input input {
   border: solid 1px #91ffb3;
   background-color: #91ffb3;
   padding: 10px;
-
-  -webkit-animation-name: ripple;
-          animation-name: ripple;
-  -webkit-animation-duration: 0.5s;
-          animation-duration: 0.5s;
-  -webkit-animation-timing-function: ease-in;
-          animation-timing-function: ease-in;
 }
 .btn-group .btn p {
   height: 20px;
@@ -152,42 +145,6 @@ fieldset.register-input input {
   font-weight: bold;
   letter-spacing: normal;
   color: #ffffff;
-}
-
-@-webkit-keyframes ripple {
-  0% {
-    -webkit-transform: scale(0, 0);
-            transform: scale(0, 0);
-    opacity: 0;
-  }
-  75% {
-    -webkit-transform: scale(450, 450);
-            transform: scale(450, 450);
-    opacity: 0.75;
-  }
-  100% {
-    -webkit-transform: scale(700, 700);
-            transform: scale(700, 700);
-    opacity: 0;
-  }
-}
-
-@keyframes ripple {
-  0% {
-    -webkit-transform: scale(0, 0);
-            transform: scale(0, 0);
-    opacity: 0;
-  }
-  75% {
-    -webkit-transform: scale(450, 450);
-            transform: scale(450, 450);
-    opacity: 0.75;
-  }
-  100% {
-    -webkit-transform: scale(700, 700);
-            transform: scale(700, 700);
-    opacity: 0;
-  }
 }
 
 </style>

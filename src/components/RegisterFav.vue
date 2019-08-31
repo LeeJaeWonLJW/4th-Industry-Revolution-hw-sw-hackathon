@@ -6,8 +6,14 @@
 
     <div class="fav-select-box">
       <div class="row">
-        <FoodSelectItem :image="require('../assets/1_그래놀라바.png')"
+        <FoodSelectItem :image="require('../assets/food_receipts/1_그래놀라바.png')"
           food='그래놀라바'></FoodSelectItem>
+        <FoodSelectItem :image="require('../assets/food_receipts/2_강된장비빔밥.jpg')"
+          food='강된장 비빔밥'></FoodSelectItem>
+        <FoodSelectItem :image="require('../assets/food_receipts/3_해물솥밥.jpg')"
+          food='해물솥밥'></FoodSelectItem>
+        <FoodSelectItem :image="require('../assets/food_receipts/4_닭가슴살샐러드.jpg')"
+          food='닭가슴살 샐러드'></FoodSelectItem>
       </div>
     </div>
 

@@ -53,7 +53,7 @@ body {
 }
 .row [class^="col"] {
   float: left;
-  margin: 0.5rem 2%;
+  margin: 0.5rem 0.7%;
   min-height: 0.125rem;
 }
 .col-1,
