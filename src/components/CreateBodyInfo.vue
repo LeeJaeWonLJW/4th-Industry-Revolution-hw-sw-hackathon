@@ -30,7 +30,7 @@
       </fieldset>
     </div>
 
-    <div class="btn">
+    <div @click="$router.push('/register/favorite')" class="btn">
       <p>다음</p>
     </div>
   </div>

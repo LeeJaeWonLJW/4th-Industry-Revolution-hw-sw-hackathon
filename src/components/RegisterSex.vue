@@ -5,8 +5,8 @@
       <p class="sub-text">자세한 진단을 위해 몇가지만 답해주세요</p>
 
       <div class="btn-group">
-        <button class="btn pull-left">남성</button>
-        <button class="btn pull-right">여성</button>
+        <button @click="$router.push('/register/info')" class="btn pull-left">남성</button>
+        <button @click="$router.push('/register/info')" class="btn pull-right">여성</button>
       </div>
     </div>
 

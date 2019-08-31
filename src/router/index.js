@@ -35,17 +35,17 @@ export default new Router({
       component: Register
     },
     {
-      path: '/register_fav',
+      path: '/register/favorite',
       name: 'RegisterFav',
       component: RegisterFav
     },
     {
-      path: '/register_sex',
+      path: '/register/sex',
       name: 'RegisterSex',
       component: RegisterSex
     },
     {
-      path: '/create/bodyinfo',
+      path: '/register/info',
       name: 'CreateBodyInfo',
       component: CreateBodyInfo
     }

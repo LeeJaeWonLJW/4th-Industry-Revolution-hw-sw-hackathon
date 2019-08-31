@@ -23,8 +23,8 @@
     </div>
 
     <div class="btn-group">
-      <div class="btn">
-        <p>다음</p>
+      <div @click="$router.push('/register/sex')"  class="btn">
+        <p>회원가입</p>
       </div>
     </div>
   </div>
