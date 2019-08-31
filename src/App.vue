@@ -247,7 +247,7 @@ body {
   margin: 4px 0;
 }
 
-.item {
+.slider .item {
   width: 258px;
 }
 

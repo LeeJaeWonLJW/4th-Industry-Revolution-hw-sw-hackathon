@@ -59,9 +59,9 @@ export default {
   width: 33.4px;
   background-color: #fff;
 }
-
 .goal-box.active .progress-bar .percent {
   opacity: 1;
+  background-color: #a7ffa3;
 }
 
 .goal-box.active p {
@@ -108,9 +108,8 @@ export default {
   height: 0px;
 
   content: "";
-  opacity: 0.3;
   border-radius: 12px;
-  background-color: #a7ffa3;
+  background-color: #91a2ff;
 }
 
 .goal-box img.user-img {
