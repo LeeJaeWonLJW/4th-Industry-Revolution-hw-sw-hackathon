@@ -1,27 +1,35 @@
 <template>
-  <div class="login">
+  <div :class="{'active': visible}" class="login">
     <div class="logo">
       <h1>FooDiet</h1>
       <p>Food + Diet</p>
     </div>
-    <div class="welcome">
+    <div v-if="!visible" class="welcome">
       <p>환영합니다</p>
     </div>
-    <div class="btn-group">
-      <div @click="$router.push('/register')" class="btn">
+    <div v-if="!visible" class="btn-group">
+      <div @click="visible = true" class="btn">
         <p>회원가입</p>
       </div>
       <div class="btn">
         <p>로그인</p>
       </div>
     </div>
+    <Register v-if="visible"></Register>
   </div>
 </template>
 
 
 <script>
+import Register from '@/components/Register'
 export default {
-  name: "login"
+  name: "login",
+  data: () => ({
+      visible: false
+  }),
+  components: {
+      Register
+  }
 };
 </script>
 
@@ -37,8 +45,9 @@ export default {
   /* -webkit-transition:width 2s, height 2s, background-color 2s, -webkit-transform 2s;
   transition:width 2s, height 2s, background-color 2s, transform 2s; */
 }
+
 .login.active {
-  min-height: 380px;
+  min-height: 350px;
   border-bottom-left-radius: 50% 104px;
   border-bottom-right-radius: 50% 104px;
 }
