@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Index from '@/components/Index'
 import Login from '@/components/Login'
 import Register from '@/components/Register'
+import RegisterSex from '@/components/RegisterSex'
 import RegisterFav from '@/components/RegisterFav'
 import CreateBodyInfo from '@/components/CreateBodyInfo'
 import DefaultLayout from '../layouts/Default'
@@ -37,6 +38,11 @@ export default new Router({
       path: '/register_fav',
       name: 'RegisterFav',
       component: RegisterFav
+    },
+    {
+      path: '/register_sex',
+      name: 'RegisterSex',
+      component: RegisterSex
     },
     {
       path: '/create/bodyinfo',
