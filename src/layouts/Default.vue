@@ -22,7 +22,6 @@
 <style>
 #app {
     min-height: calc(100vh - 56px);
-    padding-bottom: 56px;
     overflow: hidden;
 }
 
@@ -30,6 +29,7 @@
   position: fixed;
   bottom: 0;
   width: 100%;
+  max-width: 640px;
   height: 56px;
   background: white;
 }
