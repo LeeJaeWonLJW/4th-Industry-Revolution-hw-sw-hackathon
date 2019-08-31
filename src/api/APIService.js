@@ -15,8 +15,11 @@ export class APIService {
     form.append('purpose', purpose)
 
     const url = `${apiUrl}/signup`
-
-    const response = await axios.post(url, form)
-    return response.data
+    try {
+      const response = await axios.post(url, form)
+      return response.data
+    } catch (e) {
+      return e
+    }
   }
 }
