@@ -176,7 +176,7 @@ body {
   display: none;
 }
 
-.slider > .item:first-child:after {
+.slider.more-text > .item:first-child:after {
   position: relative;
   content: 'More >';
   bottom: 0;
@@ -187,7 +187,6 @@ body {
 
 .slider > .item {
   flex-shrink: 0;
-  margin-right: 30px;
   scroll-snap-align: start;
 }
 .slider .item > h3,
@@ -246,10 +245,6 @@ body {
   margin: 4px 0;
 }
 
-.slider .item {
-  width: 258px;
-}
-
 .diet-card {
   position: relative;
   margin: 8px 0;
@@ -273,7 +268,8 @@ body {
   bottom: 0;
   margin-bottom: 16px;
 }
-
+.pull-left { float: left; }
+.pull-right { float: right; }
 .margin-center { margin: 0 auto; }
 .box-shadow {
   box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);

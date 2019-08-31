@@ -38,7 +38,7 @@
         <ProgressBar :image="require('../assets/user1.png')"
                       value="40%"></ProgressBar>
         <ProgressBar :image="require('../assets/user2.png')"
-                     value="50%"></ProgressBar>
+                     value="-10%"></ProgressBar>
         <ProgressBar :image="require('../assets/profile.png')"
                      :active='true'
                      value="60%"></ProgressBar>

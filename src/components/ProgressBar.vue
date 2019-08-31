@@ -39,7 +39,7 @@ export default {
       return this.active ? 'col-4-sm goal-box active' : 'col-2-sm goal-box';
     },
     height: function() {
-        return 'height: ' + this.value + ';';
+      return 'height: ' + this.value + ';';
     }
   }
 };

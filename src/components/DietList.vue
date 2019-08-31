@@ -47,6 +47,9 @@ export default {
 </script>
 
 <style scoped>
+.slider .item {
+  margin-right: 30px;
+}
 .text-left {
   text-align: left;
 }
