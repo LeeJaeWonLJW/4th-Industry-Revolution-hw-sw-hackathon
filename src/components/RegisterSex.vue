@@ -5,8 +5,8 @@
       <p class="sub-text">자세한 진단을 위해 몇가지만 답해주세요</p>
 
       <div class="btn-group">
-        <button @click="$router.push('/register/info')" class="btn pull-left">남성</button>
-        <button @click="$router.push('/register/info')" class="btn pull-right">여성</button>
+        <button @click="submit('male')" class="btn pull-left">남성</button>
+        <button @click="submit('female')" class="btn pull-right">여성</button>
       </div>
     </div>
 
@@ -16,7 +16,16 @@
 
 <script>
 export default {
-  name: "register_sex"
+  name: "register_sex",
+  data: () => ({
+    gender: 'male'
+  }),
+  methods: {
+    submit: async function(type) {
+      await window.localStorage.setItem('gender', type);
+      await this.$router.push('/register/info');
+    }
+  }
 };
 </script>
 

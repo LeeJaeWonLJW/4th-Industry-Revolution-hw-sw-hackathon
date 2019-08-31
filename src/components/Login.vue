@@ -63,7 +63,7 @@ export default {
     // Register
   },
   methods: {
-    submit: async () => {
+    submit: async function() {
       let json = {
         phone: this.phone,
         password: this.password,
