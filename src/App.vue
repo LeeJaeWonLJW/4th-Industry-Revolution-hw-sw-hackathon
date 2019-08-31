@@ -286,10 +286,24 @@ body {
   background-image: linear-gradient(to top, #a7ffa3, #a1ffae, #8cffd1, #8bffd3);
 }
 
+.bg-white { background-color: #ffffff; }
+.fd-color { color: #91ffb3; }
+
 .btn {
   width: 100%;
   height: 40px;
+  line-height: 40px;
   border-radius: 20px;
+  text-align: center;
+  vertical-align: middle;
+}
+.btn-sm {
+  width: 110px;
+  height: 28px;
+  line-height: 28px;
+  border-radius: 27px;
+  text-align: center;
+  vertical-align: middle;
 }
 .fd-btn {
   width: 100%;
@@ -298,9 +312,6 @@ body {
   margin: 16px auto;
 
   font-size: 14px;
-  line-height: 40px;
-  text-align: center;
-  vertical-align: middle;
   color: #ffffff;
   background-color: #91ffb3;
 }

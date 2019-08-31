@@ -6,8 +6,13 @@
 
     <div class="jumbotron">
       <h2>어떤 몸으로 변하고 싶으신가요?</h2>
-      <div class="setting">
+      <div class="setting"
+        @click="e => e.target.closest('.jumbotron').classList.toggle('active')">
         <p>설정하기</p>
+      </div>
+      <div class="menu">
+        <div class="btn-sm box-shadow bg-white fd-color">건강</div>
+        <div class="btn-sm box-shadow bg-white fd-color">체중감량</div>
       </div>
     </div>
 
@@ -110,9 +115,32 @@ export default {
 
 .jumbotron {
   width: 100%;
-  height: 109px;
+  min-height: 60px;
+  padding-bottom: 24px;
   background-image: linear-gradient(to bottom, #a7ffa3, #8bffd3);
+  
+  transition: .5s ease-out;
+  transition-duration: .5s;
 }
+.jumbotron.active {
+  min-height: 120px;
+  border-bottom-left-radius: 50% 54px;
+  border-bottom-right-radius: 50% 54px;
+  box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.16);
+}
+.jumbotron .menu {
+  display: none;
+  transition: .5s ease-out;
+}
+.jumbotron.active .menu {
+  display: inline-block;
+  transition: .5s ease-out;
+}
+.jumbotron .menu .btn-sm {
+  margin-top: 23px;
+  transition: .5s ease-out;
+}
+
 
 .jumbotron h2 {
   color: white;
@@ -125,7 +153,7 @@ export default {
 }
 
 .setting {
-  position: absolute;
+  position: relative;
   margin-left: auto;
   margin-right: auto;
   left: 0;
