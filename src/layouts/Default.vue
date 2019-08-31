@@ -4,12 +4,12 @@
     <router-view/>
     <div class="tab">
         <div class="tab-button">
-            <div class="btn-diary">
+            <div class="btn btn-diary">
                 <div class="icon"></div>
                 <span class="text">Diary</span>
             </div>
             <div class="btn-barcode"></div>
-            <div class="btn-me">
+            <div class="btn btn-me">
                 <div class="icon"></div>
                 <span class="text">Me</span>
             </div>
@@ -21,7 +21,7 @@
 
 <style scoped>
 .tab {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
   height: 56px;
@@ -37,6 +37,13 @@
   box-shadow: none;
   background-color: white;
     pointer-events: auto;
+}
+
+.btn {
+    color: #aaaaaa;
+}
+.btn.active {
+    color: #91ffb3;
 }
 
 .btn-diary {
@@ -65,7 +72,6 @@
     font-stretch: normal;
     letter-spacing: normal;
     text-align: center;
-    color: #91ffb3;
 }
 
 .btn-barcode {

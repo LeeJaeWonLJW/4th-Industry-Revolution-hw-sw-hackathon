@@ -26,10 +26,11 @@ body {
   position: relative;
   width: 100vw;
   height: 100%;
-  min-height: 100vh;
+  min-height: calc(100vh - 56px);
   max-width: 640px;
 
   margin: 0;
+  padding-bottom: 56px;
   /* padding: 16px; */
 
   text-align: center;
