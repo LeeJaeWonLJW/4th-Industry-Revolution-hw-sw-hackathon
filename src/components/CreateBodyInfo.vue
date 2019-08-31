@@ -40,8 +40,7 @@
         :lineHeight="slider.lineHeight"
         :tooltipStyles="{ backgroundColor: '#91ffb3', borderColor: '#91ffb3' }"
       ></VueSlideBar>
-      <p class="goal-duration">
-        {{this.duration}}주
+      <p class="goal-duration">{{this.duration}}주
         <span v-if="this.duration == 12">- 인기 (추천)</span>
       </p>
     </div>
