@@ -70,6 +70,7 @@ body {
 .slider > .item {
   flex-shrink: 0;
   margin-right: 30px;
+  scroll-snap-align: start;
 }
 .slider .item > h3,
 .slider .item > p {

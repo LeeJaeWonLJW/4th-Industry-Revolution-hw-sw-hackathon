@@ -18,6 +18,13 @@
     <!-- <Register v-if="visible"></Register> -->
     <div v-if="visible" class="register">
       <div class="footer-group">
+        <div class="profile">
+          <div class="profile-pic">
+            <img src="../assets/icon/camera.png">
+          </div>
+          <span>프로필</span>
+        </div>
+        
         <div class="form">
           <fieldset class="register-input">
             <input v-model="phone" type="text" placeholder="전화번호" />
@@ -268,5 +275,31 @@ fieldset.register-input input {
   font-weight: bold;
   letter-spacing: normal;
   color: #ffffff;
+}
+.profile {
+  display: inline-block;
+  margin: 16px auto;
+}
+.profile span {
+  margin-top: 6px;
+  font-size: 10px;
+  color: #505050;
+}
+.profile-pic {
+  position: relative;
+  margin: 0 auto;
+  padding: 10px;
+  width: 44px;
+  height: 44px;
+
+  border-radius: 50%;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: #ffffff;
+
+  display: table-cell;
+  vertical-align: middle;
+}
+.profile-pic img {
+  width: 100%;
 }
 </style>
