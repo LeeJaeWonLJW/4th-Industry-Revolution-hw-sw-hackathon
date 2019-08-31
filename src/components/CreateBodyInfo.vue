@@ -151,7 +151,7 @@ fieldset.create-input input::placeholder {
   left: 0;
   right: 0;
   border-radius: 20px;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.16);
+  /* box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.16); */
 }
 
 .btn p {

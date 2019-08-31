@@ -1,9 +1,9 @@
 <template>
   <div class="register">
-    <div class="logo-bg active">
+    <!-- <div class="logo-bg active">
       <h1>FooDiet</h1>
       <p>Food + Diet</p>
-    </div>
+    </div> -->
 
     <div class="footer-group">
       <div class="form">
