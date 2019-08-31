@@ -69,6 +69,7 @@ export default {
   font-weight: bold;
   color: #ffffff;
 
+  cursor: pointer;
   outline: none;
 }
 </style>

@@ -15,24 +15,33 @@
         <img class="rotating" src="../assets/setting.png">
       </div>
     </div>
-    <div>
-      <div class="ranking-top">
-        <p>GOAL&nbsp;<i class="triangle_under"></i></p>
-      </div>
-      <div class="container">
-        <div class="row user-friends">
-          <ProgressBar :image="require('../assets/user1.png')"
-                       value="40%"></ProgressBar>
-          <ProgressBar :image="require('../assets/user2.png')"
-                       value="50%"></ProgressBar>
-          <ProgressBar :image="require('../assets/profile.png')"
-                       :active='true'
-                       value="60%"></ProgressBar>
-          <ProgressBar :image="require('../assets/user3.png')"
-                       value="70%"></ProgressBar>
-          <ProgressBar :image="require('../assets/user4.png')"
-                       value="80%"></ProgressBar>
+    <div class="container">
+      <div class="row view-type">
+        <div class="pull-left">
+          <ul class="view-purpose-type">
+            <li>체중감량</li>
+            <li class="active">목표수행</li>
+          </ul>
         </div>
+        <div class="pull-right">
+          <select class="view-data-type">
+            <option>친구</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row user-friends">
+        <ProgressBar :image="require('../assets/user1.png')"
+                      value="40%"></ProgressBar>
+        <ProgressBar :image="require('../assets/user2.png')"
+                     value="50%"></ProgressBar>
+        <ProgressBar :image="require('../assets/profile.png')"
+                     :active='true'
+                     value="60%"></ProgressBar>
+        <ProgressBar :image="require('../assets/user3.png')"
+                     value="70%"></ProgressBar>
+        <ProgressBar :image="require('../assets/user4.png')"
+                     value="80%"></ProgressBar>
       </div>
     </div>
   </div>
@@ -49,6 +58,9 @@ export default {
 </script>
 
 <style scoped>
+.pull-left { float: left; }
+.pull-right { float: right; }
+
 .setting {
   position: absolute;
   top: 0;
@@ -90,14 +102,43 @@ export default {
   font-size: 12px;
 }
 
-.ranking-top p {
-  position: relative;
-  padding-top: 11px;
-  font-family: safia-pro, sans-serif;
-  color: #9d9d9d;
-  line-height: 1.2;
-  font-weight: normal;
-  font-size: 15px;
+.view-type {
+  margin: 35px 0 10px 0;
+}
+
+ul.view-purpose-type {
+  color: #d5d5d5;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  font-size: 12px;
+  font-family: SourceHanSansK;
+}
+ul.view-purpose-type li {
+  float: left;
+  margin-right: 8px;
+  padding-right: 8px;
+  border-right: 1px solid #d5d5d5;
+  cursor: pointer;
+}
+ul.view-purpose-type li:last-child {
+  margin-right: 0px;
+  padding-right: 0px;
+  border: 0;
+}
+ul.view-purpose-type li.active {
+  color: #505050;
+}
+
+select.view-data-type {
+  background: none;
+  border: none;
+  
+  height: 17px;
+  font-family: SourceHanSansK;
+  font-size: 12px;
+  color: #91a2ff;
 }
 
 .triangle_under {
