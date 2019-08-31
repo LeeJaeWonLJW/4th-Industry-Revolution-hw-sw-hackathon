@@ -159,6 +159,7 @@ export default {
 .register {
   background-color: #fff;
   height: 100%;
+  z-index: 99;
 }
 
 .form {

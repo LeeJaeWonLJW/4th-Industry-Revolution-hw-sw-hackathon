@@ -18,7 +18,8 @@
           <p class="text-left">나에게 필요한 영양소와 입맛까지 고려한 식단</p>
 
           <div class="diet-card"
-            :style="{backgroundImage: 'url('+require('../assets/diet_card_2.png')+')'}">  
+            :style="{backgroundImage: 'url('+require('../assets/diet_card_1.png')+')'}"
+            @click="$router.push('/tab/dietlist/1')">
           </div>
         </div>
 
@@ -65,6 +66,15 @@ body {
 .slider::-webkit-scrollbar,
 .slider::-webkit-scrollbar-thumb {
   display: none;
+}
+
+.slider > .item:first-child:after {
+  position: relative;
+  content: 'More >';
+  bottom: 0;
+  float: right;
+
+  cursor: pointer;
 }
 
 .slider > .item {
@@ -124,8 +134,8 @@ body {
 
 .item {
   width: 258px;
-  
 }
+
 .diet-card {
   position: relative;
   margin: 8px 0;
@@ -138,13 +148,8 @@ body {
 
   background-size: cover;
   background-repeat: no-repeat;
-}
-.diet-card:after {
-  width: auto;
-  height: 100%;
-  background-image: linear-gradient(to bottom, #a7ffa3, #91a2ff, #9e77e8, #8bffd3);
-  background-size: 40%;
-  right: 0;
+
+  cursor: pointer;
 }
 
 

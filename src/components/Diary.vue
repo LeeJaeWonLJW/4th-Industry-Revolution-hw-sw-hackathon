@@ -146,7 +146,6 @@ export default {
 .top .daily-purpose-progress > div {
   position: relative;
   display: inline-block;
-  min-width: 20%;
   text-align: center;
 }
 
@@ -242,7 +241,7 @@ export default {
   margin-top: 10px;
 }
 .diary-update .btn-kg-update {
-  width: 262px;
+  min-width: 262px;
   height: 46px;
   line-height: 46px;
   border-radius: 23px;
