@@ -45,8 +45,7 @@
         :lineHeight="slider.lineHeight"
         :tooltipStyles="{ backgroundColor: '#91ffb3', borderColor: '#91ffb3' }"
       ></VueSlideBar>
-      <p class="goal-duration">
-        {{this.duration}}주
+      <p class="goal-duration">{{this.duration}}주
         <span v-if="this.duration == 12">- 인기 (추천)</span>
       </p>
     </div>
@@ -68,6 +67,7 @@ export default {
     height: "",
     goal: "",
     duration: 1,
+    purpose: 'lose_weight',
     slider: {
       lineHeight: 6,
       processStyle: {
@@ -85,7 +85,8 @@ export default {
             weight: this.weight,
             height: this.height,
             goal: this.goal,
-            duration: this.duration
+            duration: this.duration,
+            purpose: this.purpose
         }
 
         try {
@@ -95,6 +96,21 @@ export default {
             window.alert(e);
         }
     }
+  },
+  async mounted() {
+      try {
+          let info = await JSON.parse(window.localStorage.getItem('info'));
+          if (info !== null) {
+              this.age = info.age;
+              this.weight = info.weight;
+              this.height = info.height;
+              this.goal = info.goal;
+              this.duration = info.duration;
+              this.purpose = info.purpose;
+          }
+      } catch (e) {
+          window.alert(e);
+      }
   }
 };
 </script>

@@ -162,9 +162,6 @@ body {
 
 
 /* Custom Style */
-body {
-  font-family: SourceHanSansK;
-}
 
 .slider {
   display: flex;
