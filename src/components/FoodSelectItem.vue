@@ -26,8 +26,8 @@ export default {
 .item {
   position: relative;
   display: inline-block;
-  margin: 0.5rem 0.7%;
-  padding: 13px 8px;
+  
+  /* padding: 13px 8px; */
 
   opacity: 1;
   cursor: pointer;
@@ -64,12 +64,11 @@ export default {
 }
 
 .item .text {
-  position: absolute;
+  position: relative;
   margin-left: auto;
   margin-right: auto;
   left: 0;
   right: 0;
-  width: 80%;
   font-size: 12px;
   color: #909090;
   border-bottom: 1px solid #91ffb3;
