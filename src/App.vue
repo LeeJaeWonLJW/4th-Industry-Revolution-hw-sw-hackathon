@@ -25,7 +25,8 @@ body {
 #app {
   position: relative;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
+  min-height: 100vh;
   max-width: 640px;
 
   margin: 0;
@@ -53,7 +54,7 @@ body {
 }
 .row [class^="col"] {
   float: left;
-  margin: 0.5rem 0.7%;
+  margin: 0.5rem 2%;
   min-height: 0.125rem;
 }
 .col-1,

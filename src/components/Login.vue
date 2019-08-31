@@ -29,6 +29,7 @@ export default {
 .login {
   background-color: #91ffb3;
   height: 100%;
+  min-height: 100vh;
 }
 
 .logo {

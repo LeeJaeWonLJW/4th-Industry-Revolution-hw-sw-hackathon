@@ -26,6 +26,7 @@ export default {
 .item {
   position: relative;
   display: inline-block;
+  margin: 0.5rem 0.7%;
   padding: 13px 8px;
 
   opacity: 1;
