@@ -22,6 +22,7 @@
 <style>
 #app {
     min-height: calc(100vh - 56px);
+    overflow: hidden;
 }
 
 .tab {

@@ -7,6 +7,7 @@ import RegisterSex from '@/components/RegisterSex'
 import RegisterFav from '@/components/RegisterFav'
 import CreateBodyInfo from '@/components/CreateBodyInfo'
 import Diary from '@/components/Diary'
+import DietList from '@/components/DietList'
 import DefaultLayout from '../layouts/Default'
 
 Vue.use(Router)
@@ -27,6 +28,11 @@ export default new Router({
           path: 'diary',
           name: 'diary',
           component: Diary
+        },
+        {
+          path: 'dietlist',
+          name: 'dietlist',
+          component: DietList
         }
       ]
     },
