@@ -2,7 +2,7 @@ import axios from 'axios'
 let apiUrl = 'http://mvp.turtlelab.io'
 
 export class APIService {
-  async register (phone, password, name, gender, age, height, weight, purpose) {
+  async register (phone, password, name, gender, age, height, weight, purpose, duration, profile) {
     let form = new FormData()
 
     form.append('phone', phone)
@@ -13,6 +13,8 @@ export class APIService {
     form.append('height', height)
     form.append('weight', weight)
     form.append('purpose', purpose)
+    form.append('duration', duration)
+    form.append('profile', profile)
 
     const url = `${apiUrl}/signup`
     try {

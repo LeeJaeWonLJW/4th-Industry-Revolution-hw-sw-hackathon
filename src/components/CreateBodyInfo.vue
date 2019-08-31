@@ -30,22 +30,68 @@
       </fieldset>
     </div>
 
-    <div @click="$router.push('/register/favorite')" class="btn">
+    <div class="container">
+      <p class="goal-duration">목표기간</p>
+      <VueSlideBar
+        v-model="duration"
+        :min="1"
+        :max="16"
+        :processStyle="slider.processStyle"
+        :lineHeight="slider.lineHeight"
+        :tooltipStyles="{ backgroundColor: '#91ffb3', borderColor: '#91ffb3' }"
+      ></VueSlideBar>
+      <p class="goal-duration">
+        {{this.duration}}주
+        <span v-if="this.duration == 12">- 인기 (추천)</span>
+      </p>
+    </div>
+
+    <div @click="submit()" class="btn">
       <p>다음</p>
     </div>
   </div>
 </template>
 
 <script>
+import VueSlideBar from "vue-slide-bar";
+
 export default {
-  name: 'create-body-info',
+  name: "create-body-info",
   data: () => ({
-      age: '',
-      weight: '',
-      height: '',
-      goal: ''
-  })
-}
+    age: "",
+    weight: "",
+    height: "",
+    goal: "",
+    duration: 1,
+    slider: {
+      lineHeight: 6,
+      processStyle: {
+        backgroundColor: "#91ffb3"
+      }
+    }
+  }),
+  components: {
+    VueSlideBar
+  },
+  methods: {
+    submit: async function() {
+        let json = {
+            age: this.age,
+            weight: this.weight,
+            height: this.height,
+            goal: this.goal,
+            duration: this.duration
+        }
+
+        try {
+            await window.localStorage.setItem('info', JSON.stringify(json));
+            await this.$router.push('/register/favorite');
+        } catch (e) {
+            window.alert(e);
+        }
+    }
+  }
+};
 </script>
 
 <style scoped>
@@ -165,5 +211,16 @@ fieldset.create-input input::placeholder {
   margin-top: 10px;
   margin-bottom: 9px;
   font-weight: 500;
+}
+
+.goal-duration {
+  color: black;
+  font-weight: 500;
+  text-align: left;
+  margin: 0;
+  font-size: 14px;
+  letter-spacing: normal;
+  padding-top: 14px;
+  /* padding-left: 14px; */
 }
 </style>

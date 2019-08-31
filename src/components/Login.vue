@@ -75,7 +75,7 @@ export default {
         profile_img: this.profile_img
       };
       try {
-        await window.localStorage.setItem("data", JSON.stringify(json));
+        await window.localStorage.setItem('data', JSON.stringify(json));
         await this.$router.push("/register/sex");
       } catch (e) {
         window.alert(e);
