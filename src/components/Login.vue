@@ -20,11 +20,11 @@
       <div class="footer-group">
         <div class="profile">
           <div class="profile-pic">
-            <img src="../assets/icon/camera.png">
+            <img src="../assets/icon/camera.png" />
           </div>
           <span>프로필</span>
         </div>
-        
+
         <div class="form">
           <fieldset class="register-input">
             <input v-model="phone" type="text" placeholder="전화번호" />
