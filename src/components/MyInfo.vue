@@ -1,48 +1,9 @@
 <template>
   <div>
     <div class="top">
-      <div class="profile">
-        <img width="64" src="../assets/profile.png" />
-      </div>
-      <div class="username">
-        <p>공유</p>
-      </div>
-      <div class="type">
-        <p>LOSE WEIGHT</p>
-      </div>
-
-      <div class="setting">
-        <img class="rotating" src="../assets/setting.png">
-      </div>
     </div>
     <div class="container">
-      <div class="row view-type">
-        <div class="pull-left">
-          <ul class="view-purpose-type">
-            <li>체중감량</li>
-            <li class="active">목표수행</li>
-          </ul>
-        </div>
-        <div class="pull-right">
-          <select class="view-data-type">
-            <option>친구</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="row user-friends">
-        <ProgressBar :image="require('../assets/user1.png')"
-                      value="40%"></ProgressBar>
-        <ProgressBar :image="require('../assets/user2.png')"
-                     value="50%"></ProgressBar>
-        <ProgressBar :image="require('../assets/profile.png')"
-                     :active='true'
-                     value="60%"></ProgressBar>
-        <ProgressBar :image="require('../assets/user3.png')"
-                     value="70%"></ProgressBar>
-        <ProgressBar :image="require('../assets/user4.png')"
-                     value="80%"></ProgressBar>
-      </div>
+      
     </div>
   </div>
 </template>
@@ -61,46 +22,17 @@ export default {
 .pull-left { float: left; }
 .pull-right { float: right; }
 
-.setting {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 20px;
-  height: 20px;
-  margin: 20px 26px 0 0;
-}
-.setting img {
-  width: 100%;
-  height: 100%;
-}
-
 .top {
   width: 100%;
-  height: 192px;
-  background-image: linear-gradient(to top, #a7ffa3, #8bffd3);
-  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.16);
+  height: 276px;
+  box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.16);
+  background-image: linear-gradient(to bottom, #91a2ff, #91ffc9);
   border-bottom-left-radius: 50% 86px;
   border-bottom-right-radius: 50% 86px;
 }
 
 .top p {
   margin: 9px;
-}
-
-.profile {
-  padding-top: 44px;
-}
-
-.username {
-  font-weight: bold;
-  font-size: 23px;
-  color: white;
-  letter-spacing: normal;
-}
-
-.type {
-  color: white;
-  font-size: 12px;
 }
 
 .view-type {

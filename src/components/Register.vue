@@ -103,7 +103,8 @@ fieldset.register-input input {
 
   margin-bottom: 30px;
   background-color: #91ffb3;
-  border-radius: 0 0 50% 50%;
+  border-bottom-left-radius: 50% 86px;
+  border-bottom-right-radius: 50% 86px;
 }
 
 .logo-bg h1 {

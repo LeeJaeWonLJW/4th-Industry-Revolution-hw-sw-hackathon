@@ -6,6 +6,7 @@ import Register from '@/components/Register'
 import RegisterSex from '@/components/RegisterSex'
 import RegisterFav from '@/components/RegisterFav'
 import CreateBodyInfo from '@/components/CreateBodyInfo'
+import MyInfo from '@/components/MyInfo'
 import DefaultLayout from '../layouts/Default'
 
 Vue.use(Router)
@@ -48,6 +49,11 @@ export default new Router({
       path: '/register/info',
       name: 'CreateBodyInfo',
       component: CreateBodyInfo
+    },
+    {
+      path: '/management/myinfo',
+      name: 'MyInfo',
+      component: MyInfo
     }
   ]
 })
