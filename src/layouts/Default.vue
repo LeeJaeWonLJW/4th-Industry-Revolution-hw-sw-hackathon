@@ -22,7 +22,11 @@
 <style>
 #app {
     min-height: calc(100vh - 56px);
+    padding-bottom: 56px;
     overflow: hidden;
+}
+.footer {
+    margin-bottom: 72px;
 }
 
 .tab {

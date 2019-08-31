@@ -159,4 +159,149 @@ body {
     display: block;
   }
 }
+
+
+/* Custom Style */
+body {
+  font-family: SourceHanSansK;
+}
+
+.slider {
+  display: flex;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  transition: 1s;
+  scroll-behavior: smooth;
+}
+.slider::-webkit-scrollbar,
+.slider::-webkit-scrollbar-thumb {
+  display: none;
+}
+
+.slider > .item:first-child:after {
+  position: relative;
+  content: 'More >';
+  bottom: 0;
+  float: right;
+
+  cursor: pointer;
+}
+
+.slider > .item {
+  flex-shrink: 0;
+  margin-right: 30px;
+  scroll-snap-align: start;
+}
+.slider .item > h3,
+.slider .item > p {
+  margin-left: 4px;
+}
+
+.header {
+  position: relative;
+}
+.header .menu-title {
+  position: relative;
+  height: 20px;
+  padding: 16px 0;
+
+  background-color: #ffffff;
+
+  font-size: 14px;
+  text-align: center;
+  color: #505050;
+
+  z-index: 99;
+}
+.header .info {
+  position: relative;
+  padding: 50px 16px 36px 16px;
+
+  font-size: 12px;
+  text-align: center;
+  color: #ffffff;
+
+  box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.16);
+}
+.header .info .title {
+  font-size: 18px;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.16);
+}
+
+.contents {
+  padding: 0 16px;
+  margin-top: 44px;
+  font-size: 10px;
+  color: #505050;
+}
+.contents p {
+  margin: 0;
+}
+.contents h3 {
+  font-size: 16px;
+  margin: 4px 0;
+}
+.contents h4 {
+  font-size: 12px;
+  margin: 4px 0;
+}
+
+.item {
+  width: 258px;
+}
+
+.diet-card {
+  position: relative;
+  margin: 8px 0;
+
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.16);
+
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  cursor: pointer;
+}
+
+
+.footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  margin-bottom: 16px;
+}
+
+.box-shadow {
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);
+}
+.info-circle {
+  border-bottom-left-radius: 50% 54px;
+  border-bottom-right-radius: 50% 54px;
+}
+.bg-green-gra-1 {
+  background-image: linear-gradient(to top, #a7ffa3, #a1ffae, #8cffd1, #8bffd3);
+}
+
+.btn {
+  width: 100%;
+  height: 40px;
+  border-radius: 20px;
+}
+.fd-btn {
+  width: 100%;
+  max-width: 280px;
+
+  margin: 16px auto;
+
+  font-size: 14px;
+  line-height: 40px;
+  text-align: center;
+  vertical-align: middle;
+  color: #ffffff;
+  background-color: #91ffb3;
+}
 </style>

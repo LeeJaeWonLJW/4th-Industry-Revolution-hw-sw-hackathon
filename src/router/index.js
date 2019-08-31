@@ -8,6 +8,7 @@ import RegisterFav from '@/components/RegisterFav'
 import CreateBodyInfo from '@/components/CreateBodyInfo'
 import Diary from '@/components/Diary'
 import DietList from '@/components/DietList'
+import DietListInfo from '@/components/DietListInfo'
 import DefaultLayout from '../layouts/Default'
 
 Vue.use(Router)
@@ -33,6 +34,11 @@ export default new Router({
           path: 'dietlist',
           name: 'dietlist',
           component: DietList
+        },
+        {
+          path: 'dietlist/1',
+          name: 'dietlistinfo',
+          component: DietListInfo
         }
       ]
     },
