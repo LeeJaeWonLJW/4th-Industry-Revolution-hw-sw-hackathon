@@ -286,7 +286,7 @@ body {
 .bg-white { background-color: #ffffff; }
 .fd-color { color: #91ffb3; }
 
-.btn {
+.fd-btn {
   width: 100%;
   height: 40px;
   line-height: 40px;
@@ -294,7 +294,7 @@ body {
   text-align: center;
   vertical-align: middle;
 }
-.btn-sm {
+.fd-btn-sm {
   width: 110px;
   height: 28px;
   line-height: 28px;
@@ -302,7 +302,7 @@ body {
   text-align: center;
   vertical-align: middle;
 }
-.fd-btn {
+.fd-btn-lg {
   width: 100%;
   max-width: 280px;
 

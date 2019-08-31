@@ -11,8 +11,8 @@
         <p>설정하기</p>
       </div>
       <div class="menu">
-        <div class="btn-sm box-shadow bg-white fd-color">건강</div>
-        <div class="btn-sm box-shadow bg-white fd-color">체중감량</div>
+        <div class="fd-btn-sm box-shadow bg-white fd-color">건강</div>
+        <div class="fd-btn-sm box-shadow bg-white fd-color">체중감량</div>
       </div>
     </div>
 
@@ -152,7 +152,7 @@ export default {
   display: inline-block;
   transition: .5s ease-out;
 }
-.jumbotron .menu .btn-sm {
+.jumbotron .menu .fd-btn-sm {
   margin-top: 23px;
   transition: .5s ease-out;
 }

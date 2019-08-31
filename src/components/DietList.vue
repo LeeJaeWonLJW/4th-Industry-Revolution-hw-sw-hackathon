@@ -35,7 +35,7 @@
     </div>
 
     <div class="footer">
-      <div class="btn fd-btn">제가 직접 고를게요!</div>
+      <div class="fd-btn fd-btn-lg">제가 직접 고를게요!</div>
     </div>
   </div>
 </template>
