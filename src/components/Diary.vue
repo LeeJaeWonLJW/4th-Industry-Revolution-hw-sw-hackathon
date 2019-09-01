@@ -62,7 +62,7 @@
               <p>아침 추가</p>
               <p>추천 498 - 697 Kcal</p>
             </div>
-            <a class="btn-plus"></a>
+            <a class="btn-plus" @click="$router.push('/tab/addmeal')"></a>
           </div>
 
           <div class="item">
@@ -71,7 +71,7 @@
               <p>점심 추가</p>
               <p>추천 498 - 697 Kcal</p>
             </div>
-            <a class="btn-plus"></a>
+            <a class="btn-plus" @click="$router.push('/tab/addmeal')"></a>
           </div>
 
           <div class="item">
@@ -80,7 +80,7 @@
               <p>저녁 추가</p>
               <p>추천 498 - 697 Kcal</p>
             </div>
-            <a class="btn-plus"></a>
+            <a class="btn-plus" @click="$router.push('/tab/addmeal')"></a>
           </div>
 
           <div class="item">
@@ -89,7 +89,7 @@
               <p>간식 추가</p>
               <p>추천 498 - 697 Kcal</p>
             </div>
-            <a class="btn-plus"></a>
+            <a class="btn-plus" @click="$router.push('/tab/addmeal')"></a>
           </div>
         </div>
       </div>
@@ -287,6 +287,12 @@ export default {
   height: 24px;
   background-color: #91b1f6;
   border-radius: 50%;
+}
+.meal-update .btn-plus {
+  background-image: url('../assets/icon/add.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 14px;
 }
 
 .view-type {

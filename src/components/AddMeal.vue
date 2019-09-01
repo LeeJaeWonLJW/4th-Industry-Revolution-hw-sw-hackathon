@@ -2,7 +2,7 @@
   <div>
     <div class="header">
       <div class="info info-circle bg-blgn-gra-1 box-shadow">
-        <span class="title">아침</span>
+        <span class="title">기록추가</span>
         <div class="fd-input-search">
           <img src="../assets/icon/input_icon.png">
           <input class="fd-input" type="text" placeholder="음식 검색">
@@ -13,7 +13,7 @@
     <div class="contents">
       <div class="add-item-box">
         <span class="title">추가한 항목:</span>
-        <div class="item">
+        <div class="item" @click="$router.push('/tab/mealdetail')">
           <span class="title">핫식스</span>
           <span class="info">115 Kcal, 1캔 (240ml)</span>
         </div>
