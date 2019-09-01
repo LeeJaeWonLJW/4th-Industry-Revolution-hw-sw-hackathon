@@ -1,8 +1,12 @@
 <template>
-  <div class="col-6-sm item">
-    <img :src="this.image"/>
+  <div
+    :class="{'active': this.active }"
+    @click="add()"
+    class="col-6-sm item"
+  >
+    <img :src="this.image" />
     <div class="checkbox">
-      <img src="../assets/icon/checked.png">
+      <img src="../assets/icon/checked.png" />
     </div>
     <span class="text">{{this.food}}</span>
   </div>
@@ -11,6 +15,10 @@
 <script>
 export default {
   name: "select-box-item",
+  data: () => ({
+    count: 0,
+    active: false
+  }),
   props: {
     label: {
       type: Number
@@ -21,6 +29,70 @@ export default {
     image: {
       type: String
     }
+  },
+  methods: {
+    add: async function() {
+      try {
+        let foodData = await window.localStorage.getItem("foodData");
+
+        let array = [];
+        if (foodData === null) {
+          await array.push(this.label);
+          await window.localStorage.setItem("foodData", JSON.stringify(array));
+          await this.$emit("send-count");
+          this.active = true;
+        }
+
+        if (foodData !== null) {
+          foodData = JSON.parse(foodData);
+          let check = await this.find(foodData, this.label);
+
+          if (check) {
+            await foodData.push(this.label);
+            await window.localStorage.setItem(
+              "foodData",
+              JSON.stringify(foodData)
+            );
+            await this.$emit("send-count");
+            this.active = true;
+          }
+        }
+      } catch (e) {
+        window.alert(e);
+      }
+    },
+    find: function(data, label) {
+      let count = 0;
+      for (let i = 0; i < Object.keys(data).length; i++) {
+        if (data[i] === label) {
+          count++;
+        }
+      }
+
+      if (count !== 0) {
+        return false;
+      }
+      return true;
+    },
+    findAll: async function(label) {
+      let foodData = window.localStorage.getItem("foodData");
+      let count = 0;
+
+      if (foodData !== null) {
+        foodData = JSON.parse(foodData);
+        for (let i = 0; i < Object.keys(foodData).length; i++) {
+          if (foodData[i] === label) {
+            count++;
+          }
+        }
+      }
+
+      if (count === 1) {
+        return true;
+      }
+
+      return false;
+    }
   }
 };
 </script>
@@ -29,7 +101,7 @@ export default {
 .item {
   position: relative;
   display: inline-block;
-  
+
   /* padding: 13px 8px; */
 
   opacity: 1;
@@ -55,7 +127,7 @@ export default {
 }
 
 .item:hover .text {
-  color: #91ffb3
+  color: #91ffb3;
 }
 .item:hover > img,
 .item.active > img {
