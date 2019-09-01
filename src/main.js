@@ -3,6 +3,8 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import VueQuagga from 'vue-quaggajs'
+Vue.use(VueQuagga)
 
 Vue.config.productionTip = false
 

@@ -361,7 +361,7 @@ export default {
             info.weight,
             info.purpose,
             info.duration,
-            data.profile_ing
+            data.profile_img
           );
 
           if (token.success === true) {

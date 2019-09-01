@@ -2,14 +2,14 @@
   <div>
     <div class="header">
       <div class="info info-circle bg-blgn-gra-1 box-shadow">
-        <span class="title">핫식스</span>
+        <span class="meal-title">핫식스</span>
       </div>
     </div>
-    
+
     <div class="contents">
       <div>
-        <input class="fd-input" type="text" placeholder="1">
-        <input class="fd-input volume" type="text" placeholder="355ml">
+        <input class="fd-input" type="text" placeholder="1" />
+        <input class="fd-input volume" type="text" placeholder="355ml" />
       </div>
       <div class="fd-btn fd-btn-lg">Diary에 담기</div>
 
@@ -71,6 +71,13 @@
 </template>
 
 <style scoped>
+.meal-title {
+  font-size: 44px;
+    text-shadow: 0 0 6px rgba(0, 0, 0, 0.16);
+  line-height: 0.64;
+
+}
+
 .fd-input {
   margin: auto 13px;
   width: 58px;
@@ -104,7 +111,7 @@
   height: 15px;
   left: 50%;
   border-left: 1px solid #94b2ef;
-  content: '';
+  content: "";
 }
 .pigure > div {
   position: relative;
@@ -154,11 +161,11 @@ ul.nut li:after {
   right: 0;
 
   border-top: 1px dashed #808080;
-  content: '';
+  content: "";
 }
 
 ul.nut li.bold {
-  color: #505050
+  color: #505050;
 }
 ul.nut li.bold:after {
   border-top: 1px solid #909090;
@@ -167,8 +174,5 @@ ul.nut li.bold:after {
 ul.nut li.bold {
   padding-top: 4px;
   border-top: 2px solid #eff4fd;
-
 }
-
-
 </style>

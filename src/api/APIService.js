@@ -30,7 +30,7 @@ export class APIService {
     let form = new FormData()
     form.append('flavor', flavor)
     const url = `${apiUrl}/user/flavor/set`
-    const headers = {'BearerToken': `Bearer ${accessToken}`}
+    const headers = {'Authorization': `Bearer ${accessToken}`}
 
     try {
       const response = await axios.post(url, form, headers)
