@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="modal">
-      
+    <div class="test modal d-none">
+      asd
     </div>
 
     <div class="header">
@@ -11,7 +11,7 @@
         <span class="title">Keto Maintain</span>
 
         <div class="fd-btn-sm box-shadow bg-white fd-color"
-          @click="e => e.target.closest('.modal').classList.toggle('show')">식단 시작하기</div>
+          @click="e => e.target.closest('.test').classList.toggle('d-none')">식단 시작하기</div>
       </div>
     </div>
 
@@ -52,6 +52,14 @@ export default {
 </script>
 
 <style scoped>
+.modal {
+  width: 328px;
+  height: 376px;
+  border-radius: 4px;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);
+  background-color: #ffffff;
+}
+
 .contents {
   padding: 0;
 }

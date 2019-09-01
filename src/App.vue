@@ -268,8 +268,12 @@ body {
   bottom: 0;
   margin-bottom: 16px;
 }
+
+
+.d-none { display: none; }
 .pull-left { float: left; }
 .pull-right { float: right; }
+.text-left { text-align: left; }
 .margin-center { margin: 0 auto; }
 .box-shadow {
   box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.16);
