@@ -15,7 +15,13 @@
       </div>
     </div>
 
-    <div></div>
+    <div class="contents">
+      <div class="search-user-profile">
+        <img src="../assets/user1.png">
+        <span class="user-name">김철수</span>
+        <div class="fd-btn-sm fd-color bg-white fd-border user-add">친구추가</div>
+      </div>
+    </div>
 
     <div class="footer">
       <div class="fd-btn fd-btn-lg"
@@ -25,6 +31,22 @@
 </template>
 
 <style scoped>
+.search-user-profile {
+  position: relative;
+  display: block;
+}
+.search-user-profile .user-name {
+  position: relative;
+  display: block;
+}
+.search-user-profile img {
+  width: 80px;
+}
+.search-user-profile .fd-btn-sm {
+  margin: 12px auto;
+  border: 1px solid #505050;
+}
+
 .info {
   min-height: 10px;
 }
@@ -40,10 +62,10 @@
 }
 
 .info.find-active {
-  min-height: 340px;
+  min-height: 280px;
 }
 .info.result-active {
-  min-height: 240px;
+  min-height: 140px;
 }
 
 .info.find-active > .btn-find,

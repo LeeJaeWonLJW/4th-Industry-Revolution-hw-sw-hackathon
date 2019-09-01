@@ -11,7 +11,7 @@
         <input class="fd-input" type="text" placeholder="1" />
         <input class="fd-input volume" type="text" placeholder="355ml" />
       </div>
-      <div class="fd-btn fd-btn-lg">Diary에 담기</div>
+      <div class="fd-btn fd-btn-lg" @click="$router.push('/tab/addmeal')">Diary에 담기</div>
 
       <p class="title">14Kcal</p>
       <div class="pigure">
