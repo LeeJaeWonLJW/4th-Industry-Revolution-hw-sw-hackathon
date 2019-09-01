@@ -22,17 +22,17 @@
 
       <div class="nutrient">
         <div class="item dan">
-          <p class="gram">98g남음</p>
+          <p class="gram">0g먹음</p>
           <p class="explain">단백질</p>
         </div>
 
         <div class="item tan">
-          <p class="gram">232g남음</p>
+          <p class="gram">29g먹음</p>
           <p class="explain">탄수화물</p>
         </div>
 
         <div class="item ji">
-          <p class="gram">66g남음</p>
+          <p class="gram">0g먹음</p>
           <p class="explain">지방</p>
         </div>
       </div>
@@ -41,11 +41,11 @@
     <div class="container">
       <div class="diary-kg">
         <div class="pull-left">
-          <p class="kg">79.8KG</p>
+          <p class="kg">70KG</p>
           <p>현재 체중</p>
         </div>
         <div class="pull-right">
-          <p class="kg">75KG</p>
+          <p class="kg">60KG</p>
           <p>목표 체중</p>
         </div>
       </div>
