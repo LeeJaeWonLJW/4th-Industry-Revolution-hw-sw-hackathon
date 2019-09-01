@@ -86,8 +86,9 @@
 .contents .title {
   font-family: SofiaPro;
   font-size: 16px;
+  font-weight: bold;
   text-align: left;
-  margin: 14px 0 14px 28px;
+  margin: 14px 0 6px 28px;
   color: #808080;
 }
 
@@ -152,7 +153,7 @@ ul.nut li:after {
   left: 0;
   right: 0;
 
-  border-top: 1px dashed #a0a0a0;
+  border-top: 1px dashed #808080;
   content: '';
 }
 
@@ -160,12 +161,12 @@ ul.nut li.bold {
   color: #505050
 }
 ul.nut li.bold:after {
-  border-top: 1px dashed #909090;
+  border-top: 1px solid #909090;
 }
 
 ul.nut li.bold {
   padding-top: 4px;
-  border-top: 2px dashed #eff4fd;
+  border-top: 2px solid #eff4fd;
 
 }
 
