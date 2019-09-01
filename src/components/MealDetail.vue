@@ -13,7 +13,7 @@
       </div>
       <div class="fd-btn fd-btn-lg">Diary에 담기</div>
 
-      <p class="kcal">14Kcal</p>
+      <p class="title">14Kcal</p>
       <div class="pigure">
         <div class="pull-left">당 적음</div>
         <div class="pull-right">비타민 많음 고카페인</div>
@@ -21,9 +21,49 @@
 
       <p class="title">영양정보</p>
       <ul class="nut">
-        <li>
+        <li class="bold">
           <span class="nut-name">탄수화물</span>
           <span class="nut-val">4g</span>
+        </li>
+        <li>
+          <span class="nut-name">섬유질</span>
+          <span class="nut-val">0g</span>
+        </li>
+        <li>
+          <span class="nut-name">설탕</span>
+          <span class="nut-val">29g</span>
+        </li>
+        <li class="bold">
+          <span class="nut-name">단백질</span>
+          <span class="nut-val">1g</span>
+        </li>
+        <li class="bold">
+          <span class="nut-name">지방</span>
+          <span class="nut-val">0.4g</span>
+        </li>
+        <li>
+          <span class="nut-name">불포화지방</span>
+          <span class="nut-val">0g</span>
+        </li>
+        <li>
+          <span class="nut-name">포화지방</span>
+          <span class="nut-val">0g</span>
+        </li>
+        <li class="bold">
+          <span class="nut-name">기타</span>
+          <span class="nut-val">0g</span>
+        </li>
+        <li>
+          <span class="nut-name">칼륨</span>
+          <span class="nut-val">0g</span>
+        </li>
+        <li>
+          <span class="nut-name">콜레스트롤</span>
+          <span class="nut-val">0g</span>
+        </li>
+        <li>
+          <span class="nut-name">나트륨</span>
+          <span class="nut-val">275mg</span>
         </li>
       </ul>
     </div>
@@ -43,15 +83,11 @@
   text-align: right;
   width: 142px;
 }
-.kcal {
+.contents .title {
   font-family: SofiaPro;
-  font-size: 14px;
-  font-weight: 500;
-  font-style: normal;
-  font-stretch: normal;
-  line-height: 2;
-  letter-spacing: normal;
+  font-size: 16px;
   text-align: left;
+  margin: 14px 0 14px 28px;
   color: #808080;
 }
 
@@ -88,17 +124,49 @@ ul.nut {
   list-style: none;
   margin: 0;
   padding: 0;
+
+  color: #808080;
 }
 ul.nut li {
   position: relative;
+  display: inline-block;
   width: 80%;
-  margin: 0 auto;
+  margin: 2px auto;
 }
 ul.nut li span.nut-name {
+  width: 48px;
   float: left;
+  text-align: right;
 }
 ul.nut li span.nut-val {
+  min-width: 48px;
   float: right;
+  text-align: left;
+}
+ul.nut li:after {
+  position: absolute;
+
+  width: 55%;
+  height: 1px;
+  margin: 7px auto;
+  left: 0;
+  right: 0;
+
+  border-top: 1px dashed #a0a0a0;
+  content: '';
+}
+
+ul.nut li.bold {
+  color: #505050
+}
+ul.nut li.bold:after {
+  border-top: 1px dashed #909090;
+}
+
+ul.nut li.bold {
+  padding-top: 4px;
+  border-top: 2px dashed #eff4fd;
+
 }
 
 
