@@ -5,17 +5,17 @@
 
       <div class="daily-purpose-progress">
         <div class="today-kcal">
-          <p class="h3">1991</p>
+          <p class="h3">115</p>
           <p class="h4">오늘 먹은 칼로리</p>
         </div>
         
         <div class="now-kcal">
-          <p class="h3">1991</p>
+          <p class="h3">2000</p>
           <p class="h4">남은 칼로리</p>
         </div>
 
         <div class="now-percent">
-          <p class="h3">35%</p>
+          <p class="h3">17%</p>
           <p class="h4">현재 수행률</p>
         </div>
       </div>
