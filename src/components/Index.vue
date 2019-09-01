@@ -48,6 +48,23 @@
                      value="80%"></ProgressBar>
       </div>
     </div>
+
+    <div class="row">
+      <ul class="menu-list">
+        <li @click="$router.push('/tab/dietlist')">
+          <img src="../assets/icon/cooking.png">
+          <span>식단</span>
+        </li>
+        <li @click="$router.push('/tab/diarydetail')">
+          <img src="../assets/icon/diagram.png">
+          <span>상세정보</span>
+        </li>
+        <li>
+          <img src="../assets/icon/bitcoin.png">
+          <span>보유량: 10,000 point</span>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -62,8 +79,38 @@ export default {
 </script>
 
 <style scoped>
-.pull-left { float: left; }
-.pull-right { float: right; }
+.menu-list {
+  position: relative;
+  /* display: inline-block; */
+
+  margin: 16px 16px;
+  padding: 6px 0;
+  border-top: 8px solid #d3ffe1;
+  border-bottom: 8px solid #d3ffe1;
+
+  list-style: none;
+}
+.menu-list li {
+  text-align: left;
+  padding: 16px 24px;
+  margin: auto 8px;
+  border-bottom: 1px solid #eeeeee;
+  cursor: pointer;
+}
+.menu-list li span {
+  margin-left: 20px;
+  font-size: 14px;
+  line-height: 24px;
+  color: #808080;
+}
+.menu-list li img {
+  width: 24px;
+  vertical-align: bottom;
+}
+.menu-list li:last-child {
+  border: none;
+}
+
 
 .setting {
   position: absolute;
