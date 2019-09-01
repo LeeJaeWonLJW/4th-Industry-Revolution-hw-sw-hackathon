@@ -19,7 +19,13 @@
         <div class="pull-right">비타민 많음 고카페인</div>
       </div>
 
-      
+      <p class="title">영양정보</p>
+      <ul class="nut">
+        <li>
+          <span class="nut-name">탄수화물</span>
+          <span class="nut-val">4g</span>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
@@ -76,4 +82,24 @@
   font-size: 12px;
   color: #ff7676;
 }
+
+ul.nut {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+ul.nut li {
+  position: relative;
+  width: 80%;
+  margin: 0 auto;
+}
+ul.nut li span.nut-name {
+  float: left;
+}
+ul.nut li span.nut-val {
+  float: right;
+}
+
+
 </style>

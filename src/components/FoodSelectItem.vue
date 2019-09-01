@@ -6,7 +6,7 @@
   >
     <img :src="this.image" />
     <div class="checkbox">
-      <img src="../assets/icon/checked.png" />
+      <img src="../assets/icon/check_btn.png" />
     </div>
     <span class="text">{{this.food}}</span>
   </div>
@@ -124,6 +124,9 @@ export default {
   -ms-transform: translate(-50%, -50%);
   text-align: center;
   transition: 0.5s ease-out;
+}
+.item .checkbox img {
+  width: 100%;
 }
 
 .item:hover .text {
