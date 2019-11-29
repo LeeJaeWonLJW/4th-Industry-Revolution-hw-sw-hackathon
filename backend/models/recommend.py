@@ -19,7 +19,7 @@ class Recommend(object):
                 food=favorite
             ).save()
         else:
-            favorite_object.food.append(favorite).save()
+            favorite_object.first().food.append(favorite).save()
 
         return jsonify({
             "success": True,
