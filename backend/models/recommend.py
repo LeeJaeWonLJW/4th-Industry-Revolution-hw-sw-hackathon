@@ -19,7 +19,9 @@ class Recommend(object):
                 food=favorite
             ).save()
         else:
-            favorite_object.first().food.append(favorite).save()
+            favorite_object = Favorite.objects(user_id=user_object.pk).first()
+            favorite_object.food = favorite_object.food + favorite
+            favorite_object.save()
 
         return jsonify({
             "success": True,
