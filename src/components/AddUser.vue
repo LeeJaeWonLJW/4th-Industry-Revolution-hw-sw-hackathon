@@ -70,7 +70,8 @@
 
 .info.find-active > .btn-find,
 .info.find-active > .fd-input,
-.info.result-active > .fd-input {
+.info.result-active > .fd-input
+.info.info.result-active >  {
   display: block;
 }
 

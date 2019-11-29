@@ -1,5 +1,5 @@
 import axios from 'axios'
-let apiUrl = 'http://mvp.turtlelab.io'
+let apiUrl = 'http://52.78.154.169:5000'
 
 export class APIService {
   async register (phone, password, name, gender, age, height, weight, purpose, duration, profile) {
