@@ -372,9 +372,9 @@ def food_barcode():
         return error.Error().invalid_input()
 
 
-@jwt_required
 @app.route('/ai/food/add', methods=['POST'])
-def ai_food_add ():
+@jwt_required
+def ai_food_add():
     if isValidInput(['favorite']):
         print(get_jwt_identity())
         recommend.Recommend().add(get_jwt_identity()["email"])
