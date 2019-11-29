@@ -377,7 +377,7 @@ def food_barcode():
 def ai_food_add():
     if isValidInput(['favorite']):
         print(get_jwt_identity())
-        recommend.Recommend().add(get_jwt_identity()["email"])
+        recommend.Recommend().add()
     else:
         return error.Error().invalid_input()
 
