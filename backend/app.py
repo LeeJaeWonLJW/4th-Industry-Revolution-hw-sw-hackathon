@@ -7,7 +7,7 @@ from flask_jwt_extended import JWTManager, get_jwt_identity
 from flask_jwt_extended import (jwt_required, create_access_token)
 from werkzeug.debug import DebuggedApplication
 
-from models import auth, error, nutrient, user, food
+from models import auth, error, nutrient, user, food, recommend
 
 app = Flask(__name__)
 bcrypt = Bcrypt(app)
@@ -368,6 +368,15 @@ def nutrient_today_lookup():
 def food_barcode():
     if isValidInput(['barcode']):
         return food.Food().barcode()
+    else:
+        return error.Error().invalid_input()
+
+
+@jwt_required
+@app.route('/ai/food/add', methods=['POST'])
+def food_barcode():
+    if isValidInput(['favorite']):
+        recommend.Recommend().add()
     else:
         return error.Error().invalid_input()
 
