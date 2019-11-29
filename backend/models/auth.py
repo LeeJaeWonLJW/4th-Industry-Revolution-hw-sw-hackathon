@@ -36,7 +36,7 @@ class Auth(object):
 
     def signup(self):
         try:
-            email = str(request.form['phone'])
+            email = str(request.form['email'])
             password = str(app.bcrypt.generate_password_hash(request.form['password']))
             name = str(request.form['name'])
             gender = str(request.form['gender'])

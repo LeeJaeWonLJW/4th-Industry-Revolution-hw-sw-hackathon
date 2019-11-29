@@ -158,7 +158,7 @@ def auth_signin():
 """
 @app.route('/auth/signup', methods=['POST'])
 def auth_signup():
-    if isValidInput(['phone', 'password', 'name', 'gender', 'age', 'height', 'weight', 'purpose', 'duration', 'profile']):
+    if isValidInput(['email', 'password', 'name', 'gender', 'age', 'height', 'weight', 'purpose', 'duration', 'profile']):
         return auth.Auth().signup()
     else:
         return error.Error().invalid_input()
@@ -374,7 +374,7 @@ def food_barcode():
 
 @jwt_required
 @app.route('/ai/food/add', methods=['POST'])
-def ai_food_add():
+def ai_food_add ():
     if isValidInput(['favorite']):
         recommend.Recommend().add()
     else:
