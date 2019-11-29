@@ -11,11 +11,11 @@ class Recommend(object):
         email = app.get_jwt_identity()["email"]
 
         user_object = User.objects(email=email)
-        favorite_object = Favorite.objects(user_id=user_object.id)
+        favorite_object = Favorite.objects(user_id=user_object._id)
 
         if len(favorite_object) == 0:
             Favorite(
-                user_id=user_object.id,
+                user_id=user_object._id,
                 food=favorite
             ).save()
         else:
