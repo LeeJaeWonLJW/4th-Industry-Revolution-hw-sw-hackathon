@@ -10,7 +10,7 @@ from setting import Img
 
 class Auth(object):
     def signin(self):
-        email = str(request.form['phone'])
+        email = str(request.form['email'])
         password = str(request.form['password'])
         user_object = db_auth.User.objects(email=email)
 

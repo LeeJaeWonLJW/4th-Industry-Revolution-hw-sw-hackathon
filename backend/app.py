@@ -100,7 +100,7 @@ def hello():
 """
 @app.route('/auth/signin', methods=['POST'])
 def auth_signin():
-    if isValidInput(['phone', 'password']):
+    if isValidInput(['email', 'password']):
         return auth.Auth().signin()
     else:
         return error.Error().invalid_input()
