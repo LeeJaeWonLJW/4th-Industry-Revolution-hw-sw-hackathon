@@ -11,7 +11,7 @@ class Recommend(object):
         email = app.get_jwt_identity()["email"]
 
         user_object = User.objects(email=email)
-        favorite_object = Favorite.objects(user_id=user_object.pk)
+        favorite_object = Favorite.objects(user_id=user_object.id)
 
         if len(favorite_object) == 0:
             Favorite(
