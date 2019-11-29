@@ -6,9 +6,8 @@ from models.databases.db_favorite import Favorite
 
 class Recommend(object):
     @staticmethod
-    def add():
+    def add(email):
         favorite = str(request.form['favorite']).split(',')
-        email = app.get_jwt_identity()["email"]
 
         user_object = User.objects(email=email)
         favorite_object = Favorite.objects(user_id=user_object.pk)
