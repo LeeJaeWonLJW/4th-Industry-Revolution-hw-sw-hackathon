@@ -10,12 +10,12 @@ class Recommend(object):
         favorite = str(request.form['favorite']).split(',')
         email = app.get_jwt_identity()["email"]
 
-        user_object = User.objects(email=email)
-        favorite_object = Favorite.objects(user_id=user_object._id)
+        user_object = User.objects(email=email).first()
+        favorite_object = Favorite.objects(user_id=user_object.pk)
 
         if len(favorite_object) == 0:
             Favorite(
-                user_id=user_object._id,
+                user_id=user_object.pk,
                 food=favorite
             ).save()
         else:
