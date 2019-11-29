@@ -5,9 +5,9 @@ After = network.target
 [Service]
 User = root
 Group = www-data
-WorkingDirectory = /home/ubuntu/6th-korea-sw-convergence-hackathon/backend
-Environment = "PATH=/home/ubuntu/6th-korea-sw-convergence-hackathon/backend/venv/bin"
-ExecStart = /home/ubuntu/6th-korea-sw-convergence-hackathon/backend/venv/bin/uwsgi --ini foodiet.ini
+WorkingDirectory = /home/ubuntu/4th-Industry-Revolution-hw-sw-hackathon/backend
+Environment = "PATH=/home/ubuntu/4th-Industry-Revolution-hw-sw-hackathon/backend/venv/bin"
+ExecStart = /home/ubuntu/4th-Industry-Revolution-hw-sw-hackathon/backend/venv/bin/uwsgi --ini foodiet.ini
 
 [Install]
 WantedBy = multi-user.target
