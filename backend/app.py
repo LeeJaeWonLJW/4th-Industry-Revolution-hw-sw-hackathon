@@ -374,7 +374,7 @@ def food_barcode():
 
 @jwt_required
 @app.route('/ai/food/add', methods=['POST'])
-def food_barcode():
+def ai_food_add():
     if isValidInput(['favorite']):
         recommend.Recommend().add()
     else:
