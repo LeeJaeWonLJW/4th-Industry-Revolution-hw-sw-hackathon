@@ -1,6 +1,83 @@
 [
   {
     "type": "post",
+    "url": "/ai/food/add",
+    "title": "Favorite Food Add",
+    "name": "Favorite_Food_Add",
+    "group": "AI",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "BearerToken",
+            "description": "<p>user jwt token</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": ""
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "msg",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response",
+          "content": "HTTP/1.1 200 OK\n{\n    \"success\": true,\n    \"msg\": \"add my favorite food successfully\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": ""
+          },
+          {
+            "group": "Error 4xx",
+            "type": "String",
+            "optional": false,
+            "field": "msg",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response",
+          "content": "HTTP/1.1 200 OK\n{\n    \"success\": false,\n    \"msg\": \"invalid input\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./app.py",
+    "groupTitle": "AI"
+  },
+  {
+    "type": "post",
     "url": "/auth/signin",
     "title": "Login",
     "name": "Login",
@@ -229,6 +306,9 @@
     "groupTitle": "Auth"
   },
   {
+    "deprecated": {
+      "content": "Developing"
+    },
     "type": "post",
     "url": "/nutrient/today/add",
     "title": "Today-Add",
@@ -340,6 +420,9 @@
     "groupTitle": "Nutrient"
   },
   {
+    "deprecated": {
+      "content": "Developing"
+    },
     "type": "post",
     "url": "/nutrient/today/lookup",
     "title": "Today-Lookup",
@@ -417,6 +500,9 @@
     "groupTitle": "Nutrient"
   },
   {
+    "deprecated": {
+      "content": "Developing"
+    },
     "type": "post",
     "url": "/user/flavor/set",
     "title": "Flavor Set",
@@ -507,6 +593,9 @@
     "groupTitle": "User"
   },
   {
+    "deprecated": {
+      "content": "Developing"
+    },
     "type": "post",
     "url": "/user/friend/add",
     "title": "Friend add",
@@ -597,6 +686,9 @@
     "groupTitle": "User"
   },
   {
+    "deprecated": {
+      "content": "Developing"
+    },
     "type": "post",
     "url": "/user/friend/search",
     "title": "Friend search",
@@ -715,8 +807,8 @@
     "url": "",
     "version": "0.0.0",
     "filename": "./doc/main.js",
-    "group": "_home_optatio_PycharmProjects_6th_korea_sw_convergence_hackathon_backend_doc_main_js",
-    "groupTitle": "_home_optatio_PycharmProjects_6th_korea_sw_convergence_hackathon_backend_doc_main_js",
+    "group": "_home_optatio_PycharmProjects_4th_Industry_Revolution_hw_sw_hackathon_backend_doc_main_js",
+    "groupTitle": "_home_optatio_PycharmProjects_4th_Industry_Revolution_hw_sw_hackathon_backend_doc_main_js",
     "name": ""
   }
 ]

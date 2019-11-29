@@ -1,14 +1,13 @@
 {
-  "name": "foodiet",
-  "version": "0.0.1",
-  "description": "Foodiet Project RESTFUL API Description",
-  "title": "Foodiet REST API",
+  "name": "",
+  "version": "0.0.0",
+  "description": "",
   "sampleUrl": false,
   "defaultVersion": "0.0.0",
   "apidoc": "0.3.0",
   "generator": {
     "name": "apidoc",
-    "time": "2019-08-31T17:35:18.448Z",
+    "time": "2019-11-29T23:45:25.154Z",
     "url": "http://apidocjs.com",
     "version": "0.17.7"
   }

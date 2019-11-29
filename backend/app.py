@@ -165,6 +165,7 @@ def auth_signup():
 
 
 """
+@apiDeprecated Developing
 @api {post} /user/friend/add Friend add
 @apiName Friend Add
 @apiGroup User
@@ -202,6 +203,7 @@ def user_friend_add():
 
 
 """
+@apiDeprecated Developing
 @api {post} /user/friend/search Friend search
 @apiName Friend Search
 @apiGroup User
@@ -246,6 +248,7 @@ def user_friend_search():
 
 
 """
+@apiDeprecated Developing
 @api {post} /user/flavor/set Flavor Set
 @apiName Flavor Set
 @apiGroup User
@@ -284,6 +287,7 @@ def user_flavor_set():
 
 
 """
+@apiDeprecated Developing
 @api {post} /nutrient/today/add Today-Add
 @apiName Today-Add
 @apiGroup Nutrient
@@ -325,6 +329,7 @@ def nutrient_today_add():
 
 
 """
+@apiDeprecated Developing
 @api {post} /nutrient/today/lookup Today-Lookup
 @apiName Today-Lookup
 @apiGroup Nutrient
@@ -371,7 +376,33 @@ def food_barcode():
     else:
         return error.Error().invalid_input()
 
+"""
+@api {post} /ai/food/add Favorite Food Add
+@apiName Favorite Food Add
+@apiGroup AI
 
+@apiHeader  {String}  BearerToken       user jwt token
+
+@apiSuccess {Boolean} success
+@apiSuccess {String} msg
+
+@apiSuccessExample {json} Success-Response
+ HTTP/1.1 200 OK
+ {
+     "success": true,
+     "msg": "add my favorite food successfully"
+ }
+
+@apiError {Boolean} success
+@apiError {String} msg
+
+@apiErrorExample {json} Error-Response
+ HTTP/1.1 200 OK
+ {
+     "success": false,
+     "msg": "invalid input"
+ }
+"""
 @app.route('/ai/food/add', methods=['POST'])
 @jwt_required
 def ai_food_add():
