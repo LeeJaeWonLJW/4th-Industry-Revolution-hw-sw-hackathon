@@ -5,3 +5,5 @@
 /test/unit/coverage/
 
 /000-xyz/
+// eslint-disable-next-line class-methods-use-this, no-unused-vars
+/* eslint-disable */

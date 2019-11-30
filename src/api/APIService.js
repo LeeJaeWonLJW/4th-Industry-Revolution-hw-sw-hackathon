@@ -1,7 +1,16 @@
 import axios from 'axios'
+import { jwtJsDecode, jwtDecode } from 'jwt-js-decode'
+
 const apiUrl = 'http://foodiet.pangwoon.com'
 
 export class APIService {
+	async userInfo() {
+		let accessToken = localStorage.accessToken
+		let jwt = jwtDecode(accessToken)
+
+		return jwt
+	}
+
 	async login (phone, password) {
 		let form = new FormData()
 
@@ -58,7 +67,7 @@ export class APIService {
 		form.append('favorite', flavor)
 		
 		const url = `${apiUrl}/ai/food/add`
-		axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.accessToken}`;
+		axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.accessToken}`
 
     try {
       const response = await axios.post(url, form)
@@ -66,5 +75,35 @@ export class APIService {
     } catch (e) {
       return e
     }
-  }
+	}
+	
+	async friendSearch (phone) {
+		let form = new FormData()
+		form.append('email', phone)
+
+		const url = `${apiUrl}/user/friend/search`
+		axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.accessToken}`
+
+		try {
+			const res = await axios.post(url, form)
+			return res.data
+		} catch (e) {
+			return e
+		}
+	}
+
+	async friendAdd (phone) {
+		let form = new FormData()
+		form.append('email', phone)
+
+		const url = `${apiUrl}/user/friend/add`
+		axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.accessToken}`
+
+		try {
+			const res = await axios.post(url, form)
+			return res.data
+		} catch (e) {
+			return e
+		}
+	}
 }

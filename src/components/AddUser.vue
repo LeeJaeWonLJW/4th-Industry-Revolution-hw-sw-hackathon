@@ -9,26 +9,57 @@
         <div class="btn-add fd-btn-sm fd-border-white margin-center"
           @click="e => e.target.closest('.info').classList.toggle('find-active')">친구추가</div>
 
-        <input class="fd-input" type="text" placeholder="010-XXXX-XXXX">
+        <input v-model="user_phone" class="fd-input" type="text" placeholder="010-XXXX-XXXX">
         <div class="btn-find fd-btn-sm fd-border-white margin-center"
-          @click="e => e.target.closest('.info').classList.toggle('result-active')">검색</div>
+          @click="find()">검색</div>
       </div>
     </div>
 
-    <div class="contents">
+    <div class="contents" v-if="user">
       <div class="search-user-profile">
-        <img src="../assets/user1.png">
-        <span class="user-name">김철수</span>
-        <div class="fd-btn-sm fd-color bg-white fd-border user-add">친구추가</div>
+        <img :src="this.user_profile">
+        <span class="user-name">{{this.user_name}}</span>
+        <div @click="add()" class="fd-btn-sm fd-color bg-white fd-border user-add">친구추가</div>
       </div>
     </div>
-
-    <div class="footer">
-      <div class="fd-btn fd-btn-lg"
-        @click="$router.push('/tab/index')">다음</div>
-    </div>
+		<div class='contents' v-else>
+			<span class='user-name'>검색 결과가 없습니다</span>
+		</div>
   </div>
 </template>
+
+<script>
+import { APIService } from '../api/APIService'
+import { async } from 'q'
+const apiService = new APIService()
+
+export default {
+	name: 'freind_add',
+	data: () => ({
+		user: false,
+		user_name: '',
+		user_phone: '',
+		user_profile: '',
+  }),
+	methods: {
+		find: async function() {
+			let friend = await apiService.friendSearch(this.user_phone)
+			
+			if(friend.success == true) this.user = true
+			else this.user = false
+
+			if(friend.data.name) this.user_name = friend.data.name
+			if(friend.data.profile) this.user_profile = friend.data.profile
+		},
+		add: async function() {
+			let friend = await apiService.friendAdd(this.user_phone)
+
+			if(friend.success == true) alert('친구로 추가하였습니다')
+			else console.error(friend.msg)
+		}
+	}
+}
+</script>
 
 <style scoped>
 .search-user-profile {
@@ -62,25 +93,21 @@
 }
 
 .info.find-active {
-  min-height: 280px;
+  min-height: 240px;
 }
 .info.result-active {
   min-height: 140px;
 }
 
-.info.find-active > .btn-find,
-.info.find-active > .fd-input,
-.info.result-active > .fd-input
-.info.info.result-active >  {
-  display: block;
-}
-
 .info > .fd-input,
 .info > .btn-find,
-.info.find-active > .btn-add,
-.info.result-active > .btn-find {
+.info.find-active > .btn-add {
   display: none;
+}
 
+.info.find-active > .btn-find,
+.info.find-active > .fd-input  {
+  display: inline-block;
 }
 
 </style>

@@ -35,10 +35,10 @@ export default {
     }
   },
   computed: {
-    column: () => {
+    column: function() {
       return this.active ? 'col-4-sm goal-box active' : 'col-2-sm goal-box'
     },
-    height: () => {
+    height: function() {
       return 'height: ' + this.value + ';'
     }
   }

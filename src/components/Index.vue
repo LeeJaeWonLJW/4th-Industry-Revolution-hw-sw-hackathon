@@ -70,11 +70,19 @@
 
 <script>
 import ProgressBar from '@/components/ProgressBar'
+import { APIService } from '../api/APIService'
+import { async } from 'q'
+const apiService = new APIService()
+
 export default {
   name: 'index',
   components: {
     ProgressBar
-  }
+	},
+	async beforeMount() {
+		let user = await API.userInfo()
+		consoe.log(user)
+	}
 }
 </script>
 
@@ -110,7 +118,6 @@ export default {
 .menu-list li:last-child {
   border: none;
 }
-
 
 .setting {
   position: absolute;

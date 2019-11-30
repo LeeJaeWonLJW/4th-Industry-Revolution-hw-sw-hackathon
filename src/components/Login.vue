@@ -69,7 +69,9 @@
 </template>
 
 <script>
-// import Register from '@/components/Register'
+import { APIService } from '../api/APIService'
+const apiService = new APIService()
+
 export default {
   name: 'login',
   data: () => ({
@@ -107,19 +109,15 @@ export default {
       }
 		},
 		login_submit: async function() {
-      let json = {
-        phone: this.login_phone,
-        password: this.login_password
-			}
-			
-			if(!json.phone || !json.password) {
+			if(!this.login_phone || !this.login_password) {
 				alert('입력 값을 입력해주세요')
 				return false
 			}
 
 			try {
-				await apiServie.login(json)
-				await this.$router.push('/tab/index')
+				let res =await apiService.login(this.login_phone, this.login_password)
+				if(res.success == true) await this.$router.push('/tab/index')
+				alert('아이디나 비밀번호가 일치하지 않습니다')
 			} catch (e) {
 				window.alert(e)
 			}
