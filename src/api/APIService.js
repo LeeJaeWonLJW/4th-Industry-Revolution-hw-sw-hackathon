@@ -178,5 +178,67 @@ export class APIService {
 			return e
 		}
 	}
+
+	async foodInfo(data) {
+		let form = new FormData()
+		form.append('food_id', data)
+
+		const url = `${apiUrl}/food/get/info`
+		axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.accessToken}`
+
+		try {
+			const res = await axios.post(url, form)
+			return res.data
+		} catch (e) {
+			return e
+		}
+	}
+
+	async foodSearch(data) {
+		let form = new FormData()
+		form.append('barcode', data)
+
+		const url = `${apiUrl}/food/barcode/get/id`
+		axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.accessToken}`
+
+		try {
+			const res = await axios.post(url, form)
+			return res.data
+		} catch (e) {
+			return e
+		}
+	}
+
+	async foodSearch_name(data) {
+		let form = new FormData()
+		form.append('name', data)
+
+		const url = `${apiUrl}/food/search/name`
+		axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.accessToken}`
+
+		try {
+			const res = await axios.post(url, form)
+			return res.data
+		} catch (e) {
+			return e
+		}
+	}
 	
+	async foodAddEat(date, type, id) {
+		let form = new FormData()
+		form.append('date', date)
+		form.append('type', type)
+		form.append('food_id', id)
+
+		const url = `${apiUrl}/health/meal/add`
+		axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.accessToken}`
+
+		try {
+			const res = await axios.post(url, form)
+			return res.data
+		} catch (e) {
+			return e
+		}
+	}
+
 }

@@ -61,7 +61,7 @@ export default new Router({
           component: AddMeal
         },
         {
-          path: 'mealdetail',
+          path: 'mealdetail/:id',
           name: 'mealdetail',
           component: MealDetail
         },

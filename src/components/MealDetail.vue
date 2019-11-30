@@ -2,7 +2,7 @@
   <div>
     <div class="header">
       <div class="info info-circle bg-blgn-gra-1 box-shadow">
-        <span class="meal-title">핫식스</span>
+        <span class="meal-title">{{ this.name }}</span>
       </div>
     </div>
 
@@ -13,12 +13,12 @@
       </div>
 
 			<div class="control-box">
-				<span @click="check('b')" v-bind:class="{ active: select == 'b' }">아침</span>
-				<span @click="check('d')" v-bind:class="{ active: select == 'd' }">저녁</span>
-				<span @click="check('l')" v-bind:class="{ active: select == 'l' }">점심</span>
+				<span @click="check('breakfast')" v-bind:class="{ active: select == 'breakfast' }">아침</span>
+				<span @click="check('lunch')" v-bind:class="{ active: select == 'lunch' }">점심</span>
+				<span @click="check('dinner')" v-bind:class="{ active: select == 'dinner' }">저녁</span>
 				<span @click="check('g')" v-bind:class="{ active: select == 'g' }">간식</span>
 			</div>
-      <div class="fd-btn fd-btn-lg" @click="$router.push('/tab/addmeal')">Diary에 담기</div>
+      <div class="fd-btn fd-btn-lg" @click="submit()">Diary에 담기</div>
 
       <p class="title">{{ this.kcal }}Kcal</p>
 
@@ -79,10 +79,16 @@
 </template>
 
 <script>
+import { APIService } from '../api/APIService'
+import { async } from 'q'
+import { parse } from 'path'
+const apiService = new APIService()
 export default {
 	name: 'diary_',
 	data: () => ({
-		select: 'b',
+		food_id: '',
+		name: '',
+		select: 'breakfast',
 		count: 1,
 		amount: '250ml',
 		kcal: 0,
@@ -97,15 +103,41 @@ export default {
 		ca: 0,
 		co: 0,
 		na: 0,
-		ex1: '',
-		ex2: '',
+		ex1: '200 Nice',
+		ex2: '404 Foward',
+		clean_today: '',
 	}),
-	beforeMount: function() {
-		// API Call
+	beforeMount: async function() {
+		let id = location.pathname.split('/')[3]
+		let res = await apiService.foodInfo(id)
+
+		this.food_id = id
+		this.name = res.name
+		this.amount = res.volume
+		this.kcal = res.kcal
+		this.crab = res.carbohydrate
+		this.sugar = res.sugar
+		this.protein = res.protein
+		this.fat = res.fat
+		this.fat1 = res.saturated_fat
+		this.fat2 = res.monounsaturated_fat
+		this.ca = res.calcium
+		this.co = res.cholesterol
+		this.na = res.sodium
+
+		let date = new Date()
+		let month = date.getMonth() >= 10 ? date.getMonth() : '0' + date.getMonth()
+		let day = date.getDate() >= 10 ? date.getDate() : '0' + date.getDate()
+		let year = date.getFullYear()
+		this.clean_today = String(year) + String(month) + String(day)
 	},
 	methods: {
 		check: function(val) {
 			this.select = val
+		},
+		submit: async function() {
+			let res = await apiService.foodAddEat(this.clean_today, this.select, this.food_id)
+			console.log(res)
 		}
 	}
 }
