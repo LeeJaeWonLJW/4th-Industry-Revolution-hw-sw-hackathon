@@ -64,19 +64,19 @@ class Meal(object):
                     date=date,
                     user_id=user_object.pk,
                     breakfast=[food_id]
-                )
+                ).save()
             elif type == "lunch":
                 Food(
                     date=date,
                     user_id=user_object.pk,
                     lunch=[food_id]
-                )
+                ).save()
             elif type == "dinner":
                 Food(
                     date=date,
                     user_id=user_object.pk,
                     dinner=[food_id]
-                )
+                ).save()
         else:
             meal_object = Food.objects(Q(date=date) & Q(user_id=user_object.pk)).first()
 
