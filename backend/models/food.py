@@ -24,7 +24,7 @@ class Food(object):
                     end_point = "http://apis.data.go.kr/B553748/CertImgListService/getCertImgListService"
                     service_key = "9drLaXi%2BzFpI1aDvx0VonbgueyKClZeM7juSYEuM6pAmOxZLvtnZwtA0%2FGSUXDrq3VuUceE7lCpj1ynTTK64hw%3D%3D"
                     res = requests.get("{}?ServiceKey={}&prdlstReportNo={}&returnType={}".format(end_point, service_key, data_mysql['PRDLST_REPORT_NO'], 'json'))
-                    print(res)
+                    print(res.text)
                     data = json.loads(res)
                     print(data)
 
