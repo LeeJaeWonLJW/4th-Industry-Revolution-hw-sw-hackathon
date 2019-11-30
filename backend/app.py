@@ -434,7 +434,7 @@ def food_barcode_get_id():
 @app.route('/food/barcode/add/id', methods=['POST'])
 @jwt_required
 def food_barcode_add_id():
-    if isValidInput(['picture', 'name', 'volume', 'kcal', 'carbohydrate', 'sugar', 'protein', 'fat', 'saturate_fat', 'monounsaturated_fat', 'calcium', 'cholesterol', 'sodium']):
+    if isValidInput(['picture', 'name', 'volume', 'kcal', 'carbohydrate', 'sugar', 'protein', 'fat', 'saturated_fat', 'monounsaturated_fat', 'calcium', 'cholesterol', 'sodium']):
         return food.Food().barcode_add_id()
     else:
         return error.Error().invalid_input()
