@@ -57,8 +57,8 @@ class Food(object):
                             sodium=sodium.search(data).group(),
                             cholesterol=cholesterol.search(data).group()
                         ).save()
-            except:
-                pass
+            except Exception as e:
+                print(e)
 
         db_data = db_food.Food.objects(barcode=str(barcode_data))
         if len(db_data) == 0:
