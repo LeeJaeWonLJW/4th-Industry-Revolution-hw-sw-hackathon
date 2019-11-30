@@ -51,6 +51,10 @@ def hello():
         "msg": "Server is running now."
     }), 200
 
+#########################################
+#   Auth
+#########################################
+
 
 """
 @api {post} /auth/signin Login
@@ -166,12 +170,14 @@ def auth_signup():
     else:
         return error.Error().invalid_input()
 
+#########################################
+#   Friend
+#########################################
 
 """
-@apiDeprecated Developing
 @api {post} /user/friend/add Friend add
 @apiName Friend Add
-@apiGroup User
+@apiGroup Friend
 
 @apiHeader  {String}  BearerToken       user jwt token
 @apiParam {String} email
@@ -195,24 +201,29 @@ def auth_signup():
      "success": false,
      "msg": "invalid input"
  }
+@apiErrorExample {json} Can't Find
+ HTTP/1.1 200 OK
+ {
+    "success": false,
+    "msg": "fail to find added user"
+ }
 """
-@jwt_required
 @app.route('/user/friend/add', methods=['POST'])
+@jwt_required
 def user_friend_add():
-    if isValidInput(['phone']):
+    if isValidInput(['email']):
         return user.Friend().add()
     else:
         return error.Error().invalid_input()
 
 
 """
-@apiDeprecated Developing
 @api {post} /user/friend/search Friend search
 @apiName Friend Search
-@apiGroup User
+@apiGroup Friend
 
 @apiHeader  {String}  BearerToken       user jwt token
-@apiParam {String} phone
+@apiParam {String} email
 
 @apiSuccess {Boolean} success
 @apiSuccess {String} msg
@@ -221,7 +232,10 @@ def user_friend_add():
  HTTP/1.1 200 OK
  {
      "success": true,
-     "msg": "I can find your friend at the data."
+     "data": {
+        "name": (name),
+        "profile": (profile)
+     }
  }
 
 @apiError {Boolean} success
@@ -241,14 +255,47 @@ def user_friend_add():
     "msg": "can't find"
  }
 """
-@jwt_required
 @app.route('/user/friend/search', methods=['POST'])
+@jwt_required
 def user_friend_search():
-    if isValidInput(['phone']):
+    if isValidInput(['email']):
         return user.Friend().search()
     else:
         return error.Error().invalid_input()
 
+
+"""
+@api {get} /user/friend/lookup My Friends lookup
+@apiName My Friends Lookup
+@apiGroup Friend
+
+@apiHeader  {String}  BearerToken       user jwt token
+
+@apiSuccess {Boolean} success
+@apiSuccess {String} msg
+
+@apiSuccessExample {json} Success-Response
+ HTTP/1.1 200 OK
+ {
+     "success": true,
+     "length": (friends list length)
+     "friends": [
+        {
+            "name": (name),
+            "profile": (profile),
+            "weight": (weight),
+            "goal_weight": (goal_weight),
+            "now_weight": (now_weight),
+            "percentage": (weight goal do percentage)%
+        },
+        ...
+     ]
+ }
+"""
+@app.route('/user/friend/lookup', methods=['GET'])
+@jwt_required
+def user_friend_lookup():
+    return user.Friend().lookup()
 
 """
 @apiDeprecated Developing

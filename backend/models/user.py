@@ -9,7 +9,7 @@ from collections import OrderedDict
 class Friend(object):
     @staticmethod
     def search():
-        email = str(request.form['eamil'])
+        email = str(request.form['email'])
         user_object = db_auth.User.objects(email=email)
 
         if len(user_object) == 0:
@@ -88,5 +88,5 @@ class Flavor(object):
 
         return jsonify({
             "success": True,
-            "msg": "successfsudo ul set food flavor"
+            "msg": "successful set food flavor"
         })

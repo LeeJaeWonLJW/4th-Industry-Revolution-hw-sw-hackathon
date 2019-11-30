@@ -313,6 +313,246 @@ define({ "api": [
     "groupTitle": "Auth"
   },
   {
+    "type": "post",
+    "url": "/user/friend/add",
+    "title": "Friend add",
+    "name": "Friend_Add",
+    "group": "Friend",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "BearerToken",
+            "description": "<p>user jwt token</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": ""
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "msg",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response",
+          "content": "HTTP/1.1 200 OK\n{\n    \"success\": true,\n    \"msg\": \"add new friend at list\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": ""
+          },
+          {
+            "group": "Error 4xx",
+            "type": "String",
+            "optional": false,
+            "field": "msg",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response",
+          "content": "HTTP/1.1 200 OK\n{\n    \"success\": false,\n    \"msg\": \"invalid input\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Can't Find",
+          "content": "HTTP/1.1 200 OK\n{\n   \"success\": false,\n   \"msg\": \"fail to find added user\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./app.py",
+    "groupTitle": "Friend"
+  },
+  {
+    "type": "post",
+    "url": "/user/friend/search",
+    "title": "Friend search",
+    "name": "Friend_Search",
+    "group": "Friend",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "BearerToken",
+            "description": "<p>user jwt token</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": ""
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": ""
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "msg",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response",
+          "content": "HTTP/1.1 200 OK\n{\n    \"success\": true,\n    \"data\": {\n       \"name\": (name),\n       \"profile\": (profile)\n    }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": ""
+          },
+          {
+            "group": "Error 4xx",
+            "type": "String",
+            "optional": false,
+            "field": "msg",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response-1",
+          "content": "HTTP/1.1 200 OK\n{\n    \"success\": false,\n    \"msg\": \"invalid input\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Error-Response-2",
+          "content": "HTTP/1.1 200 OK\n{\n   \"success\": false,\n   \"msg\": \"can't find\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./app.py",
+    "groupTitle": "Friend"
+  },
+  {
+    "type": "get",
+    "url": "/user/friend/lookup",
+    "title": "My Friends lookup",
+    "name": "My_Friends_Lookup",
+    "group": "Friend",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "BearerToken",
+            "description": "<p>user jwt token</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": ""
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "msg",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response",
+          "content": "HTTP/1.1 200 OK\n{\n    \"success\": true,\n    \"length\": (friends list length)\n    \"friends\": [\n       {\n           \"name\": (name),\n           \"profile\": (profile),\n           \"weight\": (weight),\n           \"goal_weight\": (goal_weight),\n           \"now_weight\": (now_weight),\n           \"percentage\": (weight goal do percentage)%\n       },\n       ...\n    ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./app.py",
+    "groupTitle": "Friend"
+  },
+  {
     "deprecated": {
       "content": "Developing"
     },
@@ -591,197 +831,6 @@ define({ "api": [
         {
           "title": "Error-Response",
           "content": "HTTP/1.1 200 OK\n{\n    \"success\": false,\n    \"msg\": \"invalid input\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "./app.py",
-    "groupTitle": "User"
-  },
-  {
-    "deprecated": {
-      "content": "Developing"
-    },
-    "type": "post",
-    "url": "/user/friend/add",
-    "title": "Friend add",
-    "name": "Friend_Add",
-    "group": "User",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "BearerToken",
-            "description": "<p>user jwt token</p>"
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "email",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Boolean",
-            "optional": false,
-            "field": "success",
-            "description": ""
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "msg",
-            "description": ""
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response",
-          "content": "HTTP/1.1 200 OK\n{\n    \"success\": true,\n    \"msg\": \"add new friend at list\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "fields": {
-        "Error 4xx": [
-          {
-            "group": "Error 4xx",
-            "type": "Boolean",
-            "optional": false,
-            "field": "success",
-            "description": ""
-          },
-          {
-            "group": "Error 4xx",
-            "type": "String",
-            "optional": false,
-            "field": "msg",
-            "description": ""
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Error-Response",
-          "content": "HTTP/1.1 200 OK\n{\n    \"success\": false,\n    \"msg\": \"invalid input\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "./app.py",
-    "groupTitle": "User"
-  },
-  {
-    "deprecated": {
-      "content": "Developing"
-    },
-    "type": "post",
-    "url": "/user/friend/search",
-    "title": "Friend search",
-    "name": "Friend_Search",
-    "group": "User",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "BearerToken",
-            "description": "<p>user jwt token</p>"
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "phone",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Boolean",
-            "optional": false,
-            "field": "success",
-            "description": ""
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "msg",
-            "description": ""
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response",
-          "content": "HTTP/1.1 200 OK\n{\n    \"success\": true,\n    \"msg\": \"I can find your friend at the data.\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "fields": {
-        "Error 4xx": [
-          {
-            "group": "Error 4xx",
-            "type": "Boolean",
-            "optional": false,
-            "field": "success",
-            "description": ""
-          },
-          {
-            "group": "Error 4xx",
-            "type": "String",
-            "optional": false,
-            "field": "msg",
-            "description": ""
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Error-Response-1",
-          "content": "HTTP/1.1 200 OK\n{\n    \"success\": false,\n    \"msg\": \"invalid input\"\n}",
-          "type": "json"
-        },
-        {
-          "title": "Error-Response-2",
-          "content": "HTTP/1.1 200 OK\n{\n   \"success\": false,\n   \"msg\": \"can't find\"\n}",
           "type": "json"
         }
       ]
