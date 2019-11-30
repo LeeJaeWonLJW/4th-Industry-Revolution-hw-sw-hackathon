@@ -18,6 +18,7 @@ class Food(object):
                 curs = conn.cursor(pymysql.cursors.DictCursor)
                 curs.execute("SELECT * FROM barcode WHERE BRCD_NO={}".format(barcode_data))
                 data_mysql = curs.fetchall()[0]
+                print(data_mysql)
 
                 if data_mysql['haccp'] == 1:
                     #print(data_mysql['PRDLST_REPORT_NO'])
@@ -60,6 +61,7 @@ class Food(object):
                         ).save()
             except Exception as e:
                 print(e)
+                e.printstacktrace()
 
         db_data = db_food.Food.objects(barcode=str(barcode_data))
         if len(db_data) == 0:
