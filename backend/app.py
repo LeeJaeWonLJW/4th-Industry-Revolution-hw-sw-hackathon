@@ -298,6 +298,41 @@ def user_friend_lookup():
 #########################################
 #   Food
 #########################################
+"""
+@api {post} /food/search/name Search by Name
+@apiName Search by Name
+@apiGroup Food
+
+@apiHeader  {String}  BearerToken       user jwt token
+@apiParam {String} name     food name
+
+@apiSuccess {Boolean} success
+@apiSuccess {String} msg
+
+@apiSuccessExample {json} Success-Response
+ HTTP/1.1 200 OK
+ {
+     "success": true,
+     "food_id": (food_id)
+ }
+
+@apiError {Boolean} success
+@apiError {String} msg
+
+@apiErrorExample {json} Error-Response
+ HTTP/1.1 200 OK
+ {
+     "success": false,
+     "msg": "invalid input"
+ }
+ """
+@app.route('/food/search/name', methods=['POST'])
+@jwt_required
+def food_search_name():
+    if isValidInput(['name']):
+        return food.Food().search_by_name()
+    else:
+        return error.Error().invalid_input()
 
 """
 @api {post} /food/barcode/get/id Barcode based Food ID Return API

@@ -84,6 +84,16 @@ class Food(object):
             }), 200
 
     @staticmethod
+    def search_by_name():
+        name = request.form['name']
+
+        return jsonify({
+            "success": True,
+            "food_id": db_food.Food.objects(name=name).first().pk
+        }), 200
+
+
+    @staticmethod
     def barcode_add_id():
         barcode = request.form['barcode']
         picture = request.form['picture']

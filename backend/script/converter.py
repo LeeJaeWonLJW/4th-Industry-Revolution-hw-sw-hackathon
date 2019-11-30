@@ -9,7 +9,7 @@ data = pandas.read_csv("food.csv")
 print(data)
 ddata = data.drop(['name'], axis=1)
 # x <-> y
-#ddata = pandas.DataFrame(ddata.transpose())
+ddata = pandas.DataFrame(ddata.transpose())
 
 print(data.get(['name']))
 
@@ -25,10 +25,12 @@ pdata = pandas.DataFrame(MDS(n_components=2).fit_transform(df_dist))
 print("result-MDS")
 print(pdata)
 
-pdata.insert(0, "name", data.get(['name'])['name'].tolist(), True)
+
+#pdata.insert(0, "name", data.get(['name'])['name'].tolist(), True)
+
 # x <-> y
-#print(len(data.columns[1:]))
-#pdata.insert(0, "name", list(data.columns[1:]), True)
+print(len(data.columns[1:]))
+pdata.insert(0, "name", list(data.columns[1:]), True)
 
 
 print(pdata)
