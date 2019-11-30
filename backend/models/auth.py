@@ -28,6 +28,7 @@ class Auth(object):
                         "height": user_object[0].height,
                         "weight": user_object[0].weight,
                         "goal_weight": user_object[0].goal_weight,
+                        "now_weight": user_object[0].now_weight,
                         "purpose": user_object[0].purpose,
                         "duration": user_object[0].duration
                     })
@@ -58,6 +59,7 @@ class Auth(object):
                 height=height,
                 weight=weight,
                 goal_weight=goal_weight,
+                now_weight=weight,
                 purpose=purpose,
                 duration=duration,
                 profile=profile

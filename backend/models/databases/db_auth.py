@@ -29,6 +29,9 @@ class User(Document):
     goal_weight = StringField(
         required=True
     )
+    now_weight = StringField(
+        required=True
+    )
     purpose = StringField(
         required=True
     )
