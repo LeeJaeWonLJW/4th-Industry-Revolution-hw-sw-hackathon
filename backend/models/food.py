@@ -61,7 +61,6 @@ class Food(object):
                         ).save()
             except Exception as e:
                 print(e)
-                e.printstacktrace()
 
         db_data = db_food.Food.objects(barcode=str(barcode_data))
         if len(db_data) == 0:
