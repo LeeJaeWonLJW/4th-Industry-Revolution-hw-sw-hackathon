@@ -71,7 +71,7 @@ class Friend(object):
                 "weight": friend_object.weight,
                 "goal_weight": friend_object.goal_weight,
                 "now_weight": friend_object.now_weight,
-                "percentage": (friend_object.weight - friend_object.now_weight) / (friend_object.weight - friend_object.goal_weight) * 100 + "%"
+                "percentage": (friend_object.weight - friend_object.now_weight) / (friend_object.weight - friend_object.goal_weight) * 100
             })
 
         return jsonify(response), 200
