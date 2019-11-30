@@ -25,7 +25,7 @@ class Food(object):
                     service_key = "9drLaXi%2BzFpI1aDvx0VonbgueyKClZeM7juSYEuM6pAmOxZLvtnZwtA0%2FGSUXDrq3VuUceE7lCpj1ynTTK64hw%3D%3D"
                     res = requests.get("{}?ServiceKey={}&prdlstReportNo={}&returnType={}".format(end_point, service_key, data_mysql['PRDLST_REPORT_NO'], 'json'))
                     print(res.text)
-                    data = json.loads(res)
+                    data = json.loads(res.text)
                     print(data)
 
                     if not data['list'][0]['nutrient'] in "알수없음":
