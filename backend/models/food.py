@@ -152,6 +152,7 @@ class Food(object):
                 "success": True,
                 "name": food_object.name,
                 "kcal": food_object.kcal,
+                "volume": food_object.volume,
                 "carbohydrate": food_object.carbohydrate,
                 "sugar": food_object.sugar,
                 "protein": food_object.protein,
