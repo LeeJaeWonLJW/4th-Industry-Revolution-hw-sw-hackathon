@@ -89,7 +89,7 @@ class Food(object):
 
         return jsonify({
             "success": True,
-            "food_id": db_food.Food.objects(name=name).first().pk
+            "food_id": str(db_food.Food.objects(name=name).first().pk)
         }), 200
 
 
