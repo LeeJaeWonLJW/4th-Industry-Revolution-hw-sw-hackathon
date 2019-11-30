@@ -227,6 +227,13 @@ define({ "api": [
             "group": "Parameter",
             "type": "String",
             "optional": false,
+            "field": "goal_weight",
+            "description": ""
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
             "field": "purpose",
             "description": "<p>lose_weight or healthy</p>"
           },

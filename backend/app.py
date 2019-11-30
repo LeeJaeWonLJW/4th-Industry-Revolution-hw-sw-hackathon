@@ -119,6 +119,7 @@ def auth_signin():
 @apiParam {String} age
 @apiParam {String} height
 @apiParam {String} weight
+@apiParam {String} goal_weight
 @apiParam {String} purpose      lose_weight or healthy 
 @apiParam {String} duration
 @apiParam {File}   profile      image by png
