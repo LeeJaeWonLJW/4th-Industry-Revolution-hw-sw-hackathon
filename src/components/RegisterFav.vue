@@ -401,9 +401,7 @@ export default {
           let data = await JSON.parse(window.localStorage.getItem('data'))
           let gender = await window.localStorage.getItem('gender')
           let info = await JSON.parse(window.localStorage.getItem('info'))
-          let foodData = await JSON.parse(
-            window.localStorage.getItem('foodData')
-          )
+          let foodData = await JSON.parse(window.localStorage.getItem('foodData'))
 
           let token = await apiService.register(
             data.phone,
@@ -421,12 +419,8 @@ export default {
 
           if (token.success === false || token.msg == 'id overlapped') {
 						alert('이미 존재하는 계정입니다')
-						// this.$router.push('/')
-					}
-					
-					let accessToken = window.localStorage.getItem('accessToken')
-					console.log(accessToken)
-					if (accessToken) {
+						this.$router.push('/')
+					} else {
 						let end = await apiService.setFlavor(foodData)
 						if (end.success === true) this.$router.push('/tab/index')
 					}

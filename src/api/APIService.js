@@ -12,7 +12,10 @@ export class APIService {
 
 		try {
 			const response = await axios.post(url, form)
-			axios.defaults.headers.common['Authorization'] = `BearerToken ${response.data.accessToken}`
+			if(response.data.success == true) {
+				localStorage.accessToken = response.data.accessToken
+				axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.accessToken}`
+			}
 
 			return response.data
 		} catch (e) {
@@ -39,7 +42,10 @@ export class APIService {
 
     try {
 			const response = await axios.post(url, form)
-			axios.defaults.headers.common['Authorization'] = `BearerToken ${response.data.accessToken}`
+			if(response.data.success == true) {
+				localStorage.accessToken = response.data.accessToken
+				axios.defaults.headers.common['Authorization'] = `Bearer ${response.data.accessToken}`
+			}
 
       return response.data
     } catch (e) {
@@ -49,11 +55,13 @@ export class APIService {
 
   async setFlavor (flavor) {
     let form = new FormData()
-    form.append('flavor', flavor)
-    const url = `${apiUrl}/ai/food/add`
+		form.append('favorite', flavor)
+		
+		const url = `${apiUrl}/ai/food/add`
+		axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.accessToken}`;
 
     try {
-      const response = await axios.post(url, form, headers)
+      const response = await axios.post(url, form)
       return response.data
     } catch (e) {
       return e

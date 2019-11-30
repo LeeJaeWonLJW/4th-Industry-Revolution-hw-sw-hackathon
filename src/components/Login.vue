@@ -50,13 +50,6 @@
 
 		<div v-if="login_visible" class='register'>
       <div class='footer-group'>
-        <div @click="$refs.file.click()" class='profile'>
-          <div class="profile-pic">
-            <img v-if="!profile_img" src='../assets/icon/camera.png' />
-            <img v-else :src="this.profile_img" />
-          </div>
-        </div>
-
         <div class="form">
 					<fieldset class='register-input'>
             <input v-model="login_phone" type='text' placeholder='이름' />
@@ -115,8 +108,8 @@ export default {
 		},
 		login_submit: async function() {
       let json = {
-        phone: this.phone,
-        password: this.password
+        phone: this.login_phone,
+        password: this.login_password
 			}
 			
 			if(!json.phone || !json.password) {

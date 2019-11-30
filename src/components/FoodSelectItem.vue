@@ -33,10 +33,10 @@ export default {
     check: async function() {
 			let foodData = await window.localStorage.getItem('foodData')
 			let array = foodData != 'undefined' ? JSON.parse(foodData) : []
-			let check = this.find(array, this.label)
+			let check = this.find(array, this.food)
 
 			if(!this.active) {
-				if(check) await array.push(this.label)
+				if(check) await array.push(this.food)
 				
 				await this.$emit('send-add')
 				this.active = true
