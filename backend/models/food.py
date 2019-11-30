@@ -95,7 +95,7 @@ class Food(object):
 
     @staticmethod
     def barcode_add_id():
-        barcode = request.form['barcode']
+        #barcode = request.form['barcode']
         picture = request.form['picture']
 
         name = request.form['name']

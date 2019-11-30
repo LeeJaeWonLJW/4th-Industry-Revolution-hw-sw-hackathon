@@ -303,7 +303,7 @@ def user_friend_lookup():
 @apiName Search by Name
 @apiGroup Food
 
-@apiHeader  {String}  BearerToken       user jwt token
+@apiHeadeKr  {String}  BearerToken       user jwt token
 @apiParam {String} name     food name
 
 @apiSuccess {Boolean} success
