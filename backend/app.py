@@ -78,6 +78,7 @@ def hello():
     "age": (age),
     "height": (height),
     "weight": (weight),
+    "goal_weight": (goal_weight),
     "purpose": (purpose)
  }
 
@@ -111,7 +112,7 @@ def auth_signin():
 @apiName Register
 @apiGroup Auth
 
-@apiParam {String} phone
+@apiParam {String} email
 @apiParam {String} password
 @apiParam {String} name
 @apiParam {String} gender       male or female
@@ -135,12 +136,13 @@ def auth_signin():
 
  JWT Token Identity Spec
  {
-    "email": (phone),
+    "email": (email),
     "name": (name),
     "gender": (gender),
     "age": (age),
     "height": (height),
     "weight": (weight),
+    "goal_weight": (goal_weight),
     "purpose": (purpose),
     "duration": (duration),
     "profile": (profile image)
@@ -158,7 +160,7 @@ def auth_signin():
 """
 @app.route('/auth/signup', methods=['POST'])
 def auth_signup():
-    if isValidInput(['email', 'password', 'name', 'gender', 'age', 'height', 'weight', 'purpose', 'duration', 'profile']):
+    if isValidInput(['email', 'password', 'name', 'gender', 'age', 'height', 'weight', 'goal_weight', 'purpose', 'duration', 'profile']):
         return auth.Auth().signup()
     else:
         return error.Error().invalid_input()
@@ -171,7 +173,7 @@ def auth_signup():
 @apiGroup User
 
 @apiHeader  {String}  BearerToken       user jwt token
-@apiParam {String} phone
+@apiParam {String} email
 
 @apiSuccess {Boolean} success
 @apiSuccess {String} msg

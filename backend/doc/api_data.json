@@ -124,7 +124,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"success\": true,\n    \"accessToken\": (jwt token)\n}\n\nJWT Token Identity Spec\n{\n   \"email\": (email),\n   \"name\": (name),\n   \"gender\": (gender),\n   \"age\": (age),\n   \"height\": (height),\n   \"weight\": (weight),\n   \"purpose\": (purpose)\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"success\": true,\n    \"accessToken\": (jwt token)\n}\n\nJWT Token Identity Spec\n{\n   \"email\": (email),\n   \"name\": (name),\n   \"gender\": (gender),\n   \"age\": (age),\n   \"height\": (height),\n   \"weight\": (weight),\n   \"goal_weight\": (goal_weight),\n   \"purpose\": (purpose)\n}",
           "type": "json"
         }
       ]
@@ -178,7 +178,7 @@
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "phone",
+            "field": "email",
             "description": ""
           },
           {
@@ -269,7 +269,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"success\": true,\n    \"msg\": \"successful created new user\",\n    \"accessToken\": (jwt token)\n}\n\nJWT Token Identity Spec\n{\n   \"email\": (phone),\n   \"name\": (name),\n   \"gender\": (gender),\n   \"age\": (age),\n   \"height\": (height),\n   \"weight\": (weight),\n   \"purpose\": (purpose),\n   \"duration\": (duration),\n   \"profile\": (profile image)\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"success\": true,\n    \"msg\": \"successful created new user\",\n    \"accessToken\": (jwt token)\n}\n\nJWT Token Identity Spec\n{\n   \"email\": (email),\n   \"name\": (name),\n   \"gender\": (gender),\n   \"age\": (age),\n   \"height\": (height),\n   \"weight\": (weight),\n   \"goal_weight\": (goal_weight),\n   \"purpose\": (purpose),\n   \"duration\": (duration),\n   \"profile\": (profile image)\n}",
           "type": "json"
         }
       ]
@@ -621,7 +621,7 @@
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "phone",
+            "field": "email",
             "description": ""
           }
         ]

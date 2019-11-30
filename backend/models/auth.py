@@ -27,6 +27,7 @@ class Auth(object):
                         "age": user_object[0].age,
                         "height": user_object[0].height,
                         "weight": user_object[0].weight,
+                        "goal_weight": user_object[0].goal_weight,
                         "purpose": user_object[0].purpose,
                         "duration": user_object[0].duration
                     })
@@ -43,6 +44,7 @@ class Auth(object):
             age = str(request.form['age'])
             height = str(request.form['height'])
             weight = str(request.form['weight'])
+            goal_weight = str(request.form['goal_weight'])
             purpose = str(request.form['purpose'])
             duration = str(request.form['duration'])
             profile = str(request.form['profile'])
@@ -55,6 +57,7 @@ class Auth(object):
                 age=age,
                 height=height,
                 weight=weight,
+                goal_weight=goal_weight,
                 purpose=purpose,
                 duration=duration,
                 profile=profile
@@ -70,6 +73,7 @@ class Auth(object):
                     "age": age,
                     "height": height,
                     "weight": weight,
+                    "goal_weight": goal_weight,
                     "purpose": purpose,
                     "duration": duration
                 })
