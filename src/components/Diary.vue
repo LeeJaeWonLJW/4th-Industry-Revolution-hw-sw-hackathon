@@ -51,7 +51,7 @@
       </div>
 
       <div class="diary-update">
-        <div class="btn-kg-update">
+        <div class="btn-kg-update" @click="visible_form = true">
           오늘 몸무게 업데이트하기
         </div>
 
@@ -94,6 +94,24 @@
         </div>
       </div>
     </div>
+
+		<div v-if="visible_form" class="overlay" @click="visible_form=false"></div>
+		<div v-if="visible_form" class="update-form">
+			<div class="update-form-header">
+				몸무게 업데이트
+				<span class="pull-right" @click="visible_form=false">&#215;</span>	
+			</div>
+			<div class="update-form-body">
+				<div style="width: 100%;">
+					<label>KG</label>
+					<input type="number">
+				</div>
+				
+				<div style='display: -webkit-inline-box; margin: 24px 0;'>
+					<button class="btn">입력</button>
+				</div>
+			</div>
+		</div>
   </div>
 </template>
 
@@ -107,11 +125,12 @@ export default {
 	name: 'diary',
 	data: () => ({
 		kcal: 0,
-		carb: 0,
+		crab: 0,
 		protein: 0,
 		fat: 0,
 		goal_weight: 0,
 		now_weight: 0,
+		visible_form: false,
 	}),
 	async beforeMount() {
 		if(!localStorage.accessToken) this.$router.push('/')
@@ -121,13 +140,11 @@ export default {
 		this.goal_weight = payload.goal_weight
 		this.now_weight = payload.now_weight
 
-		let nut = await apiService.get_todayNutrient()
-		this.kcal = nut.data.kcal
-		this.crab = nut.data.carb
-		this.protein = nut.data.protein
-		this.fat = nut.data.fat
-
-		console.log(payload, nut)
+		// let nut = await apiService.get_todayNutrient()
+		// this.kcal = nut.data.kcal
+		// this.crab = nut.data.carb
+		// this.protein = nut.data.protein
+		// this.fat = nut.data.fat
 	}
 }
 </script>
@@ -135,6 +152,73 @@ export default {
 <style scoped>
 .pull-left { float: left; }
 .pull-right { float: right; }
+
+.update-form {
+	width: 300px;
+	height: 200px;
+	position: fixed;
+	top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+	z-index: 99;
+	background-color: #ffffff;
+	border-radius: 20px;
+	box-shadow: 0 1px 4px 1px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	transition: all 0.5s ease-out;
+}
+.update-form-header {
+	display: block;
+	position: relative;
+	padding: 10px 20px;
+	border-radius: 20px 20px 0 0;
+	background-color: #91b5f3;
+	color: #ffffff;
+	font-size: 16px;
+}
+.update-form-header span {
+	font-size: 16px;
+}
+.update-form-body {
+	position: relative;
+	padding: 20px;
+	padding-top: 40px;
+	text-align: center;
+}
+.update-form-body label {
+	position: absolute;
+	right: 20%;
+}
+.update-form-body input {
+	width: 70%;
+	border: 0;
+	border-bottom: 2px solid #8f8f8f;
+	padding: 4px;
+}
+.update-form-body input:focus {
+	outline: none;
+}
+.update-form-body button {
+	display: block;
+	width: 54px;
+	height: 24px;
+	border-radius: 12px;
+	border: 1px solid #91b5f3;
+	background-color: transparent;
+	color: #91b5f3;
+}
+.overlay {
+  position: fixed; /* Sit on top of the page content */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255,255,255,0.5); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+	transition: all 0.5s ease-out;
+}
 
 .top {
   position: relative;
