@@ -20,13 +20,13 @@ class Food(object):
                 data_mysql = curs.fetchall()[0]
 
                 if data_mysql['haccp'] == 1:
-                    print(data_mysql['PRDLST_REPORT_NO'])
+                    #print(data_mysql['PRDLST_REPORT_NO'])
                     end_point = "http://apis.data.go.kr/B553748/CertImgListService/getCertImgListService"
                     service_key = "9drLaXi%2BzFpI1aDvx0VonbgueyKClZeM7juSYEuM6pAmOxZLvtnZwtA0%2FGSUXDrq3VuUceE7lCpj1ynTTK64hw%3D%3D"
                     res = requests.get("{}?ServiceKey={}&prdlstReportNo={}&returnType={}".format(end_point, service_key, data_mysql['PRDLST_REPORT_NO'], 'json'))
-                    print(res.text)
+                    #print(res.text)
                     data = json.loads(res.text)
-                    print(data)
+                    print(data['list'])
 
                     if not data['list'][0]['nutrient'] in "알수없음":
                         remover = re.compile('[ \\{\\}\\[\\]\\/?.,;:|\\)*~`!^\\-_+<>@\\#$201705484642%&\\\\=\\(\'"※]')
