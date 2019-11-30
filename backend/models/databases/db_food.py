@@ -3,10 +3,7 @@ from mongoengine import *
 connect('foodiet')
 
 class Food(Document):
-    barcode = StringField(
-        required=True,
-        unique=True
-    )
+    barcode = StringField()
     name = StringField()
 
     kcal = StringField()
@@ -18,3 +15,4 @@ class Food(Document):
     monounsaturated_fat = StringField()
     calcium = StringField()
     sodium = StringField()
+    cholesterol = StringField()

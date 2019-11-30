@@ -418,6 +418,7 @@ def nutrient_today_lookup():
     return nutrient.NutrientToday().lookup()
 
 
+
 @jwt_required
 @app.route('/food/barcode', methods=['POST'])
 def food_barcode():
@@ -432,6 +433,7 @@ def food_barcode():
 @apiGroup AI
 
 @apiHeader  {String}  BearerToken       user jwt token
+@apiParam {String} favorite     Write with korean
 
 @apiSuccess {Boolean} success
 @apiSuccess {String} msg
