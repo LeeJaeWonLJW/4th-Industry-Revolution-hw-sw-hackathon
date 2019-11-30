@@ -17,8 +17,9 @@ class Food(object):
                 conn = pymysql.connect(host='localhost', user='root', password='worldstar3', db='food', charset='utf8', autocommit=True)
                 curs = conn.cursor(pymysql.cursors.DictCursor)
                 curs.execute("SELECT * FROM barcode WHERE BRCD_NO={}".format(barcode_data))
-                data_mysql = curs.fetchall()[0]
+                data_mysql = curs.fetchall()
                 print(data_mysql)
+                data_mysql = data_mysql[0]
 
                 if data_mysql['haccp'] == 1:
                     #print(data_mysql['PRDLST_REPORT_NO'])
