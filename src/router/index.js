@@ -56,7 +56,7 @@ export default new Router({
           component: AddUser
         },
         {
-          path: 'addmeal',
+          path: 'addmeal/:type',
           name: 'addmeal',
           component: AddMeal
         },

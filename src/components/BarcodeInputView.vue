@@ -13,18 +13,21 @@
 
     <div class="contents">
       <div class="add-item-box">
-        <span class="title">추가한 항목:</span>
-        <div class="item">
-					<div class="pull-left" @click="$router.push('/tab/mealdetail')">
-						<span class="title">핫식스</span>
+        <span class="title">검색 결과:</span>
+        <div class="item" v-for="item in searchList" v-bind:key="item.food_id">
+					<div class="pull-left" @click="$router.push('/tab/mealdetail' + item.food_id)">
+						<span class="title">{{ item.name }}</span>
 						<span class="info">115 Kcal, 1캔 (240ml)</span>
 					</div>
 					<div class="pull-right">
-					<span style="padding-top: 12px; padding-right:8px;"><img :src="this.check ? require('../assets/icon/un_like.png') : require('../assets/icon/like.png')" @click="this.check = !this.check"></span>
-					<span style="padding-top: 6px; padding-right:4px;" class="close" @click="this.check = false">&#215;</span>
+						<span style="padding-top: 12px; padding-right:8px;"><img :src="0 ? require('../assets/icon/un_like.png') : require('../assets/icon/like.png')"></span>
 					</div>
         </div>
       </div>
+
+			<!-- <span style="padding-top: 12px; padding-right:8px;"><img :src="this.check ? require('../assets/icon/un_like.png') : require('../assets/icon/like.png')" @click="this.check = !this.check"></span>
+						<span style="padding-top: 6px; padding-right:4px;" class="close" @click="this.check = false">&#215;</span> -->
+
     </div>
   </div>
 </template>
@@ -40,15 +43,19 @@ export default {
 	data: () => ({
 		check: false,
 		search: '',
+		searchList: Array,
 	}),
 	methods: {
 		submit: async function() {
+			let array = []
 			let res = await apiService.foodSearch(this.search)
-			if(res.success != true) {
-				let res_name = await apiService.foodSearch_name(this.search)
-			}
+			if(res.success == true) array.push({ name: this.search, food_id: res.food_id })
+			
+			let res2 = await apiService.foodSearch_name(this.search)
+			if(res2.success == true) array.push({ name: this.search, food_id: res.food_id })
 
-			console.log(res, res_name)
+			this.searchList = array
+			console.log(this.searchList)
 		}
 	}
 }

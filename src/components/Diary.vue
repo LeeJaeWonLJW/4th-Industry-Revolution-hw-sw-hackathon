@@ -62,7 +62,7 @@
               <p>아침 추가</p>
               <p>추천 498 - 697 Kcal</p>
             </div>
-            <a class="btn-plus" @click="$router.push('/tab/addmeal')"></a>
+            <a class="btn-plus" @click="$router.push('/tab/addmeal/breakfast')"></a>
           </div>
 
           <div class="item">
@@ -71,7 +71,7 @@
               <p>점심 추가</p>
               <p>추천 498 - 697 Kcal</p>
             </div>
-            <a class="btn-plus" @click="$router.push('/tab/addmeal')"></a>
+            <a class="btn-plus" @click="$router.push('/tab/addmeal/lunch')"></a>
           </div>
 
           <div class="item">
@@ -80,7 +80,7 @@
               <p>저녁 추가</p>
               <p>추천 498 - 697 Kcal</p>
             </div>
-            <a class="btn-plus" @click="$router.push('/tab/addmeal')"></a>
+            <a class="btn-plus" @click="$router.push('/tab/addmeal/dinner')"></a>
           </div>
 
           <div class="item">
@@ -89,7 +89,7 @@
               <p>간식 추가</p>
               <p>추천 498 - 697 Kcal</p>
             </div>
-            <a class="btn-plus" @click="$router.push('/tab/addmeal')"></a>
+            <a class="btn-plus" @click="$router.push('/tab/addmeal/none')"></a>
           </div>
         </div>
       </div>
@@ -135,7 +135,7 @@ export default {
 		clean_today: '',
 		update_weight: 0,
 	}),
-	async beforeMount() {
+	beforeMount: async function() {
 		let date = new Date()
 		let month = date.getMonth() >= 10 ? date.getMonth() : '0' + date.getMonth()
 		let day = date.getDate() >= 10 ? date.getDate() : '0' + date.getDate()
@@ -146,15 +146,31 @@ export default {
 		if(!localStorage.accessToken) this.$router.push('/')
 
 		this.set_user()
-		// let nut = await apiService.get_todayNutrient()
-		// this.kcal = nut.data.kcal
-		// this.crab = nut.data.carb
-		// this.protein = nut.data.protein
-		// this.fat = nut.data.fat
 
-		let res = apiService.get_meal(this.clean_today)
-		let pres = Promise.reslove(res)
-		console.log(pres)
+		let res = await apiService.get_meal(this.clean_today)
+	
+		await res.breakfast.forEach(async (key, index) => {
+			let info = await apiService.foodInfo(key)
+			this.kcal += info.kcal
+			this.protein += info.protein
+			this.crab += info.carbohydrate
+			this.fat += info.fat
+		})
+		await res.lunch.forEach(async (key, index) => {
+			let info = await apiService.foodInfo(key)
+			this.kcal += info.kcal
+			this.protein += info.protein
+			this.crab += info.carbohydrate
+			this.fat += info.fat
+		})
+		await res.dinner.forEach(async (key, index) => {
+			let info = await apiService.foodInfo(key)
+			this.kcal += info.kcal
+			this.protein += info.protein
+			this.crab += info.carbohydrate
+			this.fat += info.fat
+		})
+
 	},
 	methods: {
 		set_user: async function() {

@@ -13,14 +13,14 @@
     <div class="contents">
       <div class="add-item-box">
         <span class="title">추가한 항목:</span>
-        <div class="item">
-					<div class="pull-left" @click="$router.push('/tab/mealdetail')">
-						<span class="title">핫식스</span>
+        <div class="item" v-for="item in searchList" v-bind:key="item.food_id">
+					<div class="pull-left" @click="$router.push('/tab/mealdetail' + item.food_id)">
+						<span class="title">{{ item.name }}</span>
 						<span class="info">115 Kcal, 1캔 (240ml)</span>
 					</div>
 					<div class="pull-right">
-					<span style="padding-top: 12px; padding-right:8px;"><img :src="this.check ? require('../assets/icon/un_like.png') : require('../assets/icon/like.png')" @click="this.check = !this.check"></span>
-					<span style="padding-top: 6px; padding-right:4px;" class="close" @click="this.check = false">&#215;</span>
+						<span style="padding-top: 12px; padding-right:8px;"><img :src="0 ? require('../assets/icon/un_like.png') : require('../assets/icon/like.png')"></span>
+						<span style="padding-top: 6px; padding-right:4px;">&#215;</span>
 					</div>
         </div>
       </div>
@@ -29,11 +29,30 @@
 </template>
 
 <script>
+import { APIService } from '../api/APIService'
+import { async } from 'q'
+import { parse } from 'path'
+const apiService = new APIService()
+
 export default {
 	name: 'addMeal',
 	data: () => ({
-		check: false
-	})
+		check: false,
+		clean_today: '',
+		searchList: Array,
+	}),
+	beforeMount: async function() {
+		let date = new Date()
+		let month = date.getMonth() >= 10 ? date.getMonth() : '0' + date.getMonth()
+		let day = date.getDate() >= 10 ? date.getDate() : '0' + date.getDate()
+		let year = date.getFullYear()
+		this.clean_today = String(year) + String(month) + String(day)
+
+		let id = location.pathname.split('/')[3]
+		let res = await apiService.get_meal(this.clean_today)
+
+		console.log(res.lunch)
+	},
 }
 </script>
 
