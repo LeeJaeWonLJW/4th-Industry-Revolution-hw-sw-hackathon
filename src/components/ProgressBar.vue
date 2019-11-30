@@ -2,7 +2,7 @@
   <div :class="this.column">
     <p class="goal-kg">{{this.goal}}KG</p>
     <div class="progress-bar">
-      <div :style="this.height" class="percent" :data-value="this.value"></div>
+      <div v-bind:style="this.height" class="percent" v-bind:data-value="this.value"></div>
     </div>
     <p class="start-kg">{{this.pre}}KG</p>
     <img class="user-img" :src="this.image" />
@@ -15,11 +15,11 @@ export default {
   props: {
     goal: {
       type: Number,
-      default: 52
+      default: 0
     },
     pre: {
       type: Number,
-      default: 60
+      default: 0
     },
     active: {
       type: Boolean,
@@ -27,16 +27,16 @@ export default {
     },
     value: {
       type: String,
-      default: '40%'
+      default: ''
     },
     image: {
       type: String,
-      default: '../assets/user1.png'
+      default: ''
     }
   },
   computed: {
     column: function() {
-      return this.active ? 'col-4-sm goal-box active' : 'col-2-sm goal-box'
+      return this.active ? 'per-32 goal-box active' : 'per-16 goal-box'
     },
     height: function() {
       return 'height: ' + this.value + ';'
@@ -46,6 +46,16 @@ export default {
 </script>
 
 <style scoped>
+.scroll-box {
+	display: -webkit-inline-box;
+	overflow-x: scroll;
+}
+.per-16 {
+	width: 16.6%;
+}
+.per-32 {
+	width: 34%;
+}
 .goal-box {
   align-items: center;
 }
@@ -105,7 +115,6 @@ export default {
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 0px;
 
   content: "";
   border-radius: 12px;

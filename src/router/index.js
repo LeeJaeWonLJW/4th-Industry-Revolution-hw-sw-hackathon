@@ -13,6 +13,7 @@ import AddMeal from '@/components/AddMeal'
 import DiaryDetail from '@/components/DiaryDetail'
 import MealDetail from '@/components/MealDetail'
 import BarcodeView from '@/components/BarcodeView'
+import BarcodeInputView from '@/components/BarcodeInputView'
 import DefaultLayout from '../layouts/Default'
 
 Vue.use(Router)
@@ -68,6 +69,11 @@ export default new Router({
           path: 'barcode',
           name: 'barcode-view',
           component: BarcodeView
+				},
+				{
+          path: 'barcode/input',
+          name: 'barcode-input-view',
+          component: BarcodeInputView
         }
       ]
     },

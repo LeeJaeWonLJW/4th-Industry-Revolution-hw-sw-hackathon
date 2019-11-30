@@ -37,19 +37,8 @@
 
       <div class="row user-friends">
 				<ProgressBar v-for="item in friendList" v-bind:active="item.index == 2 ? true : false"
-					v-bind:key="item.index" v-bind:image="item.profile" v-bind:data-value="item.percent"
+					v-bind:key="item.index" v-bind:image="item.profile" v-bind:value="item.percent"
 					v-bind:goal="item.goal_weight" v-bind:pre="item.weight" />
-        <!-- <ProgressBar :image="require('../assets/user1.png')"
-                      value="40%"></ProgressBar>
-        <ProgressBar :image="require('../assets/user2.png')"
-                     value="-10%"></ProgressBar>
-        <ProgressBar :image="require('../assets/profile.png')"
-                     :active='true'
-                     value="60%"></ProgressBar>
-        <ProgressBar :image="require('../assets/user3.png')"
-                     value="70%"></ProgressBar>
-        <ProgressBar :image="require('../assets/user4.png')"
-                     value="80%"></ProgressBar> -->
       </div>
     </div>
 
@@ -103,53 +92,57 @@ export default {
 		this.phone = payload.email
 		this.name = payload.name
 		this.purpose = payload.purpose
-		this.weight = payload.weight
-		this.goal_weight = payload.goal_weight
-		this.now_weight = payload.now_weight
+		this.weight = parseInt(payload.weight)
+		this.goal_weight = parseInt(payload.goal_weight)
+		this.now_weight = parseInt(payload.now_weight)
 
 		let profile = await apiService.friendSearch(this.phone)
 		this.profile = 'data:image/png;base64,' + profile.data.profile.replace('data:image/png;base64,', '').replace('data:image/jpeg;base64,', '')
 
 		let friendList = await apiService.friendList()
 		let array = []
+		let tmp = 0
 
 		await friendList.friends.forEach((obj, index) => {
 			if(index == 2) {
 				let data = {}
 				data.index = index
-				data.percent = Math.abs( (parseInt(this.now_weight) - parseInt(this.weight)) / (parseInt(this.goal_weight)-parseInt(this.weight)) ) * 100 + '%'
+				data.percent = Math.abs( (this.now_weight - this.weight) / (this.goal_weight - this.weight) ) * 100 + '%'
 				data.profile = this.profile
-				data.weight = this.weight
-				data.goal_weight = this.goal_weight
+				data.weight = parseInt(this.weight)
+				data.goal_weight = parseInt(this.goal_weight)
 				array.push(data)
-				index++
+				tmp = 1
 			}
 
 			let data = {}
-			data.index = index
-			data.percent = Math.abs( (parseInt(obj.now_weight) - parseInt(obj.weight)) / (parseInt(obj.goal_weight)-parseInt(obj.weight)) ) * 100 + '%'
-			data.profile = obj.profile
-			data.weight = obj.weight
-			data.goal_weight = obj.goal_weight
+			data.index = index + tmp
+			data.percent = obj.percentage + '%'
+			data.profile = 'data:image/png;base64,' + obj.profile.replace('data:image/png;base64,', '').replace('data:image/jpeg;base64,', '')
+			data.weight = parseInt(obj.weight)
+			data.goal_weight = parseInt(obj.goal_weight)
 			array.push(data)
 		})
 		
-		if(friendList.length <= 1) {
+		if(friendList.length == 2) {
 			let data = {}
 			data.index = 2
-			data.percent = Math.abs( (parseInt(this.now_weight) - parseInt(this.weight)) / (parseInt(this.goal_weight)-parseInt(this.weight)) ) * 100 + '%'
+			data.percent = Math.abs( (this.now_weight - this.weight) / (this.goal_weight - this.weight) ) * 100 + '%'
 			data.profile = this.profile
-			data.weight = this.weight
-			data.goal_weight = this.goal_weight
+			data.weight = parseInt(this.weight)
+			data.goal_weight = parseInt(this.goal_weight)
 			array.push(data)
 		}
 		this.friendList = array
-		console.log(this.friendList)
 	}
 }
 </script>
 
 <style scoped>
+.user-friends {
+	display: -webkit-box;
+	overflow-x: scroll;
+}
 .menu-list {
   position: relative;
   /* display: inline-block; */

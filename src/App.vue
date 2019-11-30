@@ -21,6 +21,9 @@ export default {
 @import url("https://use.typekit.net/ngp8myr.css");
 @import url("http://fonts.googleapis.com/earlyaccess/notosanskr.css");
 
+::-webkit-scrollbar {
+	display: none;
+}
 body {
   display: flex;
   flex-direction: column;
