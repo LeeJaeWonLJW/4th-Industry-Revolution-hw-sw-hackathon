@@ -1,7 +1,7 @@
 <template>
   <div
     :class="{'active': this.active }"
-    @click="add()"
+    @click="check()"
     class="col-6-sm item"
   >
     <img :src="this.image" />
@@ -14,9 +14,8 @@
 
 <script>
 export default {
-  name: "select-box-item",
+  name: 'select-box-item',
   data: () => ({
-    count: 0,
     active: false
   }),
   props: {
@@ -31,70 +30,59 @@ export default {
     }
   },
   methods: {
-    add: async function() {
-      try {
-        let foodData = await window.localStorage.getItem("foodData");
+    check: async function() {
+			let foodData = await window.localStorage.getItem('foodData')
+			let array = foodData != 'undefined' ? JSON.parse(foodData) : []
+			let check = this.find(array, this.label)
 
-        let array = [];
-        if (foodData === null) {
-          await array.push(this.label);
-          await window.localStorage.setItem("foodData", JSON.stringify(array));
-          await this.$emit("send-count");
-          this.active = true;
-        }
-
-        if (foodData !== null) {
-          foodData = JSON.parse(foodData);
-          let check = await this.find(foodData, this.label);
-
-          if (check) {
-            await foodData.push(this.label);
-            await window.localStorage.setItem(
-              "foodData",
-              JSON.stringify(foodData)
-            );
-            await this.$emit("send-count");
-            this.active = true;
-          }
-        }
-      } catch (e) {
-        window.alert(e);
-      }
+			if(!this.active) {
+				if(check) await array.push(this.label)
+				
+				await this.$emit('send-add')
+				this.active = true
+			} else {
+				if(check) await array.splice(array.indexOf(label), 1)
+				
+				await this.$emit('send-remove')
+				this.active = false
+			}
+			
+			await window.localStorage.setItem('foodData', JSON.stringify(array))
     },
     find: function(data, label) {
-      let count = 0;
+      let count = 0
       for (let i = 0; i < Object.keys(data).length; i++) {
         if (data[i] === label) {
-          count++;
+          count++
         }
       }
 
       if (count !== 0) {
-        return false;
+        return false
       }
-      return true;
+      return true
     },
     findAll: async function(label) {
-      let foodData = window.localStorage.getItem("foodData");
-      let count = 0;
+      let foodData = window.localStorage.getItem('foodData')
+      let count = 0
 
       if (foodData !== null) {
-        foodData = JSON.parse(foodData);
+        foodData = JSON.parse(foodData)
         for (let i = 0; i < Object.keys(foodData).length; i++) {
           if (foodData[i] === label) {
-            count++;
+            count++
           }
         }
       }
 
       if (count === 1) {
-        return true;
+        return true
       }
 
-      return false;
+      return false
     }
   }
-};
+}
 </script>
 
 <style scoped>

@@ -132,6 +132,6 @@
 
 <script>
 export default {
-  name: "default-layout"
-};
+  name: 'default-layout'
+}
 </script>

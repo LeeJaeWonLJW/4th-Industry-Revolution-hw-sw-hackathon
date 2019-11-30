@@ -11,7 +11,7 @@
 
 <script>
 export default {
-  name: "progress-bar",
+  name: 'progress-bar',
   props: {
     goal: {
       type: Number,
@@ -35,14 +35,14 @@ export default {
     }
   },
   computed: {
-    column: function() {
-      return this.active ? 'col-4-sm goal-box active' : 'col-2-sm goal-box';
+    column: () => {
+      return this.active ? 'col-4-sm goal-box active' : 'col-2-sm goal-box'
     },
-    height: function() {
-      return 'height: ' + this.value + ';';
+    height: () => {
+      return 'height: ' + this.value + ';'
     }
   }
-};
+}
 </script>
 
 <style scoped>

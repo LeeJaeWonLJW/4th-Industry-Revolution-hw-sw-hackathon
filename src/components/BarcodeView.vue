@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: "barcode-view",
+  name: 'barcode-view',
   data: () => ({
     readerSize: {
       width: 100,
@@ -16,11 +16,11 @@ export default {
   }),
   methods: {
     logIt(data) {
-      //   window.console.log(JSON.stringify(data));
-      this.$router.push("/tab/barcode");
+        window.console.log(JSON.stringify(data))
+      // this.$router.push('/tab/barcode')
     }
   }
-};
+}
 </script>
 
 <style scoped>

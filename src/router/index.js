@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/components/Index'
 import Login from '@/components/Login'
-import Register from '@/components/Register'
 import RegisterSex from '@/components/RegisterSex'
 import RegisterFav from '@/components/RegisterFav'
 import CreateBodyInfo from '@/components/CreateBodyInfo'
@@ -76,11 +75,6 @@ export default new Router({
       path: '/',
       name: 'login',
       component: Login
-    },
-    {
-      path: '/register',
-      name: 'Register',
-      component: Register
     },
     {
       path: '/register/favorite',

@@ -13,20 +13,19 @@
   </div>
 </template>
 
-
 <script>
 export default {
-  name: "register_sex",
+  name: 'register_sex',
   data: () => ({
     gender: 'male'
   }),
   methods: {
     submit: async function(type) {
-      await window.localStorage.setItem('gender', type);
-      await this.$router.push('/register/info');
+      await window.localStorage.setItem('gender', type)
+      await this.$router.push('/register/info')
     }
   }
-};
+}
 </script>
 
 <style scoped>

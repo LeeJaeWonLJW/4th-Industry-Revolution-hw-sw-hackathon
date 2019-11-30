@@ -1,117 +1,170 @@
 <template>
-  <div :class="{'active': visible}" class="login">
-    <div class="logo">
+  <div :class="{'active': register_visible || login_visible}" class="login">
+    <div class='logo'>
       <h1>FooDiet</h1>
       <p>Food + Diet</p>
     </div>
-    <div v-if="!visible" class="welcome">
+    <div v-if="!visible" class='welcome'>
       <p>환영합니다</p>
     </div>
-    <div v-if="!visible" class="btn-group">
-      <div @click="visible = true" class="btn">
+    <div v-if="!visible" class='btn-group'>
+      <div @click="register_visible = true" class='btn'>
         <p>회원가입</p>
       </div>
-      <div class="btn">
+      <div @click="login_visible = true" class='btn'>
         <p>로그인</p>
       </div>
     </div>
     <!-- <Register v-if="visible"></Register> -->
-    <div v-if="visible" class="register">
-      <div class="footer-group">
-        <div @click="$refs.file.click()" class="profile">
+    <div v-if="register_visible" class='register'>
+      <div class='footer-group'>
+        <div @click="$refs.file.click()" class='profile'>
           <div class="profile-pic">
-            <img v-if="!profile_img" src="../assets/icon/camera.png" />
+            <img v-if="!profile_img" src='../assets/icon/camera.png' />
             <img v-else :src="this.profile_img" />
           </div>
           <span>프로필</span>
         </div>
 
         <div class="form">
-          <fieldset class="register-input">
-            <input v-model="phone" type="text" placeholder="전화번호" />
+          <fieldset class='register-input'>
+            <input v-model="phone" type='text' placeholder='전화번호' />
           </fieldset>
 
-          <fieldset class="register-input">
-            <input v-model="password" type="password" placeholder="암호" />
+          <fieldset class='register-input'>
+            <input v-model="password" type='password' placeholder='비밀번호' />
           </fieldset>
 
-          <fieldset class="register-input">
-            <input v-model="name" type="text" placeholder="이름" />
+          <fieldset class='register-input'>
+            <input v-model="name" type='text' placeholder='이름' />
           </fieldset>
         </div>
 
-        <div @click="submit()" class="btn">
+        <div @click='register_submit()' class='btn'>
           <p>다음</p>
         </div>
       </div>
     </div>
 
-    <input type="file" ref="file" style="display: none" @change="onFileChange" />
+    <input type='file' ref='file' style='display: none' @change='onFileChange' />
+
+		<div v-if="login_visible" class='register'>
+      <div class='footer-group'>
+        <div @click="$refs.file.click()" class='profile'>
+          <div class="profile-pic">
+            <img v-if="!profile_img" src='../assets/icon/camera.png' />
+            <img v-else :src="this.profile_img" />
+          </div>
+        </div>
+
+        <div class="form">
+					<fieldset class='register-input'>
+            <input v-model="login_phone" type='text' placeholder='이름' />
+          </fieldset>
+
+          <fieldset class='register-input'>
+            <input v-model="login_password" type='password' placeholder='비밀번호' />
+          </fieldset>
+        </div>
+
+        <div @click='login_submit()' class='btn'>
+          <p>다음</p>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
-
 <script>
-import { async } from "q";
 // import Register from '@/components/Register'
 export default {
-  name: "login",
+  name: 'login',
   data: () => ({
-    visible: false,
+		register_visible: false,
+		login_visible: false,
     phone: '',
     password: '',
     name: '',
-    profile_img: ''
+		profile_img: '',
+		login_phone: '',
+		login_password: ''
   }),
   components: {
     // Register
   },
   methods: {
-    submit: async function() {
+    register_submit: async function() {
       let json = {
         phone: this.phone,
         password: this.password,
         name: this.name,
         profile_img: this.profile_img
-      };
+			}
+			
+			if(!json.phone || !json.password || !json.name || !json.profile_img) {
+				alert('프로필 사진과 기본 정보를 입력해주세요')
+				return false
+			}
+
       try {
-        await window.localStorage.setItem('data', JSON.stringify(json));
-        await this.$router.push("/register/sex");
+        await window.localStorage.setItem('data', JSON.stringify(json))
+        await this.$router.push('/register/sex')
       } catch (e) {
-        window.alert(e);
+        window.alert(e)
       }
+		},
+		login_submit: async function() {
+      let json = {
+        phone: this.phone,
+        password: this.password
+			}
+			
+			if(!json.phone || !json.password) {
+				alert('입력 값을 입력해주세요')
+				return false
+			}
+
+			try {
+				await apiServie.login(json)
+				await this.$router.push('/tab/index')
+			} catch (e) {
+				window.alert(e)
+			}
     },
     onFileChange: function(e) {
-      var files = e.target.files || e.dataTransfer.files;
-      if (!files.length) return;
-      this.createImage(files[0]);
+      var files = e.target.files || e.dataTransfer.files
+      if (!files.length) return
+      this.createImage(files[0])
     },
     createImage: function (file) {
-      var image = new Image();
-      var reader = new FileReader();
-      var vm = this;
+      var image = new Image()
+      var reader = new FileReader()
+      var vm = this
 
       reader.onload = e => {
-        vm.profile_img = e.target.result;
-      };
-      reader.readAsDataURL(file);
+        vm.profile_img = e.target.result
+      }
+      reader.readAsDataURL(file)
     }
   },
   async mounted() {
+		await JSON.parse(window.localStorage.setItem('data', ''))
+		await JSON.parse(window.localStorage.setItem('info', ''))		
+
     try {
-      let data = await JSON.parse(window.localStorage.getItem("data"));
+      let data = await JSON.parse(window.localStorage.getItem('data'))
       if (data !== null) {
-        this.visible = true;
-        this.phone = data.phone;
-        this.password = data.password;
-        this.name = data.name;
-        this.profile_img = data.profile_img;
+        this.visible = true
+        this.phone = data.phone
+        this.password = data.password
+        this.name = data.name
+        this.profile_img = data.profile_img
       }
     } catch (e) {
-      window.alert(e);
+      window.alert(e)
     }
   }
-};
+}
 </script>
 
 <style scoped>
@@ -233,7 +286,7 @@ fieldset.register-input input {
   width: 70%;
 
   padding: 6px 2px;
-  margin-bottom: 14px;
+  margin-bottom: 10px;
   text-align: center;
 
   color: #505050;
