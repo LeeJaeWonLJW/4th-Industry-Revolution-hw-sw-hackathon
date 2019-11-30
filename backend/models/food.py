@@ -95,7 +95,7 @@ class Food(object):
 
     @staticmethod
     def barcode_add_id():
-        #barcode = request.form['barcode']
+        barcode = request.form['barcode']
         picture = request.form['picture']
 
         name = request.form['name']
@@ -105,7 +105,7 @@ class Food(object):
         sugar = request.form['sugar']
         protein = request.form['protein']
         fat = request.form['fat']
-        saturate_fat = request.form['saturate_fat']
+        saturated_fat = request.form['saturated_fat']
         monounsaturated_fat = request.form['monounsaturated_fat']
         calcium = request.form['calcium']
         cholesterol = request.form['cholesterol']
@@ -119,7 +119,7 @@ class Food(object):
             sugar=sugar,
             protein=protein,
             fat=fat,
-            saturate_fat=saturate_fat,
+            saturated_fat=saturated_fat,
             monounsaturated_fat=monounsaturated_fat,
             calcium=calcium,
             sodium=sodium,

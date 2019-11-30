@@ -403,7 +403,7 @@ def food_barcode_get_id():
 @apiParam {String} sugar      Food sugar
 @apiParam {String} protein      Food protein
 @apiParam {String} fat      Food fat
-@apiParam {String} saturate_fat      Food saturate_fat
+@apiParam {String} saturated_fat      Food saturated_fat
 @apiParam {String} monounsaturated_fat      Food monounsaturated_fat
 @apiParam {String} calcium      Food calcium
 @apiParam {String} cholesterol      Food cholesterol
