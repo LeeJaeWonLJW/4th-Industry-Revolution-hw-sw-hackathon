@@ -26,7 +26,7 @@ class Food(object):
                     res = requests.get("{}?ServiceKey={}&prdlstReportNo={}&returnType={}".format(end_point, service_key, data_mysql['PRDLST_REPORT_NO'], 'json'))
                     #print(res.text)
                     data = json.loads(res.text)
-                    print(data['list'])
+                    print(data)
 
                     if not data['list'][0]['nutrient'] in "알수없음":
                         remover = re.compile('[ \\{\\}\\[\\]\\/?.,;:|\\)*~`!^\\-_+<>@\\#$201705484642%&\\\\=\\(\'"※]')
