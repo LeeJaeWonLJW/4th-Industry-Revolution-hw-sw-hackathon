@@ -7,9 +7,9 @@
       :aspectRatio="aspectRatio"
     ></v-quagga>
 
-		<!-- <span>바코드를 스캔해 주세요</span>
+		<span>바코드를 스캔해 주세요</span>
 		<hr/>
-		<button></button> -->
+		<button>직접 추가</button>
   </div>
 </template>
 
@@ -40,18 +40,37 @@ export default {
 	position: fixed;
 	width: 100%;
 	height: 100%;
-	background-color: #d5d5d5;
 }
 .barcode-scanner {
-	display: inline-block;
-	position: absolute;
 	position: fixed;
+	z-index: 9;
 }
-/* .barcode-scanner hr {
-	display: inline;
+.barcode-scanner span {
+	color: #ffffff;
+	font-size: 16px;
+	text-align: center;
+
+}
+.barcode-scanner hr {
 	position: fixed;
-	width: 60%;
+	width: 60%;	
 	top: 50%;
+	color: red;
 	border: 1px solid red;
-} */
+	z-index: 19;
+}
+.barcode-scanner button {
+	width: 141px;
+  height: 34px;
+  border-radius: 20px;
+  background-color: #ffffff;
+	font-size: 15px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.4;
+  letter-spacing: normal;
+  text-align: center;
+  color: #82d09a;
+}
 </style>

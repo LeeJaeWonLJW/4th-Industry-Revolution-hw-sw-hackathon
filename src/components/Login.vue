@@ -52,7 +52,7 @@
       <div class='footer-group'>
         <div class="form">
 					<fieldset class='register-input'>
-            <input v-model="login_phone" type='text' placeholder='이름' />
+            <input v-model="login_phone" type='text' placeholder='전화번호' />
           </fieldset>
 
           <fieldset class='register-input'>

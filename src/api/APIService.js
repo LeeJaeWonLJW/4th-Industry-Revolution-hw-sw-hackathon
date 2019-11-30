@@ -132,5 +132,51 @@ export class APIService {
 			return e
 		}
 	}
+
+	async get_weight(date) {
+		let form = new FormData()
+		form.append('date', date)
+
+		const url = `${apiUrl}/health/weight/get`
+		axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.accessToken}`
+
+		try {
+			const res = await axios.post(url, form)
+			return res.data
+		} catch (e) {
+			return e
+		}
+	}
+
+	async post_weight(date, weight) {
+		let form = new FormData()
+		form.append('date', date)
+		form.append('weight', weight)
+
+		const url = `${apiUrl}/health/weight/add`
+		axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.accessToken}`
+
+		try {
+			const res = await axios.post(url, form)
+			return res.data
+		} catch (e) {
+			return e
+		}
+	}
+
+	async get_meal(date) {
+		let form = new FormData()
+		form.append('date', date)
+
+		const url = `${apiUrl}/health/meal/get`
+		axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.accessToken}`
+
+		try {
+			const res = await axios.post(url, form)
+			return res.data
+		} catch (e) {
+			return e
+		}
+	}
 	
 }

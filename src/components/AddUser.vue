@@ -49,7 +49,8 @@ export default {
 			else this.user = false
 
 			if(friend.data.name) this.user_name = friend.data.name
-			if(friend.data.profile) this.user_profile = friend.data.profile
+			if(friend.data.profile) this.user_profile = 'data:image/png;base64,' + friend.data.profile.replace('data:image/png;base64,', '').replace('data:image/jpeg;base64,', '')
+
 		},
 		add: async function() {
 			let friend = await apiService.friendAdd(this.user_phone)

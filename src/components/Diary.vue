@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="top">
-      <p class="date">2019.08.31 토요일</p>
+      <p class="date">{{ this.today }}</p>
 
       <div class="daily-purpose-progress">
         <div class="today-kcal">
@@ -10,7 +10,7 @@
         </div>
         
         <div class="now-kcal">
-          <p class="h3">2000</p>
+          <p class="h3">{{ 2000 - this.kcal }}</p>
           <p class="h4">남은 칼로리</p>
         </div>
 
@@ -104,11 +104,11 @@
 			<div class="update-form-body">
 				<div style="width: 100%;">
 					<label>KG</label>
-					<input type="number">
+					<input type="number" v-model="update_weight">
 				</div>
 				
 				<div style='display: -webkit-inline-box; margin: 24px 0;'>
-					<button class="btn">입력</button>
+					<button class="btn" @click="submit()">입력</button>
 				</div>
 			</div>
 		</div>
@@ -131,20 +131,48 @@ export default {
 		goal_weight: 0,
 		now_weight: 0,
 		visible_form: false,
+		today: '',
+		clean_today: '',
+		update_weight: 0,
 	}),
 	async beforeMount() {
+		let date = new Date()
+		let month = date.getMonth() >= 10 ? date.getMonth() : '0' + date.getMonth()
+		let day = date.getDate() >= 10 ? date.getDate() : '0' + date.getDate()
+		let year = date.getFullYear()
+		this.today = year + '.' + month + '.' + day
+		this.clean_today = String(year) + String(month) + String(day)
+
 		if(!localStorage.accessToken) this.$router.push('/')
 
-		let user = await apiService.userInfo()
-		let payload = user.payload.identity
-		this.goal_weight = payload.goal_weight
-		this.now_weight = payload.now_weight
-
+		this.set_user()
 		// let nut = await apiService.get_todayNutrient()
 		// this.kcal = nut.data.kcal
 		// this.crab = nut.data.carb
 		// this.protein = nut.data.protein
 		// this.fat = nut.data.fat
+
+		let res = apiService.get_meal(this.clean_today)
+		let pres = Promise.reslove(res)
+		console.log(pres)
+	},
+	methods: {
+		set_user: async function() {
+			let user = await apiService.userInfo()
+			let payload = user.payload.identity
+			this.goal_weight = payload.goal_weight
+			this.now_weight = payload.now_weight
+		},
+		submit: async function() {
+			let res = await apiService.post_weight(this.clean_today, this.update_weight)
+			if(res.success == true) {
+				alert('업데이트 완료')
+				this.visible_form = false
+				
+				let res2 = await apiService.get_weight(this.clean_today)
+				this.now_weight = parseInt(res2.weight)
+			}
+		}
 	}
 }
 </script>
@@ -219,7 +247,15 @@ export default {
   cursor: pointer; /* Add a pointer on hover */
 	transition: all 0.5s ease-out;
 }
-
+.update-notice {
+	width: 16px;
+	height: 16px;
+	padding: 2px;
+	border-radius: 50%;
+	background-color: red;
+	color: #ffffff;
+	font-size: 10px;
+}
 .top {
   position: relative;
   display: inline-block;

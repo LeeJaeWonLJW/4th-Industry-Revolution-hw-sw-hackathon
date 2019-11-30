@@ -15,7 +15,8 @@
         @click="$router.push('/tab/adduser')">
         <img src="../assets/icon/add_user.png">
       </div>
-      <div class="setting">
+      <div class="setting"
+				@click="$router.push('/')">
         <img class="rotating" src="../assets/setting.png">
       </div>
     </div>
@@ -107,7 +108,7 @@ export default {
 		this.now_weight = payload.now_weight
 
 		let profile = await apiService.friendSearch(this.phone)
-		this.profile = profile.data.profile
+		this.profile = 'data:image/png;base64,' + profile.data.profile.replace('data:image/png;base64,', '').replace('data:image/jpeg;base64,', '')
 
 		let friendList = await apiService.friendList()
 		let array = []
