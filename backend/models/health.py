@@ -25,6 +25,9 @@ class HealthWeight(object):
             weight_object.weight = weight
             weight_object.save()
 
+        user_object.now_weight = weight
+        user_object.save()
+
         return jsonify({
             "success": True,
             "msg": "refresh or add your daily weight successfully!!"
