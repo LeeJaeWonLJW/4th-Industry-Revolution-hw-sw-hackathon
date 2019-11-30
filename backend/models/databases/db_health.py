@@ -22,6 +22,12 @@ class Food(Document):
     user_id = ObjectIdField(
         required=True
     )
-    breakfast = ListField()
-    lunch = ListField()
-    dinner = ListField()
+    breakfast = ListField(
+        default=[]
+    )
+    lunch = ListField(
+        default=[]
+    )
+    dinner = ListField(
+        default=[]
+    )

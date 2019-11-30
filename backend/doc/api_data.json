@@ -18,6 +18,19 @@
         ]
       }
     },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "favorite",
+            "description": "<p>Write with korean</p>"
+          }
+        ]
+      }
+    },
     "success": {
       "fields": {
         "Success 200": [
@@ -314,6 +327,370 @@
   },
   {
     "type": "post",
+    "url": "/food/barcode/add/id",
+    "title": "Add Food to DB",
+    "name": "Add_Food_to_DB",
+    "group": "Food",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "BearerToken",
+            "description": "<p>user jwt token</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "barcode",
+            "description": "<p>Barcode Number</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "picture",
+            "description": "<p>Food Picture</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "volume",
+            "description": "<p>Food volume</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "kcal",
+            "description": "<p>Food kcal</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "carbohydrate",
+            "description": "<p>Food carbohydrate</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "sugar",
+            "description": "<p>Food sugar</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "protein",
+            "description": "<p>Food protein</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "fat",
+            "description": "<p>Food fat</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "saturate_fat",
+            "description": "<p>Food saturate_fat</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "monounsaturated_fat",
+            "description": "<p>Food monounsaturated_fat</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "calcium",
+            "description": "<p>Food calcium</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "cholesterol",
+            "description": "<p>Food cholesterol</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "sodium",
+            "description": "<p>Food sodium</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": ""
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "msg",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response",
+          "content": "HTTP/1.1 200 OK\n{\n    \"success\": true,\n    \"food_id\": (food_id),\n    \"msg\": \"add new product successfully!!\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": ""
+          },
+          {
+            "group": "Error 4xx",
+            "type": "String",
+            "optional": false,
+            "field": "msg",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response",
+          "content": "HTTP/1.1 200 OK\n{\n    \"success\": false,\n    \"msg\": \"invalid input\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./app.py",
+    "groupTitle": "Food"
+  },
+  {
+    "type": "post",
+    "url": "/food/barcode/get/id",
+    "title": "Barcode based Food ID Return API",
+    "name": "Barcode_based_Food_ID_Return_API",
+    "group": "Food",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "BearerToken",
+            "description": "<p>user jwt token</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "barcode",
+            "description": "<p>Barcode Number</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": ""
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "msg",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response",
+          "content": "HTTP/1.1 200 OK\n{\n    \"success\": true,\n    \"food_id\": (food_id),\n    \"name\": (name),\n    \"kcal\": (kcal),\n    \"nutrient\": {\n        \"carbohydrate\": (carbohydrate),\n        \"protein\": (protein),\n        \"sugar\": (sugar),\n        \"fat\": (fat),\n        \"saturate_fat\": (saturated_fat),\n        \"monounsaturated_fat\": (monounsaturated_fat),\n        \"calcium\": (calcium),\n        \"sodium\": (sodium),\n        \"cholesterol\": (cholesterol)\n    }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": ""
+          },
+          {
+            "group": "Error 4xx",
+            "type": "String",
+            "optional": false,
+            "field": "msg",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response",
+          "content": "HTTP/1.1 200 OK\n{\n    \"success\": false,\n    \"msg\": \"invalid input\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Error-Response-2",
+          "content": "HTTP/1.1 200 OK\n{\n   \"success\": false,\n   \"msg\": \"can't find barcode in db\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./app.py",
+    "groupTitle": "Food"
+  },
+  {
+    "type": "post",
+    "url": "/food/get/info",
+    "title": "Get Food Information",
+    "name": "Get_Food_Information",
+    "group": "Food",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "BearerToken",
+            "description": "<p>user jwt token</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "food_id",
+            "description": "<p>Food ID</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": ""
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "msg",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response",
+          "content": "HTTP/1.1 200 OK\n{\n    \"success\": true,\n    \"food_id\": (food_id),\n    \"name\": (name),\n    \"kcal\": (kcal),\n    \"carbohydrate\": (carbohydrate),\n    \"protein\": (protein),\n    \"sugar\": (sugar),\n    \"fat\": (fat),\n    \"saturate_fat\": (saturated_fat),\n    \"monounsaturated_fat\": (monounsaturated_fat),\n    \"calcium\": (calcium),\n    \"sodium\": (sodium),\n    \"cholesterol\": (cholesterol)\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": ""
+          },
+          {
+            "group": "Error 4xx",
+            "type": "String",
+            "optional": false,
+            "field": "msg",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response",
+          "content": "HTTP/1.1 200 OK\n{\n    \"success\": false,\n    \"msg\": \"invalid input\"\n}",
+          "type": "json"
+        },
+        {
+          "title": "Error-Response-2",
+          "content": "HTTP/1.1 200 OK\n{\n   \"success\": false,\n   \"msg\": \"can't find this this id\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./app.py",
+    "groupTitle": "Food"
+  },
+  {
+    "type": "post",
     "url": "/user/friend/add",
     "title": "Friend add",
     "name": "Friend_Add",
@@ -553,208 +930,11 @@
     "groupTitle": "Friend"
   },
   {
-    "deprecated": {
-      "content": "Developing"
-    },
     "type": "post",
-    "url": "/nutrient/today/add",
-    "title": "Today-Add",
-    "name": "Today_Add",
-    "group": "Nutrient",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "BearerToken",
-            "description": "<p>user jwt token</p>"
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "float",
-            "optional": false,
-            "field": "kcal",
-            "description": ""
-          },
-          {
-            "group": "Parameter",
-            "type": "float",
-            "optional": false,
-            "field": "carb",
-            "description": "<p>carbohydrate</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "float",
-            "optional": false,
-            "field": "protein",
-            "description": ""
-          },
-          {
-            "group": "Parameter",
-            "type": "float",
-            "optional": false,
-            "field": "fat",
-            "description": ""
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Boolean",
-            "optional": false,
-            "field": "success",
-            "description": ""
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "msg",
-            "description": ""
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response",
-          "content": "HTTP/1.1 200 OK\n{\n    \"success\": true,\n    \"msg\": \"add nutrient Today\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "fields": {
-        "Error 4xx": [
-          {
-            "group": "Error 4xx",
-            "type": "Boolean",
-            "optional": false,
-            "field": "success",
-            "description": ""
-          },
-          {
-            "group": "Error 4xx",
-            "type": "String",
-            "optional": false,
-            "field": "msg",
-            "description": ""
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Error-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n    \"success\": false,\n    \"msg\": \"db error\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "./app.py",
-    "groupTitle": "Nutrient"
-  },
-  {
-    "deprecated": {
-      "content": "Developing"
-    },
-    "type": "post",
-    "url": "/nutrient/today/lookup",
-    "title": "Today-Lookup",
-    "name": "Today_Lookup",
-    "group": "Nutrient",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "BearerToken",
-            "description": "<p>user jwt token</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "Boolean",
-            "optional": false,
-            "field": "success",
-            "description": ""
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "msg",
-            "description": ""
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response",
-          "content": "HTTP/1.1 200 OK\n{\n    \"success\": true,\n    \"data\": {\n       \"carb\": 87,\n       \"fat\": 0,\n       \"kcal\": 345,\n       \"protein\": 0\n    },\n    \"msg\": \"Today nutrient status lookup successfully.\",\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "fields": {
-        "Error 4xx": [
-          {
-            "group": "Error 4xx",
-            "type": "Boolean",
-            "optional": false,
-            "field": "success",
-            "description": ""
-          },
-          {
-            "group": "Error 4xx",
-            "type": "String",
-            "optional": false,
-            "field": "msg",
-            "description": ""
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Error-Response",
-          "content": "HTTP/1.1 200 OK\n{\n    \"success\": false,\n    \"msg\": \"can't find\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "version": "0.0.0",
-    "filename": "./app.py",
-    "groupTitle": "Nutrient"
-  },
-  {
-    "deprecated": {
-      "content": "Developing"
-    },
-    "type": "post",
-    "url": "/user/flavor/set",
-    "title": "Flavor Set",
-    "name": "Flavor_Set",
-    "group": "User",
+    "url": "/health/weight/get",
+    "title": "Get Specific Date Weight",
+    "name": "Get_Specific_Date_Weight",
+    "group": "Health",
     "header": {
       "fields": {
         "Header": [
@@ -775,8 +955,8 @@
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "flavor",
-            "description": ""
+            "field": "date",
+            "description": "<p>20001207</p>"
           }
         ]
       }
@@ -803,7 +983,7 @@
       "examples": [
         {
           "title": "Success-Response",
-          "content": "HTTP/1.1 200 OK\n{\n    \"success\": true,\n    \"msg\": \"successful set food flavor\"\n}",
+          "content": "HTTP/1.1 200 OK\n{\n    \"success\": true,\n    \"weight\": (date weight)\n}",
           "type": "json"
         }
       ]
@@ -837,7 +1017,298 @@
     },
     "version": "0.0.0",
     "filename": "./app.py",
-    "groupTitle": "User"
+    "groupTitle": "Health"
+  },
+  {
+    "type": "post",
+    "url": "/health/meal/get",
+    "title": "Get eat Food",
+    "name": "Get_eat_Food",
+    "group": "Health",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "BearerToken",
+            "description": "<p>user jwt token</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "date",
+            "description": "<p>20001207</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": ""
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "msg",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response",
+          "content": "HTTP/1.1 200 OK\n{\n    \"success\": true,\n    \"breakfast\": [(food_id), ...],\n    \"lunch\": [(food_id), ...],\n    \"dinner\": [(food_id), ...]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": ""
+          },
+          {
+            "group": "Error 4xx",
+            "type": "String",
+            "optional": false,
+            "field": "msg",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response",
+          "content": "HTTP/1.1 200 OK\n{\n    \"success\": false,\n    \"msg\": \"invalid input\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./app.py",
+    "groupTitle": "Health"
+  },
+  {
+    "type": "post",
+    "url": "/health/weight/add",
+    "title": "Refresh/Add Today Weight",
+    "name": "Refresh_Add_Today_Weight",
+    "group": "Health",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "BearerToken",
+            "description": "<p>user jwt token</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "date",
+            "description": "<p>20001207</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "weight",
+            "description": "<p>now weight</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": ""
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "msg",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response",
+          "content": "HTTP/1.1 200 OK\n{\n    \"success\": true,\n    \"msg\": \"refresh or add your daily weight successfully!!\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": ""
+          },
+          {
+            "group": "Error 4xx",
+            "type": "String",
+            "optional": false,
+            "field": "msg",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response",
+          "content": "HTTP/1.1 200 OK\n{\n    \"success\": false,\n    \"msg\": \"invalid input\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./app.py",
+    "groupTitle": "Health"
+  },
+  {
+    "type": "post",
+    "url": "/health/meal/add",
+    "title": "add eat Food",
+    "name": "add_eat_Food",
+    "group": "Health",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "BearerToken",
+            "description": "<p>user jwt token</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "date",
+            "description": "<p>20001207</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "type",
+            "description": "<p>breakfast or lunch or dinner</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "food_id",
+            "description": "<p>food_id can get Food Section API</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": ""
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "msg",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response",
+          "content": "HTTP/1.1 200 OK\n{\n    \"success\": true,\n    \"msg\": \"Meal Add successfully!!\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 4xx": [
+          {
+            "group": "Error 4xx",
+            "type": "Boolean",
+            "optional": false,
+            "field": "success",
+            "description": ""
+          },
+          {
+            "group": "Error 4xx",
+            "type": "String",
+            "optional": false,
+            "field": "msg",
+            "description": ""
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Error-Response",
+          "content": "HTTP/1.1 200 OK\n{\n    \"success\": false,\n    \"msg\": \"invalid input\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "./app.py",
+    "groupTitle": "Health"
   },
   {
     "success": {

@@ -16,3 +16,7 @@ class Food(Document):
     calcium = StringField()
     sodium = StringField()
     cholesterol = StringField()
+
+    volume = StringField()
+
+    picture = StringField()
