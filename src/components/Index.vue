@@ -2,13 +2,13 @@
   <div>
     <div class="top">
       <div class="profile">
-        <img width="64" src="../assets/profile.png" />
+        <img width="64" :src="this.profile" />
       </div>
       <div class="username">
-        <p>공유</p>
+        <p>{{this.name}}</p>
       </div>
       <div class="type">
-        <p>LOSE WEIGHT</p>
+        <p>{{this.purpose}}</p>
       </div>
 
       <div class="add-user"
@@ -35,7 +35,10 @@
       </div>
 
       <div class="row user-friends">
-        <ProgressBar :image="require('../assets/user1.png')"
+				<ProgressBar v-for="item in friendList" v-bind:active="item.index == 2 ? true : false"
+					v-bind:key="item.index" v-bind:image="item.profile" v-bind:data-value="item.percent"
+					v-bind:goal="item.goal_weight" v-bind:pre="item.weight" />
+        <!-- <ProgressBar :image="require('../assets/user1.png')"
                       value="40%"></ProgressBar>
         <ProgressBar :image="require('../assets/user2.png')"
                      value="-10%"></ProgressBar>
@@ -45,7 +48,7 @@
         <ProgressBar :image="require('../assets/user3.png')"
                      value="70%"></ProgressBar>
         <ProgressBar :image="require('../assets/user4.png')"
-                     value="80%"></ProgressBar>
+                     value="80%"></ProgressBar> -->
       </div>
     </div>
 
@@ -72,16 +75,75 @@
 import ProgressBar from '@/components/ProgressBar'
 import { APIService } from '../api/APIService'
 import { async } from 'q'
+import { parse } from 'path'
 const apiService = new APIService()
 
 export default {
-  name: 'index',
+	name: 'index',
+	data: () => ({
+		phone: '',
+		name: '',
+		profile: '',
+		purpose: '',
+		weight: 0,
+		goal_weight: 0,
+		now_weight: 0,
+		friendList: Array,
+	}),
   components: {
     ProgressBar
 	},
 	async beforeMount() {
-		let user = await API.userInfo()
-		consoe.log(user)
+		if(!localStorage.accessToken) this.$router.push('/')
+
+		let user = await apiService.userInfo()
+		let payload = user.payload.identity
+
+		this.phone = payload.email
+		this.name = payload.name
+		this.purpose = payload.purpose
+		this.weight = payload.weight
+		this.goal_weight = payload.goal_weight
+		this.now_weight = payload.now_weight
+
+		let profile = await apiService.friendSearch(this.phone)
+		this.profile = profile.data.profile
+
+		let friendList = await apiService.friendList()
+		let array = []
+
+		await friendList.friends.forEach((obj, index) => {
+			if(index == 2) {
+				let data = {}
+				data.index = index
+				data.percent = Math.abs( (parseInt(this.now_weight) - parseInt(this.weight)) / (parseInt(this.goal_weight)-parseInt(this.weight)) ) * 100 + '%'
+				data.profile = this.profile
+				data.weight = this.weight
+				data.goal_weight = this.goal_weight
+				array.push(data)
+				index++
+			}
+
+			let data = {}
+			data.index = index
+			data.percent = Math.abs( (parseInt(obj.now_weight) - parseInt(obj.weight)) / (parseInt(obj.goal_weight)-parseInt(obj.weight)) ) * 100 + '%'
+			data.profile = obj.profile
+			data.weight = obj.weight
+			data.goal_weight = obj.goal_weight
+			array.push(data)
+		})
+		
+		if(friendList.length <= 1) {
+			let data = {}
+			data.index = 2
+			data.percent = Math.abs( (parseInt(this.now_weight) - parseInt(this.weight)) / (parseInt(this.goal_weight)-parseInt(this.weight)) ) * 100 + '%'
+			data.profile = this.profile
+			data.weight = this.weight
+			data.goal_weight = this.goal_weight
+			array.push(data)
+		}
+		this.friendList = array
+		console.log(this.friendList)
 	}
 }
 </script>

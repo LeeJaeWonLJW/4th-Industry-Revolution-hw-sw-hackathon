@@ -4,7 +4,7 @@
     <div class="progress-bar">
       <div :style="this.height" class="percent" :data-value="this.value"></div>
     </div>
-    <p class="start-kg">{{this.current}}KG</p>
+    <p class="start-kg">{{this.pre}}KG</p>
     <img class="user-img" :src="this.image" />
   </div>
 </template>
@@ -17,7 +17,7 @@ export default {
       type: Number,
       default: 52
     },
-    current: {
+    pre: {
       type: Number,
       default: 60
     },

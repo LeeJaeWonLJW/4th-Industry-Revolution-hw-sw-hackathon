@@ -1,27 +1,32 @@
 <template>
   <div>
-    <v-quagga :onDetected="logIt" :readerSize="readerSize" :readerTypes="['ean_reader']"></v-quagga>
+    <v-quagga
+      :onDetected="logIt"
+      :readerSize="readerSize"
+      :readerType="'ean_reader'"
+      :aspectRatio="aspectRatio"
+    ></v-quagga>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'barcode-view',
-  data: () => ({
-    readerSize: {
-      width: 100,
-      height: 400
-    },
-    detecteds: []
-  }),
-  methods: {
-    logIt(data) {
-        window.console.log(JSON.stringify(data))
-      // this.$router.push('/tab/barcode')
-    }
-  }
+	name: 'VueBarcodeTest',
+	data () {
+		return {
+			readerSize: {
+				width: 640,
+				height: 560
+			},
+			aspectRatio: { min: 1, max: 2 },
+			detecteds: []
+		}
+	},
+	methods: {
+		logIt (data) {
+			console.log('detected', data)
+		}
+
+	}
 }
 </script>
-
-<style scoped>
-</style>

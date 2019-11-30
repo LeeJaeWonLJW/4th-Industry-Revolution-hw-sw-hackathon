@@ -5,10 +5,17 @@
 </template>
 
 <script>
+import Vue from 'vue';
+import VueQuagga from 'vue-quaggajs';
+
+Vue.use(VueQuagga);
+
 export default {
   name: 'App'
 }
 </script>
+
+
 
 <style>
 @import url("https://use.typekit.net/ngp8myr.css");

@@ -5,7 +5,7 @@
 
       <div class="daily-purpose-progress">
         <div class="today-kcal">
-          <p class="h3">115</p>
+          <p class="h3">{{ this.kcal }}</p>
           <p class="h4">오늘 먹은 칼로리</p>
         </div>
         
@@ -22,17 +22,17 @@
 
       <div class="nutrient">
         <div class="item dan">
-          <p class="gram">0g먹음</p>
+          <p class="gram">{{ this.protein }}g먹음</p>
           <p class="explain">단백질</p>
         </div>
 
         <div class="item tan">
-          <p class="gram">29g먹음</p>
+          <p class="gram">{{ this.crab }}g먹음</p>
           <p class="explain">탄수화물</p>
         </div>
 
         <div class="item ji">
-          <p class="gram">0g먹음</p>
+          <p class="gram">{{ this.fat }}g먹음</p>
           <p class="explain">지방</p>
         </div>
       </div>
@@ -41,11 +41,11 @@
     <div class="container">
       <div class="diary-kg">
         <div class="pull-left">
-          <p class="kg">70KG</p>
+          <p class="kg">{{ this.now_weight }}</p>
           <p>현재 체중</p>
         </div>
         <div class="pull-right">
-          <p class="kg">60KG</p>
+          <p class="kg">{{ this.goal_weight }}</p>
           <p>목표 체중</p>
         </div>
       </div>
@@ -98,8 +98,37 @@
 </template>
 
 <script>
+import moment from 'moment'
+import { APIService } from '../api/APIService'
+import { async } from 'q'
+const apiService = new APIService()
+
 export default {
-  name: 'diary'
+	name: 'diary',
+	data: () => ({
+		kcal: 0,
+		carb: 0,
+		protein: 0,
+		fat: 0,
+		goal_weight: 0,
+		now_weight: 0,
+	}),
+	async beforeMount() {
+		if(!localStorage.accessToken) this.$router.push('/')
+
+		let user = await apiService.userInfo()
+		let payload = user.payload.identity
+		this.goal_weight = payload.goal_weight
+		this.now_weight = payload.now_weight
+
+		let nut = await apiService.get_todayNutrient()
+		this.kcal = nut.data.kcal
+		this.crab = nut.data.carb
+		this.protein = nut.data.protein
+		this.fat = nut.data.fat
+
+		console.log(payload, nut)
+	}
 }
 </script>
 

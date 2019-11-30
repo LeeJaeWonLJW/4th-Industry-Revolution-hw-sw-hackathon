@@ -106,4 +106,31 @@ export class APIService {
 			return e
 		}
 	}
+
+	async friendList() {
+		const url = `${apiUrl}/user/friend/lookup`
+		axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.accessToken}`
+
+		try {
+			const res = await axios.get(url)
+			return res.data
+		} catch (e) {
+			return e
+		}
+	}
+
+	async get_todayNutrient() {
+		let form = new FormData()
+
+		const url = `${apiUrl}/nutrient/today/lookup`
+		axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.accessToken}`
+
+		try {
+			const res = await axios.post(url, form)
+			return res.data
+		} catch (e) {
+			return e
+		}
+	}
+	
 }

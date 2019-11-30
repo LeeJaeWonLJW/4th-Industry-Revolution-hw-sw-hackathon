@@ -8,67 +8,108 @@
 
     <div class="contents">
       <div>
-        <input class="fd-input" type="text" placeholder="1" />
-        <input class="fd-input volume" type="text" placeholder="355ml" />
+        <input class="fd-input" type="text" v-model="count" />
+        <input class="fd-input volume" type="text" v-model="amount" />
       </div>
+
+			<div class="control-box">
+				<span @click="check('b')" v-bind:class="{ active: select == 'b' }">아침</span>
+				<span @click="check('d')" v-bind:class="{ active: select == 'd' }">저녁</span>
+				<span @click="check('l')" v-bind:class="{ active: select == 'l' }">점심</span>
+				<span @click="check('g')" v-bind:class="{ active: select == 'g' }">간식</span>
+			</div>
       <div class="fd-btn fd-btn-lg" @click="$router.push('/tab/addmeal')">Diary에 담기</div>
 
-      <p class="title">14Kcal</p>
+      <p class="title">{{ this.kcal }}Kcal</p>
+
       <div class="pigure">
-        <div class="pull-left">당 적음</div>
-        <div class="pull-right">비타민 많음 고카페인</div>
+        <div class="pull-left">{{ this.ex1 }}</div>
+        <div class="pull-right">{{ this.ex2 }}</div>
       </div>
 
       <p class="title">영양정보</p>
       <ul class="nut">
         <li class="bold">
           <span class="nut-name">탄수화물</span>
-          <span class="nut-val">4g</span>
+          <span class="nut-val">{{ this.crab }}g</span>
         </li>
         <li>
           <span class="nut-name">섬유질</span>
-          <span class="nut-val">0g</span>
+          <span class="nut-val">{{ this.sumu }}g</span>
         </li>
         <li>
           <span class="nut-name">설탕</span>
-          <span class="nut-val">29g</span>
+          <span class="nut-val">{{ this.sugar }}g</span>
         </li>
         <li class="bold">
           <span class="nut-name">단백질</span>
-          <span class="nut-val">1g</span>
+          <span class="nut-val">{{ this.protein }}g</span>
         </li>
         <li class="bold">
           <span class="nut-name">지방</span>
-          <span class="nut-val">0.4g</span>
+          <span class="nut-val">{{ this.fat }}g</span>
         </li>
         <li>
           <span class="nut-name">불포화지방</span>
-          <span class="nut-val">0g</span>
+          <span class="nut-val">{{ this.fat1 }}g</span>
         </li>
         <li>
           <span class="nut-name">포화지방</span>
-          <span class="nut-val">0g</span>
+          <span class="nut-val">{{ this.fat2 }}g</span>
         </li>
         <li class="bold">
           <span class="nut-name">기타</span>
-          <span class="nut-val">0g</span>
+          <span class="nut-val">{{ this.etc }}g</span>
         </li>
         <li>
           <span class="nut-name">칼륨</span>
-          <span class="nut-val">0g</span>
+          <span class="nut-val">{{ this.ca }}g</span>
         </li>
         <li>
           <span class="nut-name">콜레스트롤</span>
-          <span class="nut-val">0g</span>
+          <span class="nut-val">{{ this.co }}g</span>
         </li>
         <li>
           <span class="nut-name">나트륨</span>
-          <span class="nut-val">275mg</span>
+          <span class="nut-val">{{ this.na }}mg</span>
         </li>
       </ul>
     </div>
   </div>
 </template>
+
+<script>
+export default {
+	name: 'diary_',
+	data: () => ({
+		select: 'b',
+		count: 1,
+		amount: '250ml',
+		kcal: 0,
+		crab: 0,
+		sumu: 0,
+		sugar: 0,
+		protein: 0,
+		fat: 0,
+		fat1: 0,
+		fat2: 0,
+		etc: 0,
+		ca: 0,
+		co: 0,
+		na: 0,
+		ex1: '',
+		ex2: '',
+	}),
+	beforeMount: function() {
+		// API Call
+	},
+	methods: {
+		check: function(val) {
+			this.select = val
+		}
+	}
+}
+</script>
 
 <style scoped>
 .meal-title {
@@ -76,6 +117,34 @@
     text-shadow: 0 0 6px rgba(0, 0, 0, 0.16);
   line-height: 0.64;
 
+}
+
+.control-box {
+	margin: 12px;
+}
+.control-box > span {
+	display: inline-block;
+	position: relative;
+	margin: 0 6px;
+	min-width: 57px;
+	line-height: 28px;
+  height: 28px;
+  border-radius: 14px;
+  border: solid 0.2px #808080;
+  background-color: #ffffff;
+	font-size: 14px;
+	vertical-align: middle;	
+}
+.control-box > span.active {
+	color: #ffffff;
+	border: none;
+	background-color: #91ffb3;
+}
+.control-Ad {
+	width: 57px;
+  height: 34px;
+  border-radius: 16px;
+  background-color: #91ffb3;
 }
 
 .fd-input {

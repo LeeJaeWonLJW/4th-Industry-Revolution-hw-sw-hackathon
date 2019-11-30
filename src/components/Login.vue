@@ -4,10 +4,10 @@
       <h1>FooDiet</h1>
       <p>Food + Diet</p>
     </div>
-    <div v-if="!visible" class='welcome'>
+    <div v-if="!(register_visible || login_visible)" class='welcome'>
       <p>환영합니다</p>
     </div>
-    <div v-if="!visible" class='btn-group'>
+    <div v-if="!(register_visible || login_visible)" class='btn-group'>
       <div @click="register_visible = true" class='btn'>
         <p>회원가입</p>
       </div>
@@ -117,7 +117,7 @@ export default {
 			try {
 				let res =await apiService.login(this.login_phone, this.login_password)
 				if(res.success == true) await this.$router.push('/tab/index')
-				alert('아이디나 비밀번호가 일치하지 않습니다')
+				else alert('아이디나 비밀번호가 일치하지 않습니다')
 			} catch (e) {
 				window.alert(e)
 			}
