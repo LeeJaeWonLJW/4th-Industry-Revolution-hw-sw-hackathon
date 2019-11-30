@@ -423,7 +423,7 @@ def nutrient_today_lookup():
 @app.route('/food/barcode', methods=['POST'])
 def food_barcode():
     if isValidInput(['barcode']):
-        return food.Food().barcode()
+        return food.Food().barcode_get_id()
     else:
         return error.Error().invalid_input()
 
