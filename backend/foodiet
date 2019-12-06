@@ -1,0 +1,9 @@
+server {
+    listen 80;
+    server_name foodiet.pangwoon.com;
+
+    location / {
+        include uwsgi_params;
+        uwsgi_pass unix:/home/ubuntu/4th-Industry-Revolution-hw-sw-hackathon/backend/foodiet.sock;
+    }
+}
